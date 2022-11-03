@@ -37,6 +37,7 @@
                         value="{{ csrf_token('authenticate') }}"
                 >
                 <button>Login</button>
+                <a href="{{ path('app_forgotten_password') }}">Mot de passe oublié</a>
             </div>
         </form>
 {% endblock %}
