@@ -7,10 +7,38 @@
 <div class="example-wrapper">
     <h1>Hello {{ app.user.username }}!</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/lebonmeow/src/Controller/ProfileController.php'|file_link(0) }}">src/Controller/ProfileController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/lebonmeow/templates/profile/index.html.twig'|file_link(0) }}">templates/profile/index.html.twig</a></code></li>
-    </ul>
+    {% for message in app.flashes('address_message') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('app_address_new')}}">Ajouter une adresse</a>
+    {% if app.user.addresses %}
+    {% set index = 0 %}
+        {% for address in app.user.addresses %}
+        {% set index = index + 1 %}
+            <div class="card">
+                <div class="card-header">
+                    <h3>Adresse n°{{ index }}</h3>
+                </div>
+                <div class="card-body">
+                    <address>
+                        {{ address.fullname }} <br>
+                        {{ address.address }} <br>
+                        {{ address.extras }} <br>
+                        {{ address.city }} <br>
+                        {{ address.zipcode }} <br>
+                    </address>
+                    <div class="btn-group">
+                        <a href="{{ path('app_address_edit', {'id':address.id}) }}">Modifier</a>
+                        {{ include('address/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Aucune adresse enregistrée.</p>
+    {% endif %}
 </div>
 {% endblock %}
