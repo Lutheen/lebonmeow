@@ -1,9 +1,16 @@
 <header>
-    {% if app.user %}
-        {# <a href="/account">Mon compte</a> #}
+    <div>
+        {% if app.user %}
+            {# <a href="/account">Mon compte</a> #}
         <a href="/logout">Se déconnecter</a>
-    {% else %}
-        <a href="/login">Se connecter</a>
-        <a href="/register">Créer un compte</a>
-    {% endif %}
+        {% else %}
+            <a href="/login">Se connecter</a>
+            <a href="/register">Créer un compte</a>
+        {% endif %}
+    </div>
+    <nav>
+        {# {% if app.category %}
+            {{ app.category.name }}
+        {% endif %} #}
+    </nav>
 </header>
