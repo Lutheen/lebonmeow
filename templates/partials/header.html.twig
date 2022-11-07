@@ -1,5 +1,11 @@
 <header>
-    <div>
+    <h2><a href="/">Lebonmeow</a></h2>
+
+    <div class="app-links">
+        <a href="{{ path('app_product_new') }}">Déposer une annonce</a>
+    </div>
+
+    <div class="user-links">
         {% if app.user %}
             {# <a href="/account">Mon compte</a> #}
         <a href="/logout">Se déconnecter</a>

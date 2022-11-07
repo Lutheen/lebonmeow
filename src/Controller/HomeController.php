@@ -20,14 +20,14 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/product/{slug}', name: 'app_single_post')]
-    public function showPost(ProductRepository $productRepository, string $slug): Response
-    {
-        $product = $productRepository->findOneBySlug($slug);
+    // #[Route('/product/{slug}', name: 'app_single_post')]
+    // public function showPost(ProductRepository $productRepository, string $slug): Response
+    // {
+    //     $product = $productRepository->findOneBySlug($slug);
 
-        return $this->render('product/show.html.twig', [
-            'controller_name' => 'HomeController',
-            'product' => $product
-        ]);
-    }
+    //     return $this->render('product/show.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //         'product' => $product
+    //     ]);
+    // }
 }
