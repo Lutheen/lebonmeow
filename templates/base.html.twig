@@ -10,7 +10,7 @@
         ">
         <meta name="keywords" content="">
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
-        <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+        <link rel="stylesheet" href="/assets/css/style.css">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -22,7 +22,9 @@
     </head>
     <body>
         {% include "partials/header.html.twig" %}
-        {% block body %}{% endblock %}
+        <section class="container">
+            {% block body %}{% endblock %}
+        </section>
         {% include "partials/footer.html.twig" %}
     </body>
 </html>

@@ -1,0 +1,30 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 1px solid orange;
+    padding: 1em;
+    margin: 0.5em;
+    max-width: 30%;
+}
+
+.product-seller-details {
+    display: flex;
+    order: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product-image {
+    order: 99;
+}
+
+.product-image img {
+    max-width: 180px;
+    max-height: 225px;
+}

@@ -42,6 +42,10 @@ class Product
     #[ORM\Column(length: 255, nullable: false)]
     private ?string $slug = null;
 
+    #[ORM\ManyToOne(inversedBy: 'soldProducts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $seller = null;
+
     public function __construct()
     {
         $this->relatedProducts = new ArrayCollection();
@@ -168,6 +172,18 @@ class Product
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getSeller(): ?User
+    {
+        return $this->seller;
+    }
+
+    public function setSeller(?User $seller): self
+    {
+        $this->seller = $seller;
 
         return $this;
     }

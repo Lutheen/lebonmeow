@@ -1,19 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<div class="example-wrapper">
-    <h1>Toutes les annonces !</h1>
-
-    <div>
+    <div class="products">
         {% for product in products %}
-            {{ product.name }}
-            {{ product.description }}
-            {{ product.price }}
-            {{ product.image }}
-        <a href="/product/{{product.slug}}">Voir</a>
+        <div class="product-item">
+            <div class="product-seller-details">
+                <div class="product-seller-picture">
+                    <img src={{ product.image }} alt="Image de l'annonce : {{ product.name }}">
+                </div>
+                <div class="product-seller-username">{{ product.seller.username }}</div>
+                <div class="product-seller-reviews">
+                    3 étoiles
+                </div>
+            </div>
+            <div class="product-image">
+                <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}">
+            </div>
+            <div class="product-details">
+                <h2 class="product-title">{{ product.name }}</h2>
+                <div class="product-price">{{ product.price }} €</div>
+            </div>
+        </div>
         {% endfor %}
     </div>
-
-</div>
 {% endblock %}
