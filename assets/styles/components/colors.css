@@ -1,0 +1,8 @@
+:root {
+    --orange: #ff6e14;
+    --main-grey: #f4f6f7;
+    --background-body-color: #fafafa;
+    --header-gradient: linear-gradient(#e4e4e4, var(--background-body-color));
+    --background-category-links: #f4f6f7;
+    --background-footer-color: #474747;
+}

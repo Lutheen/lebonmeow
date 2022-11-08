@@ -14,6 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/product')]
 class ProductController extends AbstractController
 {
+    private $fileUploader;
+
+    public function __construct(FileUploader $fileUploader)
+    {
+        $this->fileUploader = $fileUploader;
+    }
+
     #[Route('/', name: 'app_product_index', methods: ['GET'])]
     public function index(ProductRepository $productRepository): Response
     {
@@ -23,7 +30,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProductRepository $productRepository, FileUploader $fileUploader): Response
+    public function new(Request $request, ProductRepository $productRepository): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
@@ -35,7 +42,7 @@ class ProductController extends AbstractController
 
             $imageFile = $form->get('image')->getData();
             if ($imageFile) {
-                $imageFileName = $fileUploader->upload($imageFile);
+                $imageFileName = $this->fileUploader->upload($imageFile);
                 $product->setImage($imageFileName);
             }
             $productRepository->save($product, true);
@@ -66,7 +73,7 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('image')->getData();
             if ($imageFile) {
-                $imageFileName = $fileUploader->upload($imageFile);
+                $imageFileName = $this->fileUploader->update($imageFile, $product->getImage());
                 $product->setImage($imageFileName);
             }
             $productRepository->save($product, true);

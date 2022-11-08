@@ -47,7 +47,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('image', FileType::class, [
-                'label' => 'Image',
+                'label' => 'Ajouter des photos de votre article',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -69,7 +69,7 @@ class ProductType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'attr' => [
-                    'class' => 'choices_categories'
+                    'class' => 'form-field'
                 ],
                 'row_attr' => [
                     'class' => 'form-group'

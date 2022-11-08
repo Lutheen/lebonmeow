@@ -8,13 +8,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FileUploader
 {
-    private $targetDirectory;
-    private $slugger;
+    private $imgDirectory;
+    private $staticDirectory;
 
-    public function __construct($targetDirectory, SluggerInterface $slugger)
+    public function __construct($imgDirectory, $staticDirectory)
     {
-        $this->targetDirectory = $targetDirectory;
-        $this->slugger = $slugger;
+        $this->imgDirectory = $imgDirectory;
+        $this->staticDirectory = $staticDirectory;
     }
 
     public function upload(UploadedFile $file)
@@ -24,16 +24,34 @@ class FileUploader
         $fileName = uniqid().'.'.$file->guessExtension();
 
         try {
-            $file->move($this->getTargetDirectory(), $fileName);
+            $file->move($this->getImgDirectory(), $fileName);
         } catch (FileException $e) {
             // ... handle exception if something happens during file upload
         }
 
-        return $fileName;
+        return 'images/products/'.$fileName;
     }
 
-    public function getTargetDirectory()
+    public function update(UploadedFile $file, $oldFile)
     {
-        return $this->targetDirectory;
+        $fileUrl = $this->upload($file);
+        
+        try {
+            unlink($this->getStaticDirectory().$oldFile);
+        } catch (\Throwable $th){
+            // throw $th
+        }
+
+        return $fileUrl;
+    }
+
+    public function getImgDirectory()
+    {
+        return $this->imgDirectory;
+    }
+
+    public function getStaticDirectory()
+    {
+        return $this->staticDirectory;
     }
 }
