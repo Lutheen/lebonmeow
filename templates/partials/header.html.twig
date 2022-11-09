@@ -1,22 +1,35 @@
 <header>
-    <h2><a href="/">Lebonmeow</a></h2>
-
-    <div class="app-links">
-        <a href="{{ path('app_product_new') }}">Déposer une annonce</a>
+    <div class="header-content">
+        <div class="header-left-content">
+            <a href="/">
+                <img src="/images/logo.png" alt="Logo du site Lebonmeow">
+            </a>
+            <a href="{{ path('app_product_new') }}" class="app-links">
+                <i class="fa-regular fa-square-plus fa-xl"></i>
+                Déposer une annonce
+            </a>
+        </div>
+        
+        <div class="header-right-content">
+            {% if app.user %}
+                {# <a href="/account">Mon compte</a> #}
+                {# <a href="/logout">Se déconnecter</a> #}
+                <a href="/" class="user-links">
+                    <img src="/images/avatar.png" alt="Image de l'utilisateur {{ app.user.username }}">
+                    <span class="user-username">{{ app.user.username }}</span>
+                </a>
+            {% else %}
+                <a href="/login" class="user-links">
+                    <i class="fa-regular fa-user fa-xl"></i>
+                    Se connecter
+                </a>
+                {# <a href="/register">Créer un compte</a> #}
+            {% endif %}
+        </div>
+        <nav class="header-nav">
+            {# {% if app.category %}
+                {{ app.category.name }}
+            {% endif %} #}
+        </nav>
     </div>
-
-    <div class="user-links">
-        {% if app.user %}
-            {# <a href="/account">Mon compte</a> #}
-        <a href="/logout">Se déconnecter</a>
-        {% else %}
-            <a href="/login">Se connecter</a>
-            <a href="/register">Créer un compte</a>
-        {% endif %}
-    </div>
-    <nav>
-        {# {% if app.category %}
-            {{ app.category.name }}
-        {% endif %} #}
-    </nav>
 </header>

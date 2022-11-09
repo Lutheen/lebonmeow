@@ -1,5 +1,12 @@
 .container {
     background-color: var(--background-body-color);
+    padding: 65px 0 0 0;
+}
+
+.main-title {
+    padding: 32px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .products {

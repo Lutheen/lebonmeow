@@ -1,5 +1,7 @@
 :root {
     --orange: #ff6e14;
+    --purple: #BB14FF;
+    --purple-darker: #860EB5;
     --main-grey: #f4f6f7;
     --background-body-color: #fafafa;
     --header-gradient: linear-gradient(#e4e4e4, var(--background-body-color));
