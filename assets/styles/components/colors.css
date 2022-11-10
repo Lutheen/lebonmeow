@@ -1,10 +1,11 @@
 :root {
-    --orange: #ff6e14;
     --purple: #BB14FF;
     --purple-darker: #860EB5;
     --main-grey: #f4f6f7;
     --background-body-color: #fafafa;
-    --header-shadow: #e4e4e4;
+    --header-shadow-dark: rgb(26, 26, 26, 0.08);
+    --header-shadow-light: rgb(26, 26, 26, 0.12);
     --background-category-links: #f4f6f7;
     --background-footer-color: #474747;
+    --footer-border-color: #a8b4c0;
 }

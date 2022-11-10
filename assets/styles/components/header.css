@@ -6,7 +6,7 @@ header {
     position: sticky;
     top: 0;
     background-color: white;
-    box-shadow: var(--header-shadow) 0px 5px 6px 0px, var(--background-body-color) 0px 5px 8px 0px;
+    box-shadow: var(--header-shadow-dark) 0px -1px 4px 0px, var(--header-shadow-light) 0px 4px 8px 0px;
 }
 
 .header-content {
