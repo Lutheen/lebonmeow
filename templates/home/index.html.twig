@@ -4,28 +4,34 @@
     <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="products">
         {% for product in products %}
-        <div class="product-item">
-            <div class="product-seller-details">
-                <div class="product-seller-image">
-                    {% if product.seller.image is defined %}
-                        <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}">
-                    {% else %}
-                        <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}">
-                    {% endif %}
+        <a href="{{ path('app_product_show', {'id': product.id}) }}">
+            <div class="product-item">
+                <div class="product-seller-details">
+                    <div class="product-seller-image">
+                        {% if product.seller.image is defined %}
+                            <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}">
+                        {% else %}
+                            <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}">
+                        {% endif %}
+                    </div>
+                    <div class="product-seller-username">{{ product.seller.username }}</div>
+                    <div class="product-seller-reviews">
+                        <i class="fa-solid fa-star fa-sm"></i>
+                        <span class="product-seller-reviews-number">3</span>
+                    </div>
                 </div>
-                <div class="product-seller-username">{{ product.seller.username }}</div>
-                <div class="product-seller-reviews">
-                    3 étoiles
+
+                <div class="product-main">
+                    <div class="product-image">
+                        <img src={{ product.image }} alt="Image de l'annonce : {{ product.name }}">
+                    </div>
+                    <h2 class="product-title">{{ product.name }}</h2>
                 </div>
-            </div>
-            <div class="product-image">
-                <img src={{ product.image }} alt="Image de l'annonce : {{ product.name }}">
-            </div>
-            <div class="product-details">
-                <h2 class="product-title">{{ product.name }}</h2>
+
                 <div class="product-price">{{ product.price }} €</div>
             </div>
-        </div>
+        </a>
+        
         {% endfor %}
     </div>
 {% endblock %}
