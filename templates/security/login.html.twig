@@ -52,21 +52,37 @@
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
-                    <h1>Bonjour !</h1>
+                    <div class="login-form-intro">
+                        <h2>Bonjour !</h2>
+                        <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
+                    </div>
+                    
                     <form method="post">
-    
                         <div class="login">
-                            <label for="inputEmail">E-mail</label>
-                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                            <label for="inputPassword">Mot de passe</label>
-                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                            <div class="login-form-email">
+                                <label for="inputEmail" class="login-form-label">E-mail
+                                    <span class="login-form-required-field">champ requis</span>
+                                </label>
+                                <div class="login-form-input">
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                </div>
+                            </div>
+                            <div class="login-form-password">
+                                <label for="inputPassword" class="login-form-label">Mot de passe
+                                    <span class="login-form-required-field">champ requis</span>
+                                </label>
+                                <div class="login-form-input">
+                                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                                </div>
+                            </div>
+                            <a href="{{ path('app_forgotten_password') }}" class="login-form-forgot-pwd">Mot de passe oublié</a>
                             <input type="hidden" name="_csrf_token"
                                     value="{{ csrf_token('authenticate') }}"
                             >
-                            <button>Login</button>
-                            <a href="{{ path('app_forgotten_password') }}">Mot de passe oublié</a>
+                            <button class="login-form-button">Se connecter</button>
                         </div>
-                    </form> 
+                    </form>
+                    <div class="login-form-link-register">Envie de nous rejoindre ? <a href="{{ path('app_register') }}">Créer un compte</a></div>
                 </div>
             </main>
             
