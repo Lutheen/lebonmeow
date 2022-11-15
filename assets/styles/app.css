@@ -6,6 +6,8 @@
 @import url("./components/form.css");
 @import url("./components/header-mini.css");
 @import url("./components/forgot-pwd.css");
+@import url("./components/breadcrumb.css");
+@import url("./components/product-display.css");
 
 body {
     font-family: 'Open Sans', sans-serif, Arial;
