@@ -1,95 +1,53 @@
-.login-container {
-    position: relative;
-    display: grid;
-    grid-template: 
-        "header" 60px
-        "main" 1fr;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow: hidden;
-}
-
-.header-login {
-    grid-area: header / header / header / header;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.header-login-title {
-    padding-left: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--purple);
-}
-
-.header-login-logo {
-    padding-right: 20px;
-    border-right: 2px solid var(--purple);
-}
-
-.header-login img {
-    width: 140px;
-    height: 30px;
-}
-
-.header-login-arrow-back {
-    position: absolute;
-    left: 3rem;
-    top: 1.2rem;
-}
-
-.header-login .fa-arrow-left {
-    color: var(--purple);
-}
-
-.main-login {
+.main-form {
     background-image: url(/public/images/cat-background.png);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 980px;
-    height: 850px;
     display: flex;
     flex-direction: column;
-    grid-area: main / main / main / main;
+    overflow-x: hidden;
+    height: calc(100vh - 59px);
 }
 
-.card-login-form {
+.card-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 4rem auto auto;
+    margin: 2rem auto auto;
     padding: 2rem;
     background-color: white;
     border-radius: 8px;
     box-shadow: var(--header-shadow-dark) 0px -1px 4px 0px, var(--header-shadow-light) 0px 4px 8px 0px;
 }
 
-.login-form-intro {
+.card-form-intro {
     display: grid;
     text-align: center;
     justify-items: center;
 }
 
-.login-form-intro h2 {
+.card-form-intro h2 {
     font-size: 20px;
     font-weight: 600;
     margin-top: 0.6rem;
     margin-bottom: 1.3rem;
 }
 
-.card-login-form form {
+.card-form-intro span {
+    width: 400px;
+}
+
+.card-form form {
     padding-top: 20px;
     width: 100%;
 }
 
-.login-form-email {
+.card-form-email {
     margin-bottom: 0.8rem;
 }
 
-.login-form-label {
+.card-form-label {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -98,7 +56,7 @@
     margin: 2.4rem 0 0.4rem;
 }
 
-.login-form-required-field {
+.card-form-required-field {
     margin-left: 0.4rem;
     font-size: 12px;
     font-weight: 400;
@@ -106,7 +64,7 @@
     color: #8191a0;
 }
 
-.login-form-input {
+.card-form-input {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -116,7 +74,7 @@
     width: 100%;
 }
 
-.login-form-input input {
+.card-form-input input {
     background: transparent;
     border: none;
     border-radius: 4px;
@@ -128,7 +86,7 @@
     width: 100%;
 }
 
-.login-form-forgot-pwd {
+.card-form-forgot-pwd {
     padding-top: 2px;
     color: var(--purple);
     display: flex;
@@ -137,11 +95,11 @@
     transition: color 0.3s ease;
 }
 
-.login-form-forgot-pwd:hover {
+.card-form-forgot-pwd:hover {
     color: var(--purple-darker);
 }
 
-.login-form-button {
+.card-form-button {
     width: 100%;
     margin: 1.8rem 0 1.8rem;
     border: 1px solid transparent;
@@ -158,26 +116,25 @@
     min-height: 2.6rem;
 }
 
-.login-form-button:hover {
+.card-form-button:hover {
     background-color: var(--purple-darker);
 }
 
-.login-form-link-register {
+.card-form-link {
     font-size: 13px;
 }
 
-.login-form-link-register a {
+.card-form-link a {
     color: var(--purple);
     transition: color 0.3s ease;
 }
 
-.login-form-link-register a:hover {
+.card-form-link a:hover {
     color: var(--purple-darker);
 }
 
-
 .alert {
-    margin: 0 auto;
+    margin: 2rem auto 0;
     border-radius: 5px;
     padding: 10px;
     font-weight: 600;
@@ -198,4 +155,3 @@
     background-color: #F8D7DA;
     color: #B55429;
 }
-

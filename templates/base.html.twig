@@ -22,10 +22,14 @@
         {% endblock %}
     </head>
     <body>
-        {% include "partials/header.html.twig" %}
+        {% block header %}
+            {% include "partials/header.html.twig" %}
+        {% endblock %}
         <section class="container">
             {% block body %}{% endblock %}
         </section>
-        {% include "partials/footer.html.twig" %}
+        {% block footer %}
+            {% include "partials/footer.html.twig" %}
+        {% endblock %}
     </body>
 </html>

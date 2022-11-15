@@ -1,91 +1,65 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}lebonmeow - connexion{% endblock %}</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Lebonmeow" name="author">
-        <meta name="description" content="Avec lebonmeow, trouvez la bonne affaire, réalisez-la bonne vente pour votre voiture, immobilier, emploi, location de vacances, vêtements, mode, maison, ...">
-        <meta name="keywords" content="">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/009a4da58d.js" crossorigin="anonymous"></script>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+{% extends "base.html.twig" %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
+{% block title %}lebonmeow - connexion{% endblock %}
 
-    <body>
-        <div class="login-container">
+{% block header %}
+{% include "partials/header_mini.html.twig" %}
+<span class="header-mini-title">
+    <i class="fa-solid fa-shield-cat fa-xl"></i>
+    Connexion
+</span>
+</div>
+</header>
+{% endblock %}
 
-            <header>
-                <div class="header-login">
-                    <a href="/" class="header-login-arrow-back"><i class="fa-solid fa-arrow-left fa-xl"></i></a>
-                    <a href="/" class="header-login-logo">
-                        <img src="/images/logo-pressed.png" alt="Logo du site Lebonmeow">
-                    </a>
-                    <span class="header-login-title">
-                        <i class="fa-solid fa-shield-cat fa-xl"></i>
-                        Connexion
-                    </span>
-                </div>
-            </header>
+{% block body %}
+<main class="main-form">
 
-            <main class="main-login">
-
-                {% if app.user %}
-                    <div class="alert alert-success">
-                        Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
-                    </div>
-                {% endif %}
-
-                <div class="card-login-form">
-
-                    {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
-
-                    <div class="login-form-intro">
-                        <h2>Bonjour !</h2>
-                        <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
-                    </div>
-                    
-                    <form method="post">
-                        <div class="login">
-                            <div class="login-form-email">
-                                <label for="inputEmail" class="login-form-label">E-mail
-                                    <span class="login-form-required-field">champ requis</span>
-                                </label>
-                                <div class="login-form-input">
-                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                                </div>
-                            </div>
-                            <div class="login-form-password">
-                                <label for="inputPassword" class="login-form-label">Mot de passe
-                                    <span class="login-form-required-field">champ requis</span>
-                                </label>
-                                <div class="login-form-input">
-                                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                                </div>
-                            </div>
-                            <a href="{{ path('app_forgotten_password') }}" class="login-form-forgot-pwd">Mot de passe oublié</a>
-                            <input type="hidden" name="_csrf_token"
-                                    value="{{ csrf_token('authenticate') }}"
-                            >
-                            <button class="login-form-button">Se connecter</button>
-                        </div>
-                    </form>
-                    <div class="login-form-link-register">Envie de nous rejoindre ? <a href="{{ path('app_register') }}">Créer un compte</a></div>
-                </div>
-            </main>
-            
+    {% if app.user %}
+        <div class="alert alert-success">
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
         </div>
-    </body>
-</html>
+    {% endif %}
+
+    <div class="card-form">
+
+        {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <div class="card-form-intro">
+            <h2>Bonjour !</h2>
+            <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
+        </div>
+        
+        <form method="post">
+            <div class="login">
+                <div class="card-form-email">
+                    <label for="inputEmail" class="card-form-label">E-mail
+                        <span class="card-form-required-field">champ requis</span>
+                    </label>
+                    <div class="card-form-input">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
+                    </div>
+                </div>
+                <div class="card-form-password">
+                    <label for="inputPassword" class="card-form-label">Mot de passe
+                        <span class="card-form-required-field">champ requis</span>
+                    </label>
+                    <div class="card-form-input">
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>
+                </div>
+                <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd">Mot de passe oublié</a>
+                <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                >
+                <button class="card-form-button">Se connecter</button>
+            </div>
+        </form>
+        <div class="card-form-link">Envie de nous rejoindre ? <a href="{{ path('app_register') }}">Créer un compte</a></div>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}{% endblock %}
