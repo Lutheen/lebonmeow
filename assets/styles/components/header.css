@@ -3,7 +3,7 @@ header {
     position: sticky;
     top: 0;
     background-color: white;
-    box-shadow: var(--header-shadow-dark) 0px -1px 4px 0px, var(--header-shadow-light) 0px 4px 8px 0px;
+    box-shadow: var(--gradient);
 }
 
 .header-content {
@@ -136,12 +136,21 @@ a {
     gap: 0.4rem;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
-    color: #333333;
 }
 
 .user-links-icons {
     height: 24px;
     width: 24px;
+}
+
+.user-avatar {
+    height: 30px;
+    width: 30px;
+}
+
+.avatar-link-gap {
+    gap: 0.2rem;
+    padding-bottom: 4px;
 }
 
 .header-top-links:hover {

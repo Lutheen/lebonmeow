@@ -75,7 +75,7 @@
 }
 
 .forgot-form-button:disabled {
-    background-color: #f4f6f7;
+    background-color: var(--grey);
     color: #cad1d9;
     cursor: not-allowed;
     pointer-events: none;

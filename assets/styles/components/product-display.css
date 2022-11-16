@@ -1,24 +1,125 @@
 .main-product {
     margin: 1.6rem auto;
-    height: 50vh;
     max-width: 1066px;
     width: calc(100% - 4rem);
 }
 
 .product-content {
+    display: grid;
+    grid-template-columns: [col-first] 65% [col-second] 35% [col-third];
+    grid-template-rows: [row-first] auto [row-second] auto [row-third];
+    place-items: stretch;
+    place-content: center;
+}
+
+
+/* Top section */
+.page-product-image img {
+    width: 23em;
+    height: 23em;
+    border-radius: 10px;
+}
+
+.product-content-details-header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    padding: 1.2em 0;
+    margin: 0 0.2em;
 }
 
-.product-content-details {
-    border: 1px solid red;
+.page-product-name {
+    font-size: 24px;
+    font-weight: 600;
 }
 
+.page-product-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.page-product-date {
+    font-size: 12px;
+}
+
+
+/* Bottom section */
 .product-content-related {
     border: 1px solid blue;
+    grid-column: col-first / col-second;
+    grid-row: row-second / row-third;
+}
+
+
+/* Aside */
+.seller-aside {
+    display: flex;
+    flex-direction: column;
+    grid-column: col-second / col-third;
+    grid-row: row-first / row-second;
 }
 
 .seller-card {
-    border: 1px solid yellow;
+    box-shadow: var(--gradient);
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.seller-card img {
+    height: 4.5em;
+    width: 4.5em;
+    border-radius: 50%;
+}
+
+.seller-card-header {
+    margin: 0 1em;
+    padding: 1.5em 0;
+    display: flex;
+    border-bottom: 1px solid #e6ebef;
+}
+
+.seller-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    margin-left: 1rem;
+}
+
+.seller-username {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.seller-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    padding: 1.7em 1.1em;
+}
+
+.seller-buttons button {
+    padding: 0.9em 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.seller-button-buy {
+    background-color: var(--purple);
+    color: white;
+}
+
+.seller-button-buy:hover {
+    background-color: var(--purple-darker);
+}
+
+.seller-button-chat {
+    background-color: var(--yellow);
+    color: black;
+}
+
+.seller-button-chat:hover {
+    background-color: var(--yellow-darker);
 }

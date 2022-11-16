@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container">
     <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="products">
         {% for product in products %}
@@ -31,7 +32,7 @@
                 <div class="product-price">{{ product.price }} €</div>
             </div>
         </a>
-        
         {% endfor %}
     </div>
+</div>
 {% endblock %}

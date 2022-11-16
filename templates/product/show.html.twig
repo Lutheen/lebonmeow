@@ -1,25 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ product.name }} - {{ product.category.name }}{% endblock %}
+{% block title %}{{ product.name }} - {{ product.category.name | capitalize }}{% endblock %}
 
 {% block body %}
 <main class="main-product">
     {% include "partials/breadcrumb.html.twig" %}
-
-    <article class="product-content">
-        <section class="product-content-details">
-            {{ product.image }}
-            {{ product.name }}
-            {{ product.price }} €
-            {{ product.description }}
-        </section>
-        <section class="product-content-related">
-            je suis la section infos liées au produit !
-        </section>
-        <aside class="seller-card">
-            <!-- {{ product.sellerId.name }} -->
-        </aside>
-    </article>
+    <div class="product-container">
+        <article class="product-content">
+            <section class="product-content-details">
+                <div class="page-product-image">
+                   <img src="{{ asset(product.image) }}" alt="Image de {{ product.name }}"> 
+                </div>
+                <div class="product-content-details-header">
+                    <h1 class="page-product-name">
+                        {{ product.name }}
+                    </h1>
+                    <span class="page-product-price">
+                    {{ product.price }} € 
+                    </span>
+                    <span class="page-product-date">
+                    {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
+                    </span>
+                    <p class="page-product-description">
+                    {{ product.description }} 
+                    </p>
+                </div>
+            </section>
+            <section class="product-content-related">
+                je suis la section infos-liées au produit !
+            </section>
+            <aside class="seller-aside">
+                <div class="seller-card">
+                    <div class="seller-card-header">
+                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}">
+                        <div class="seller-infos">
+                            <span class="seller-username">{{ product.seller.username }}</span>
+                            {% if product.seller.soldProducts | length > 1 %}
+                                <span class="seller-sold-products">{{ product.seller.soldProducts | length }} annonces</span> 
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="seller-buttons">
+                        <button class="seller-button-buy">Acheter</button>
+                        <button class="seller-button-chat">Message</button>
+                    </div>
+                </div>
+            </aside>
+        </article>
+    </div>
     <!-- <a href="{{ path('app_product_index') }}">back to list</a> -->
     <!-- <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a> -->
     <!-- {{ include('product/_delete_form.html.twig') }} -->
