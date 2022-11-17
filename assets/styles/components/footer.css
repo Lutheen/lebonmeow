@@ -6,27 +6,24 @@ footer {
 }
 
 .footer-content {
-    margin: 0 auto;
-    max-width: 1066px;
+    margin: 0px auto;
+    max-width: 1060px;
 }
 
 .footer-body {
     display: flex;
     justify-content: space-between;
+    gap: 1em;
 }
 
 .footer-body ul {
-    margin-right: 1.6rem;
-}
-
-.footer-body ul:last-child {
-    margin-right: 0;
+    width: 100%;
 }
 
 .footer-body li {
     margin-bottom: 8px;
     font-size: 13px;
-    width: 18em;
+    width: 100%;
 }
 
 .footer-body li:first-child {

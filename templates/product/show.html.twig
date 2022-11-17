@@ -21,18 +21,61 @@
                     <span class="page-product-date">
                     {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
                     </span>
+                </div>
+                <div class="product-page-middle-box">
+                    <h2 class="page-product-middle-title">Description</h2>
                     <p class="page-product-description">
-                    {{ product.description }} 
+                        {{ product.description }} 
                     </p>
+                </div>
+                <div class="product-page-middle-box">
+                    <h2 class="page-product-middle-title">Critères</h2>
+                    <div class="page-product-criteria">
+                        TODO
+                    </div>
                 </div>
             </section>
             <section class="product-content-related">
-                je suis la section infos-liées au produit !
+                <div class="seller-more-content product-page-middle-box">
+                    <div class="seller-more-content-header">
+                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}" class="product-page-seller-avatar">
+                        <div class="seller-more-content-infos">
+                            <span class="seller-username">{{ product.seller.username }}</span>
+                            {% if product.seller.soldProducts | length > 1 %}
+                                <span class="seller-sold-products">{{ product.seller.soldProducts | length }} annonces</span> 
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="seller-more-sold-products">
+                        <h3 class="seller-other-sold-products">
+                            Les annonces de {{ product.seller.username }}
+                        </h3>
+                        <div class="product-page-other-seller-products">
+                            {% for product in product.seller.soldProducts %}
+                            <a href="{{ path('app_product_show', {'id': product.id}) }}">
+                                <div class="product-item page-product-item">
+                                    <div class="product-main">
+                                        <div class="page-product-other-seller-product-image">
+                                            <img src={{ asset(product.image) }} alt="Image de l'annonce : {{ product.name }}">
+                                        </div>
+                                        <h2 class="product-title">{{ product.name }}</h2>
+                                    </div>
+                                    <div class="product-price">{{ product.price }} €</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="product-page-related-products product-page-middle-box">
+                    <h2 class="page-product-middle-title">Ces annonces peuvent vous intéresser</h2>
+                    <div>TODO related products</div>
+                </div>
             </section>
             <aside class="seller-aside">
                 <div class="seller-card">
                     <div class="seller-card-header">
-                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}">
+                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}" class="product-page-seller-avatar">
                         <div class="seller-infos">
                             <span class="seller-username">{{ product.seller.username }}</span>
                             {% if product.seller.soldProducts | length > 1 %}

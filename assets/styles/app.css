@@ -8,6 +8,7 @@
 @import url("./components/forgot-pwd.css");
 @import url("./components/breadcrumb.css");
 @import url("./components/product-display.css");
+@import url("./components/product-new.css");
 
 body {
     font-family: 'Open Sans', sans-serif, Arial;

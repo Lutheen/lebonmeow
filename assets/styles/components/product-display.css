@@ -25,6 +25,7 @@
     flex-direction: column;
     padding: 1.2em 0;
     margin: 0 0.2em;
+    border-bottom: 1px solid #cad1d9;
 }
 
 .page-product-name {
@@ -35,6 +36,7 @@
 .page-product-price {
     font-size: 18px;
     font-weight: 600;
+    margin: 0.3rem 0;
 }
 
 .page-product-date {
@@ -42,11 +44,61 @@
 }
 
 
+/* Top section - Middle */
+.product-page-middle-box {
+    margin: 0 0.5em;
+    padding: 1.6em 0;
+    display: grid;
+    gap: 1em;
+    border-bottom: 1px solid #cad1d9;
+}
+
+.page-product-middle-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
 /* Bottom section */
 .product-content-related {
-    border: 1px solid blue;
     grid-column: col-first / col-second;
     grid-row: row-second / row-third;
+}
+
+.seller-more-content-header {
+    display: flex;
+    gap: 1em;
+}
+
+.seller-more-content-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.seller-more-sold-products {
+    margin-top: 1.5em;
+}
+
+.seller-other-sold-products {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 1.2em;
+}
+
+.product-page-other-seller-products {
+    display: flex;
+    flex-direction: row;
+}
+
+.page-product-item {
+    padding-bottom: 1px;
+}
+
+.page-product-other-seller-product-image img {
+    height: 187.5px;
+    width: 150px;
+    border-radius: 5px;
 }
 
 
@@ -64,7 +116,7 @@
     margin-left: 1rem;
 }
 
-.seller-card img {
+.product-page-seller-avatar {
     height: 4.5em;
     width: 4.5em;
     border-radius: 50%;
