@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
-use App\Repository\UserRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,7 +68,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_product_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Product $product, ProductRepository $productRepository, FileUploader $fileUploader): Response
+    public function edit(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);

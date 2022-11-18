@@ -22,7 +22,6 @@ class ProductType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Donnez un nom à votre annonce',
                     'class' => 'form-field'
                 ],
                 'row_attr' => [

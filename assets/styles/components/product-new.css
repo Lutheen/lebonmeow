@@ -1,12 +1,12 @@
 /* Template product-new */
 .new-product-main {
     padding-top: 1.5em;
-    width: 55%;
-    margin: 0 auto;
-    height: 75vh;
 }
 
 .new-product-row {
+    width: 100%;
+    max-width: 1066px;
+    margin: 0 auto;
     display: grid;
     grid-template: 
         [start-row] "main tipscard" auto [end-row]
@@ -17,6 +17,9 @@
     font-size: 24px;
     font-weight: 600;
     padding-bottom: 0.8em;
+    width: 100%;
+    max-width: 1066px;
+    margin: 0 auto;
 }
 
 .new-product-form {
@@ -34,4 +37,29 @@
 .new-product-form-title {
     font-size: 18px;
     font-weight: 600;
+    margin-bottom: 1.6em;
+}
+
+.new-product-form-group {
+    width: 50%;
+}
+
+.card-form-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--input-border-color);
+    border-radius: 3px;
+    width: 100%;
+}
+
+.card-form-textarea textarea {
+    border: none;
+    border-radius: 4px;
+    flex: 5 1 0%;
+    font-size: 14px;
+    height: 100%;
+    padding: 1rem;
+    max-width: 100%;
+    resize: none;
 }

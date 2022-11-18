@@ -1,7 +1,40 @@
 <h2 class="new-product-form-title">Commençons par l'essentiel !</h2>
 <form method="post">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="card-form-name new-product-form-group">
+        <label for="inputName" class="card-form-label">
+            Quel est le titre de l'annonce ?
+            <span class="card-form-required-field">champ requis</span>
+        </label>
+        <div class="card-form-input">
+            {{ form_widget(form.name) }}
+        </div>
+    </div>
+    <div class="card-form-description new-product-form-group">
+        <label for="inputDescription" class="card-form-label">
+            Ecrivez une description pertinente !
+            <span class="card-form-required-field">champ requis</span>
+        </label>
+        <div class="card-form-textarea">
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+    <div class="card-form-price new-product-form-group">
+        <label for="inputPrice" class="card-form-label">
+            Fixez le prix de votre article
+            <span class="card-form-required-field">champ requis</span>
+        </label>
+        <div class="card-form-input">
+            {{ form_widget(form.price) }}
+        </div>
+    </div>
+    <div>
+        {{ form_widget(form.image) }}
+    </div>
+    <div>
+        {{ form_widget(form.category) }}
+    </div>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 </form>

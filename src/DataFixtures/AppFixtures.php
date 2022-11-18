@@ -27,33 +27,35 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
-        // $names = [
-        //     "Véhicules",
-        //     "Immobilier",
-        //     "Mode",
-        //     "Maison",
-        //     "Multimédia",
-        //     "Loisirs",
-        //     "Matériel professionnel",
-        //     "Autres"
-        // ];
-        // for ($i=0; $i < count($names); $i++) { 
-        //     $category = (new Category())->setName($names[$i])
-        //                                 ->setDescription("Description de :".$names[$i])
-        //                                 ->setImage($faker->imageUrl(200, 200, $names[$i], true))
-        //     ;
-        //     $manager->persist($category);
-        // }
-
-        $categories = [];
-        for ($i=0; $i < 10; $i++) { 
-            $category = (new Category())->setName($faker->word())
-                                        ->setDescription($faker->sentence(3))
-                                        ->setImage($faker->imageUrl(200, 200, 'category', true))
+        $categories = [
+            "Immobilier",
+            "Véhicules",
+            "Vacances",
+            "Emploi",
+            "Mode",
+            "Maison",
+            "Multimédia",
+            "Loisirs",
+            "Matériel professionnel",
+            "Autres"
+        ];
+        for ($i=0; $i < count($categories); $i++) { 
+            $category = (new Category())->setName($categories[$i])
+                                        ->setDescription("Description de :".$categories[$i])
+                                        ->setImage($faker->imageUrl(200, 200, $categories[$i], true))
             ;
-            $categories[] = $category;
             $manager->persist($category);
         }
+
+        // $categories = [];
+        // for ($i=0; $i < 10; $i++) { 
+        //     $category = (new Category())->setName($faker->word())
+        //                                 ->setDescription($faker->sentence(3))
+        //                                 ->setImage($faker->imageUrl(200, 200, 'category', true))
+        //     ;
+        //     $categories[] = $category;
+        //     $manager->persist($category);
+        // }
 
 
         $products = [];

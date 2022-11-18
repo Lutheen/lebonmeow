@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,18 +17,16 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'products' => $products
+            'products' => $products,
         ]);
     }
 
-    // #[Route('/product/{slug}', name: 'app_single_post')]
-    // public function showPost(ProductRepository $productRepository, string $slug): Response
-    // {
-    //     $product = $productRepository->findOneBySlug($slug);
+    public function header(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findAll();
 
-    //     return $this->render('product/show.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //         'product' => $product
-    //     ]);
-    // }
+        return $this->render('partials/header.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
 }
