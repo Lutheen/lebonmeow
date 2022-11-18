@@ -30,7 +30,29 @@
 
 .new-product-tipscard {
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+/* Tipscard */
+.tipscard-drawing {
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.tipscard-line {
+    height: 1px;
+    flex: 1 1;
+    background: var(--purple);
+}
+
+.fa-lightbulb {
+    margin: 0 0.8rem;
 }
 
 /* Template product_form */
