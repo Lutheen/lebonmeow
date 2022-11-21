@@ -2,17 +2,17 @@
 
 namespace App\Form;
 
-use App\Entity\Category;
 use App\Entity\Product;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ProductType extends AbstractType
 {
@@ -41,12 +41,14 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('price', MoneyType::class, [
+                'currency' => false,
                 'attr' => [
-                    'placeholder' => 'Le prix de votre article'
+                    'placeholder' => '€'
                 ]
             ])
-            ->add('image', FileType::class, [
+            ->add('image', DropzoneType::class, [
                 'label' => 'Ajouter des photos de votre article',
+                'multiple' => true,
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [

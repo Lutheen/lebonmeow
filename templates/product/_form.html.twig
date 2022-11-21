@@ -2,7 +2,7 @@
 <form method="post">
 {{ form_start(form) }}
     <div class="card-form-name new-product-form-group">
-        <label for="inputName" class="card-form-label">
+        <label for="product_name" class="card-form-label">
             Quel est le titre de l'annonce ?
             <span class="card-form-required-field">champ requis</span>
         </label>
@@ -10,8 +10,16 @@
             {{ form_widget(form.name) }}
         </div>
     </div>
-    <div class="card-form-description new-product-form-group">
-        <label for="inputDescription" class="card-form-label">
+    <div class="card-form-category new-product-form-group">
+        <label for="product_category" class="card-form-label">
+            Choisissez une catégorie
+        </label>
+        <div class="card-form-select">
+            {{ form_widget(form.category) }}
+        </div>
+    </div>
+    <div class="card-form-description">
+        <label for="product_description" class="card-form-label">
             Ecrivez une description pertinente !
             <span class="card-form-required-field">champ requis</span>
         </label>
@@ -20,7 +28,7 @@
         </div>
     </div>
     <div class="card-form-price new-product-form-group">
-        <label for="inputPrice" class="card-form-label">
+        <label for="product_price" class="card-form-label">
             Fixez le prix de votre article
             <span class="card-form-required-field">champ requis</span>
         </label>
@@ -28,13 +36,15 @@
             {{ form_widget(form.price) }}
         </div>
     </div>
-    <div>
-        {{ form_widget(form.image) }}
-    </div>
-    <div>
-        {{ form_widget(form.category) }}
+    <div class="card-form-image">
+        <label for="product_image" class="card-form-label">
+            Ajoutez des photos
+        </label>
+        <div class="card-form-input-file">
+            {{ form_widget(form.image) }}
+        </div>
     </div>
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="new-product-btn">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}
 </form>
