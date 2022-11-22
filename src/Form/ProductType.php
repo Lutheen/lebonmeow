@@ -9,7 +9,9 @@ use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -47,12 +49,11 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('image', DropzoneType::class, [
-                'label' => 'Ajouter des photos de votre article',
-                'multiple' => true,
+                'label' => false,
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
-                    new File([
+                    new Image([
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',

@@ -1,5 +1,4 @@
 <h2 class="new-product-form-title">Commençons par l'essentiel !</h2>
-<form method="post">
 {{ form_start(form) }}
     <div class="card-form-name new-product-form-group">
         <label for="product_name" class="card-form-label">
@@ -16,6 +15,7 @@
         </label>
         <div class="card-form-select">
             {{ form_widget(form.category) }}
+            <span class="focus"></span>
         </div>
     </div>
     <div class="card-form-description">
@@ -47,4 +47,3 @@
 
     <button class="new-product-btn">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}
-</form>

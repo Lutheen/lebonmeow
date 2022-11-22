@@ -39,7 +39,7 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $product->setCreatedAt(new \DateTimeImmutable());
             $product->setSeller($this->getUser());
-
+            
             $imageFile = $form->get('image')->getData();
             if ($imageFile) {
                 $imageFileName = $this->fileUploader->upload($imageFile);
