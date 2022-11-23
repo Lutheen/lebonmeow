@@ -24,7 +24,7 @@
 
                 <div class="product-main">
                     <div class="product-image">
-                        <img src={{ product.image }} alt="Image de l'annonce : {{ product.name }}">
+                        <img src={{ asset(product.firstImage) }} alt="Image de l'annonce : {{ product.name }}">
                     </div>
                     <h2 class="product-title">{{ product.name }}</h2>
                 </div>

@@ -11,18 +11,15 @@ class FileUploader
     private $imgDirectory;
     private $staticDirectory;
 
-    public function __construct($imgDirectory, $staticDirectory, SluggerInterface $slugger)
+    public function __construct($imgDirectory, $staticDirectory)
     {
         $this->imgDirectory = $imgDirectory;
         $this->staticDirectory = $staticDirectory;
-        $this->slugger = $slugger;
     }
 
     public function upload(UploadedFile $file)
     {
-        $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $safeFilename = $this->slugger->slug($originalFilename);
-        $filename = $safeFilename.'-'.uniqid().".".$file->guessExtension();
+        $filename = uniqid().".".$file->guessExtension();
 
         try {
             $file->move($this->getImgDirectory(), $filename);
