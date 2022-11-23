@@ -40,9 +40,17 @@
         <label for="product_image" class="card-form-label">
             Ajoutez des photos
         </label>
-        <div class="card-form-input-file">
-            {{ form_widget(form.image) }}
-        </div>
+        <fieldset class="new-product-image-fieldset">
+            <div class="card-form-input-file">
+                {{ form_widget(form.firstImage) }}
+            </div>
+            <div class="card-form-input-file">
+                {{ form_widget(form.secondImage) }}
+            </div>
+            <div class="card-form-input-file">
+                {{ form_widget(form.thirdImage) }}
+            </div>
+        </fieldset>
     </div>
 
     <button class="new-product-btn">{{ button_label|default('Ajouter') }}</button>

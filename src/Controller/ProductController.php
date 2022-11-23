@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
@@ -40,11 +41,21 @@ class ProductController extends AbstractController
             $product->setCreatedAt(new \DateTimeImmutable());
             $product->setSeller($this->getUser());
             
-            $imageFile = $form->get('image')->getData();
-            if ($imageFile) {
-                $imageFileName = $this->fileUploader->upload($imageFile);
-                $product->setImage($imageFileName);
+            $images = [
+                $form->get('firstImage')->getData(),
+                $form->get('secondImage')->getData(),
+                $form->get('thirdImage')->getData(),
+            ];
+
+            foreach ($images as $imageFile) {
+                if ($imageFile) {
+                    $imageFileName = $this->fileUploader->upload($imageFile);
+                    $image = new Image();
+                    $image->setImage($imageFileName);
+                    $product->addImage($image);
+                }
             }
+
             $productRepository->save($product, true);
 
             return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);

@@ -8,10 +8,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -48,10 +47,55 @@ class ProductType extends AbstractType
                     'placeholder' => '€'
                 ]
             ])
-            ->add('image', DropzoneType::class, [
+            ->add('firstImage', DropzoneType::class, [
                 'label' => false,
                 'mapped' => false,
                 'required' => false,
+                'attr' => [
+                    'placeholder' => false
+                ],
+                'constraints' => [
+                    new Image([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp'
+                        ],
+                        'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
+                    ])
+                ],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('secondImage', DropzoneType::class, [
+                'label' => false,
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Faites glisser ou cliquez pour ajouter vos photos ici'
+                ],
+                'constraints' => [
+                    new Image([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp'
+                        ],
+                        'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
+                    ])
+                ],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('thirdImage', DropzoneType::class, [
+                'label' => false,
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => false
+                ],
                 'constraints' => [
                     new Image([
                         'mimeTypes' => [
@@ -87,3 +131,6 @@ class ProductType extends AbstractType
         ]);
     }
 }
+
+// Dropzone multiple file uploads https://github.com/symfony/ux/pull/512
+// Branch not merged yet
