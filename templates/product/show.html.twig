@@ -9,7 +9,9 @@
         <article class="product-content">
             <section class="product-content-details">
                 <div class="page-product-image">
-                   <img src="{{ asset(product.image) }}" alt="Image de {{ product.name }}"> 
+                    {% for image in product.images %}
+                        <img src="{{ asset(image.image) }}" alt="Image de {{ product.name }}">
+                    {% endfor %}
                 </div>
                 <div class="product-content-details-header">
                     <h1 class="page-product-name">
@@ -57,7 +59,7 @@
                                         <div class="product-item page-product-item">
                                             <div class="product-main">
                                                 <div class="page-product-other-seller-product-image">
-                                                    <img src={{ asset(soldProduct.image) }} alt="Image de l'annonce : {{ product.name }}">
+                                                    <img src={{ soldProduct.firstImage }} alt="Image de l'annonce : {{ product.name }}">
                                                 </div>
                                                 <h2 class="product-title">{{ soldProduct.name }}</h2>
                                             </div>
