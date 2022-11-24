@@ -8,21 +8,25 @@
     <div class="product-container">
         <article class="product-content">
             <section class="product-content-details">
-                <div class="page-product-image">
-                    {% for image in product.images %}
-                        <img src="{{ asset(image.image) }}" alt="Image de {{ product.name }}">
-                    {% endfor %}
-                </div>
-                <div class="product-content-details-header">
-                    <h1 class="page-product-name">
-                        {{ product.name }}
-                    </h1>
-                    <span class="page-product-price">
-                    {{ product.price }} € 
-                    </span>
-                    <span class="page-product-date">
-                    {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
-                    </span>
+                <div class="product-content-details-top">
+                    <div class="product-content-images">
+                        {% for image in product.images %}
+                            <div class="page-product-image">
+                                <img src="{{ asset(image.image) }}" alt="Image de {{ product.name }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="product-content-details-header">
+                        <h1 class="page-product-name">
+                            {{ product.name }}
+                        </h1>
+                        <span class="page-product-price">
+                        {{ product.price }} € 
+                        </span>
+                        <span class="page-product-date">
+                        {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
+                        </span>
+                    </div>
                 </div>
                 <div class="product-page-middle-box">
                     <h2 class="page-product-middle-title">Description</h2>
@@ -35,6 +39,9 @@
                     <div class="page-product-criteria">
                         TODO
                     </div>
+                </div>
+                <div class="product-page-middle-box">
+                    TODO localisation & livraison
                 </div>
             </section>
             <section class="product-content-related">

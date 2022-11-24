@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Product{% endblock %}
+{% block title %}Modifier votre annonce {{ product.name }} sur lebonmeow{% endblock %}
 
 {% block body %}
-    <h1>Edit Product</h1>
-
-    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_product_index') }}">back to list</a>
+    <div class="container">
+        <main class="new-product-main">
+            <h1 class="new-product-title">Modifier une annonce</h1>
+            <div class="new-product-row">
+                <div class="new-product-form">
+                {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
+                </div>
+                <div class="new-product-tipscard">
+                    <div class="tipscard-drawing">
+                        <div class="tipscard-line"></div>
+                        <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                        <div class="tipscard-line"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <a href="{{ path('app_product_index') }}">Retour aux annonces</a>
 
     {{ include('product/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

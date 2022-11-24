@@ -143,13 +143,16 @@ select:focus + .focus {
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+.card-form-input-file {
     border: 2px dashed var(--input-border-color);
     border-radius: 5px;
     transition: border 0.3s ease;
 }
 
-.new-product-image-fieldset:hover {
-    border: 2px dashed var(--purple-darker);
+.card-form-input-file:hover {
+    border: 2px dashed var(--purple);
 }
 
 .dropzone-placeholder {

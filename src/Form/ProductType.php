@@ -52,7 +52,7 @@ class ProductType extends AbstractType
                 'mapped' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => false
+                    'placeholder' => 'Faites glisser ou cliquez pour ajouter vos photos ici'
                 ],
                 'constraints' => [
                     new Image([
@@ -94,7 +94,7 @@ class ProductType extends AbstractType
                 'mapped' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => false
+                    'placeholder' => 'Faites glisser ou cliquez pour ajouter vos photos ici'
                 ],
                 'constraints' => [
                     new Image([
