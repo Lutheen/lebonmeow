@@ -5,12 +5,13 @@ namespace App\Controller;
 use App\Entity\Image;
 use App\Entity\Product;
 use App\Form\ProductType;
-use App\Repository\ProductRepository;
 use App\Service\FileUploader;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ImageRepository;
+use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/product')]
 class ProductController extends AbstractController
@@ -67,10 +68,10 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_product_show', methods: ['GET'])]
-    public function show(ProductRepository $productRepository, int $id): Response
+    #[Route('/{slug}', name: 'app_product_show', methods: ['GET'])]
+    public function show(ProductRepository $productRepository, string $slug): Response
     {
-        $product = $productRepository->findOneById($id);
+        $product = $productRepository->findOneBySlug($slug);
         
         return $this->render('product/show.html.twig', [
             'controller_name' => 'ProductController',
@@ -78,18 +79,29 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_product_edit', methods: ['GET', 'POST'])]
+    #[Route('/{slug}/edit', name: 'app_product_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form->get('image')->getData();
-            if ($imageFile) {
-                $imageFileName = $this->fileUploader->update($imageFile, $product->getImage());
-                $product->setImage($imageFileName);
+
+            $images = [
+                $form->get('firstImage')->getData(),
+                $form->get('secondImage')->getData(),
+                $form->get('thirdImage')->getData(),
+            ];
+
+            foreach ($images as $imageFile) {
+                if ($imageFile) {
+                    $imageFileName = $this->fileUploader->update($imageFile, $product->getImages());
+                    $image = new Image();
+                    $image->setImage($imageFileName);
+                    $product->addImage($image);
+                }
             }
+
             $productRepository->save($product, true);
 
             return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
@@ -101,7 +113,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_product_delete', methods: ['POST'])]
+    #[Route('/{slug}', name: 'app_product_delete', methods: ['POST'])]
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {

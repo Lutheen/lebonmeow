@@ -5,7 +5,7 @@
     <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="products">
         {% for product in products %}
-        <a href="{{ path('app_product_show', {'id': product.id}) }}">
+        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
             <div class="product-item">
                 <div class="product-seller-details">
                     <div class="product-seller-image">

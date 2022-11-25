@@ -36,21 +36,30 @@
         </div>
     </div>
     <div class="card-form-image">
-        <label for="product_image" class="card-form-label">
+        <label class="card-form-label">
             Ajoutez des photos
         </label>
-        <fieldset class="new-product-image-fieldset">
-            <div class="card-form-input-file">
-                {{ form_widget(form.firstImage) }}
+        {% if product.images %}
+            <div class="product-images-display">
+                {% for image in product.images %}
+                    <div class="product-single-image-display">
+                        <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}">
+                        {{ include('image/_delete_form.html.twig') }}
+                    </div>
+                {% endfor %}
             </div>
-            <div class="card-form-input-file">
-                {{ form_widget(form.secondImage) }}
-            </div>
-            <div class="card-form-input-file">
-                {{ form_widget(form.thirdImage) }}
-            </div>
-        </fieldset>
+        {% endif %}
+            <fieldset class="new-product-image-fieldset">
+                <div class="card-form-input-file">
+                    {{ form_widget(form.firstImage) }}
+                </div>
+                <div class="card-form-input-file">
+                    {{ form_widget(form.secondImage) }}
+                </div>
+                <div class="card-form-input-file">
+                    {{ form_widget(form.thirdImage) }}
+                </div>
+            </fieldset>
     </div>
-
     <button class="new-product-btn">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}

@@ -21,10 +21,10 @@
                             {{ product.name }}
                         </h1>
                         <span class="page-product-price">
-                        {{ product.price }} € 
+                            {{ product.price }} € 
                         </span>
                         <span class="page-product-date">
-                        {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
+                            {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
                         </span>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="product-page-other-seller-products">
                             {% for soldProduct in product.seller.soldProducts %}
                                 {% if product.id != soldProduct.id %}
-                                    <a href="{{ path('app_product_show', {'id': product.id}) }}">
+                                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">
                                         <div class="product-item page-product-item">
                                             <div class="product-main">
                                                 <div class="page-product-other-seller-product-image">
@@ -103,7 +103,7 @@
         </article>
     </div>
     <!-- <a href="{{ path('app_product_index') }}">back to list</a> -->
-    <!-- <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a> -->
+    <a href="{{ path('app_product_edit', {'slug': product.slug}) }}">edit</a>
     <!-- {{ include('product/_delete_form.html.twig') }} -->
 </main>
 {% endblock %}
