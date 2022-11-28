@@ -46,6 +46,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $resetToken = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
+    private Collection $addresses;
+
     #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Product::class)]
     private Collection $soldProducts;
 
@@ -55,6 +58,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->soldProducts = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +192,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * @return Collection<int, Address>
+     */
+    public function getAddresses(): Collection
+    {
+        return $this->addresses;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        if (!$this->addresses->contains($address)) {
+            $this->addresses->add($address);
+            $address->setUser($this);
+        }
+        return $this;
+    }
+           
+     public function removeAddress(Address $address): self
+    {
+        if ($this->addresses->removeElement($address)) {
+            // set the owning side to null (unless already changed)
+            if ($address->getUser() === $this) {
+                $address->setUser(null); 
+            }
+        }
+        return $this;
+    }
+                
      * @return Collection<int, Product>
      */
     public function getSoldProducts(): Collection
@@ -201,7 +232,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->soldProducts->add($soldProduct);
             $soldProduct->setSeller($this);
         }
-
         return $this;
     }
 
@@ -213,7 +243,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $soldProduct->setSeller(null);
             }
         }
-
         return $this;
     }
 
