@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -18,7 +17,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\Uuid()]
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -51,8 +49,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
     private Collection $addresses;
 
+    #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Product::class)]
+    private Collection $soldProducts;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
+
     public function __construct()
     {
+        $this->soldProducts = new ArrayCollection();
         $this->addresses = new ArrayCollection();
     }
 
@@ -200,18 +205,55 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->addresses->add($address);
             $address->setUser($this);
         }
-
         return $this;
     }
-
-    public function removeAddress(Address $address): self
+           
+     public function removeAddress(Address $address): self
     {
         if ($this->addresses->removeElement($address)) {
             // set the owning side to null (unless already changed)
             if ($address->getUser() === $this) {
-                $address->setUser(null);
+                $address->setUser(null); 
             }
         }
+        return $this;
+    }
+                
+     * @return Collection<int, Product>
+     */
+    public function getSoldProducts(): Collection
+    {
+        return $this->soldProducts;
+    }
+
+    public function addSoldProduct(Product $soldProduct): self
+    {
+        if (!$this->soldProducts->contains($soldProduct)) {
+            $this->soldProducts->add($soldProduct);
+            $soldProduct->setSeller($this);
+        }
+        return $this;
+    }
+
+    public function removeSoldProduct(Product $soldProduct): self
+    {
+        if ($this->soldProducts->removeElement($soldProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($soldProduct->getSeller() === $this) {
+                $soldProduct->setSeller(null);
+            }
+        }
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

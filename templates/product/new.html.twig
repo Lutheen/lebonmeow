@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Déposer une petite annonce sur lebonmeow{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <main class="new-product-main">
+            <h1 class="new-product-title">Déposer une annonce</h1>
+            <div class="new-product-row">
+                <div class="new-product-form">
+                {{ include('product/_form.html.twig') }}
+                </div>
+                <div class="new-product-tipscard">
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>Votre annonce sera trouvée plus facilement !</p>
+                        <p>Vous aurez 50% de chances en plus d’être contacté si votre annonce est dans la bonne catégorie.</p>
+                    </div>
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>Mettez en valeur votre bien ! Plus il y a de détails, plus votre annonce sera de qualité. Détaillez ici ce qui a de l'importance et ajoutera de la valeur</p>
+                    </div>
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>Vous le savez, le prix est important, autant pour vous que pour l'acheteur. Soyez juste, mais ayez en tête une marge de négociation si besoin</p>
+                    </div>
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>3 photos dans une annonce augmentent de 30% le nombre de contacts !</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

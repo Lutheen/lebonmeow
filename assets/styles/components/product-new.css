@@ -1,0 +1,231 @@
+/* Template product-new */
+.new-product-main {
+    padding-top: 1.5em;
+}
+
+.new-product-row {
+    width: 100%;
+    max-width: 1066px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: 
+        [start-row] "main tipscard" auto [end-row]
+        / 75% 25%;
+}
+
+.new-product-title {
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 0.8em;
+    width: 100%;
+    max-width: 1066px;
+    margin: 0 auto;
+}
+
+.new-product-form {
+    background-color: white;
+    padding: 2em 2em 2.5em;
+    border-radius: 1em;
+}
+
+.new-product-tipscard {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+/* Tipscard */
+.tipcard-row {
+    margin-bottom: 100px;
+}
+
+.tipscard-drawing {
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.tipscard-line {
+    height: 1px;
+    flex: 1 1;
+    background: var(--purple);
+}
+
+.fa-lightbulb {
+    margin: 0 0.8rem;
+}
+
+/* Template product_form */
+.new-product-form-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 1.6em;
+}
+
+.new-product-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-product-form-group {
+    width: 50%;
+}
+
+.card-form-select {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--input-border-color);
+    border-radius: 3px;
+    height: 2.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+select,
+.card-form-select::after {
+    grid-area: select;
+}
+
+.card-form-select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: black;
+    clip-path: polygon(50% 65%, 100% 0, 100% 40%, 50% 100%, 0 40%, 0 0);
+    justify-self: end;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+select {
+    appearance: none;
+    border: none;
+    padding: 0.5em 1em;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+select:focus + .focus {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid black;
+    border-radius: inherit;
+  }
+
+.card-form-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--input-border-color);
+    border-radius: 3px;
+    width: 100%;
+}
+
+.card-form-textarea textarea {
+    border: none;
+    border-radius: 4px;
+    flex: 5 1 0%;
+    font-size: 14px;
+    height: 100%;
+    padding: 1rem;
+    max-width: 100%;
+    resize: none;
+}
+
+.new-product-image-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.card-form-input-file {
+    border: 2px dashed var(--input-border-color);
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.card-form-input-file:hover {
+    border: 2px dashed var(--purple);
+}
+
+.dropzone-placeholder {
+    color: var(--grey-label);
+}
+
+.product-images-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    margin-bottom: 1em;
+}
+
+.product-single-image-display {
+    display: flex;
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.product-single-image-display:hover {
+    border: 2px solid var(--purple);
+}
+
+.product-single-image-display-button {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.product-single-image-display-button:hover {
+    background-color: var(--purple);
+    color: black;
+}
+
+.product-single-image-display img {
+    border-radius: 3px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.new-product-btn {
+    align-self: center;
+    margin-top: 2em;
+    padding: 0.7em 1.5em;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: var(--purple);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.new-product-btn:hover {
+    background-color: var(--purple-darker);
+}
