@@ -104,10 +104,13 @@
 .product-page-other-seller-products {
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    gap: 1em;
 }
 
 .page-product-item {
     padding-bottom: 1px;
+    max-width: 150px;
 }
 
 .page-product-other-seller-product-image img {

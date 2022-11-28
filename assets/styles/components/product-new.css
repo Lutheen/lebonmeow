@@ -30,13 +30,17 @@
 
 .new-product-tipscard {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-direction: column;
     padding: 0 2rem;
     text-align: center;
 }
 
 /* Tipscard */
+.tipcard-row {
+    margin-bottom: 100px;
+}
+
 .tipscard-drawing {
     color: var(--purple);
     display: flex;

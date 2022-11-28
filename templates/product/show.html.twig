@@ -63,10 +63,10 @@
                             {% for soldProduct in product.seller.soldProducts %}
                                 {% if product.id != soldProduct.id %}
                                     <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">
-                                        <div class="product-item page-product-item">
+                                        <div class="page-product-item">
                                             <div class="product-main">
                                                 <div class="page-product-other-seller-product-image">
-                                                    <img src={{ soldProduct.firstImage }} alt="Image de l'annonce : {{ product.name }}">
+                                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}">
                                                 </div>
                                                 <h2 class="product-title">{{ soldProduct.name }}</h2>
                                             </div>
