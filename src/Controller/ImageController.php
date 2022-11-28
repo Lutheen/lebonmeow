@@ -40,13 +40,13 @@ class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_image_show', methods: ['GET'])]
-    public function show(Image $image): Response
-    {
-        return $this->render('image/show.html.twig', [
-            'image' => $image,
-        ]);
-    }
+    // #[Route('/{id}', name: 'app_image_show', methods: ['GET'])]
+    // public function show(Image $image): Response
+    // {
+    //     return $this->render('image/show.html.twig', [
+    //         'image' => $image,
+    //     ]);
+    // }
 
     #[Route('/{id}/edit', name: 'app_image_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Image $image, ImageRepository $imageRepository): Response
@@ -66,13 +66,13 @@ class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_image_delete', methods: ['POST'])]
-    public function delete(Request $request, Image $image, ImageRepository $imageRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
-            $imageRepository->remove($image, true);
-        }
+    // #[Route('/{id}', name: 'app_image_delete', methods: ['POST'])]
+    // public function delete(Request $request, Image $image, ImageRepository $imageRepository): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
+    //         $imageRepository->remove($image, true);
+    //     }
 
-        return $this->redirectToRoute('app_product_show', ['slug' => $this->product->slug]);
-    }
+    //     return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }

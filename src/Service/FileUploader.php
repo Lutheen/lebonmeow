@@ -4,7 +4,6 @@ namespace App\Service;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FileUploader
 {
@@ -19,7 +18,7 @@ class FileUploader
 
     public function upload(UploadedFile $file)
     {
-        $filename = uniqid().".".$file->guessExtension();
+        $filename = md5(uniqid()).".".$file->guessExtension();
 
         try {
             $file->move($this->getImgDirectory(), $filename);

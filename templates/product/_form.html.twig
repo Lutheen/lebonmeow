@@ -39,15 +39,17 @@
         <label class="card-form-label">
             Ajoutez des photos
         </label>
-        {% if product.images %}
-            <div class="product-images-display">
-                {% for image in product.images %}
-                    <div class="product-single-image-display">
-                        <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}">
-                        {{ include('image/_delete_form.html.twig') }}
-                    </div>
-                {% endfor %}
-            </div>
+        {% if app.request.attributes.get('_route') == 'app_product_edit' %}
+            {% if product.images %}
+                <div class="product-images-display">
+                    {% for image in product.images %}
+                        <div class="product-single-image-display">
+                            <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}">
+                            <a href="{{ path('app_product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}" class="product-single-image-display-button"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         {% endif %}
             <fieldset class="new-product-image-fieldset">
                 <div class="card-form-input-file">

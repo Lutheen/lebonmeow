@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/product')]
 class ProductController extends AbstractController
@@ -95,7 +96,7 @@ class ProductController extends AbstractController
 
             foreach ($images as $imageFile) {
                 if ($imageFile) {
-                    $imageFileName = $this->fileUploader->update($imageFile, $product->getImages());
+                    $imageFileName = $this->fileUploader->upload($imageFile);
                     $image = new Image();
                     $image->setImage($imageFileName);
                     $product->addImage($image);
@@ -116,10 +117,43 @@ class ProductController extends AbstractController
     #[Route('/{slug}', name: 'app_product_delete', methods: ['POST'])]
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {
+        $images = $product->getImages();
+        
+        if ($images) {
+            // Loop on product images
+            foreach ($images as $image) {
+                // Generate absolute path
+               $imageName = $this->getParameter('static_directory').'/'.$image->getImage();
+               // Check if image exists
+               if (file_exists($imageName)) {
+                    unlink($imageName); 
+               }
+            }
+        }
+
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
             $productRepository->remove($product, true);
         }
 
         return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/image/{id}', name: 'app_product_delete_image', methods: ['POST'])]
+    public function deleteImage(Request $request, Image $image, ImageRepository $imageRepository): Response
+    {
+        $data = json_decode($request->getContent(), true);
+        
+        if ($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
+            $imageName = $image->getImage();
+
+            if (file_exists($imageName)) {
+                unlink($this->getParameter('static_directory').'/'.$imageName);
+            }
+            $imageRepository->remove($image, true);
+
+            return new JsonResponse(['success' => 1]);
+        } else {
+            return new JsonResponse(['error' => 'Invalid Token'], 400);
+        }
     }
 }
