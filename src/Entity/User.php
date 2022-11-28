@@ -205,10 +205,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->addresses->add($address);
             $address->setUser($this);
         }
+
         return $this;
     }
            
-     public function removeAddress(Address $address): self
+    public function removeAddress(Address $address): self
     {
         if ($this->addresses->removeElement($address)) {
             // set the owning side to null (unless already changed)
@@ -216,9 +217,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $address->setUser(null); 
             }
         }
+
         return $this;
     }
-                
+    
+    /**
      * @return Collection<int, Product>
      */
     public function getSoldProducts(): Collection
@@ -232,6 +235,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->soldProducts->add($soldProduct);
             $soldProduct->setSeller($this);
         }
+
         return $this;
     }
 
@@ -243,6 +247,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $soldProduct->setSeller(null);
             }
         }
+        
         return $this;
     }
 

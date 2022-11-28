@@ -29,9 +29,8 @@
                 <span class="user-links-span">Messages</span>
             </a>
             {% if app.user %}
-                {# <a href="/profile">Mon compte</a> #}
                 {# <a href="/logout">Se déconnecter</a> #}
-                <a href="/" class="user-links avatar-link-gap header-top-links">
+                <a href="/profile" class="user-links avatar-link-gap header-top-links">
                     <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
                     <span class="user-links-span">{{ app.user.username }}</span>
                 </a>
@@ -40,7 +39,6 @@
                     <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="user-links-icons">
                     <span class="user-links-span">Se connecter</span>
                 </a>
-                {# <a href="/register">Créer un compte</a> #}
             {% endif %}
         </div>
 
