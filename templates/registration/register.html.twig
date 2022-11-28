@@ -1,25 +1,70 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Création de compte{% endblock %}
+
+{% block header %}
+{% include "partials/header_mini.html.twig" %}
+<span class="header-mini-title">
+    Création de compte
+</span>
+</div>
+</header>
+{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+<main class="main-form">
 
-    <h1>Register</h1>
-
-    <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true">
-
-        <div class="signup">
-            {{ form_start(registrationForm) }}
-                <label for="chk" aria-hidden="true">Sign up</label>
-                {{ form_widget(registrationForm.username) }}
-                {{ form_widget(registrationForm.plainPassword) }}
-                {{ form_widget(registrationForm.email) }}
-                <button type="submit">Sign up</button>
-            {{ form_end(registrationForm) }}
+    {% if app.user %}
+        <div class="alert alert-success">
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
         </div>
+    {% endif %}
+
+    <div class="card-form">
+
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        {% endfor %}
+
+        <div class="card-form-intro">
+            <h2>Créez un compte</h2>
+            <span>Bénéficiez d'une expérience personnalisée avec du contenu en lien avec votre activité et vos centres d'intérêt sur notre service</span>
+        </div>
+        
+        <form method="post">
+        {{ form_start(registrationForm) }}
+            <div class="signup">
+                <div class="card-form-email">
+                    <label for="inputEmail" class="card-form-label">E-mail
+                        <span class="card-form-required-field">champ requis</span>
+                    </label>
+                    <div class="card-form-input" id="inputEmail">
+                        {{ form_widget(registrationForm.email) }}
+                    </div>
+                </div>
+                <div class="card-form-password">
+                    <label for="inputPassword" class="card-form-label">Mot de passe
+                        <span class="card-form-required-field">champ requis</span>
+                    </label>
+                    <div class="card-form-input" id="inputPassword">
+                        {{ form_widget(registrationForm.plainPassword) }}
+                    </div>
+                </div>
+                <div class="card-form-username">
+                    <label for="inputUsername" class="card-form-label">Nom d'utilisateur
+                        <span class="card-form-required-field">champ requis</span>
+                    </label>
+                    <div class="card-form-input" id="inputUsernamme">
+                        {{ form_widget(registrationForm.username) }}
+                    </div>
+                </div>
+                <button type="submit" class="card-form-button">Créer mon compte</button>
+            </div>
+        {{ form_end(registrationForm) }}
+        </form>
+        <div class="card-form-link">Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Me connecter</a></div>
     </div>
+</main>
 {% endblock %}
+
+{% block footer %}{% endblock %}

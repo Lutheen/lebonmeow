@@ -1,9 +1,57 @@
 <header>
-    {% if app.user %}
-        {# <a href="/account">Mon compte</a> #}
-        <a href="/logout">Se déconnecter</a>
-    {% else %}
-        <a href="/login">Se connecter</a>
-        <a href="/register">Créer un compte</a>
-    {% endif %}
+    <div class="header-content">
+
+        <div class="header-left-content">
+            <a href="/">
+                <img src="/images/logo.png" alt="Logo du site Lebonmeow">
+            </a>
+            <a href="{{ path('app_product_new') }}" class="app-new-post">
+                <i class="fa-regular fa-square-plus fa-xl"></i>
+                <span>Déposer une annonce</span>
+            </a>
+            <a href="/" class="app-search header-top-links">
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+                Rechercher
+            </a>
+        </div>
+        
+        <div class="header-right-content">
+            <a href="/" class="user-links header-top-links">
+                <img src="/images/bell.svg" alt="Icône d'une cloche" class="user-links-icons">
+                <span class="user-links-span">Mes recherches</span>
+            </a>
+            <a href="/" class="user-links header-top-links">
+                <img src="/images/heart.svg" alt="Icône d'un coeur" class="user-links-icons">
+                <span class="user-links-span">Favoris</span>
+            </a>
+            <a href="/" class="user-links header-top-links">
+                <img src="/images/messages.svg" alt="Icône d'une bulle avec trois points" class="user-links-icons">
+                <span class="user-links-span">Messages</span>
+            </a>
+            {% if app.user %}
+                {# <a href="/account">Mon compte</a> #}
+                {# <a href="/logout">Se déconnecter</a> #}
+                <a href="/" class="user-links avatar-link-gap header-top-links">
+                    <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
+                    <span class="user-links-span">{{ app.user.username }}</span>
+                </a>
+            {% else %}
+                <a href="/login" class="user-links header-top-links">
+                    <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="user-links-icons">
+                    <span class="user-links-span">Se connecter</span>
+                </a>
+                {# <a href="/register">Créer un compte</a> #}
+            {% endif %}
+        </div>
+
+        <nav class="header-nav">
+            <ul>
+                {% for category in categories %}
+                    <li><a href="{{ path('app_category_show', {id: category.id}) }}">{{ category.name | capitalize }}</a></li>
+                    <span class="dot"></span>
+                {% endfor %}
+            </ul>
+        </nav>
+
+    </div>
 </header>

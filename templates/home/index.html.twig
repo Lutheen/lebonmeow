@@ -1,14 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container">
+    <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    <div class="products">
+        {% for product in products %}
+        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
+            <div class="product-item">
+                <div class="product-seller-details">
+                    <div class="product-seller-image">
+                        {% if product.seller.image is defined %}
+                            <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}">
+                        {% else %}
+                            <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}">
+                        {% endif %}
+                    </div>
+                    <div class="product-seller-username">{{ product.seller.username }}</div>
+                    <div class="product-seller-reviews">
+                        <i class="fa-solid fa-star fa-sm"></i>
+                        <span class="product-seller-reviews-number">3</span>
+                    </div>
+                </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <div class="product-main">
+                    <div class="product-image">
+                        <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}">
+                    </div>
+                    <h2 class="product-title">{{ product.name }}</h2>
+                </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/lebonmeow/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/lebonmeow/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+                <div class="product-price">{{ product.price }} €</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

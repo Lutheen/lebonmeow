@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier votre annonce {{ product.name }} sur lebonmeow{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <main class="new-product-main">
+            <h1 class="new-product-title">Modifier une annonce</h1>
+            <div class="new-product-row">
+                <div class="new-product-form">
+                {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
+                </div>
+                <div class="new-product-tipscard">
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>Mettez en valeur votre annonce !</p>
+                        <p>Plus il y a de détails, plus votre futur acheteur vous trouvera rapidement.</p>
+                    </div>
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>Vous le savez, le prix est important, autant pour vous que pour l’acheteur. Soyez juste, mais ayez en tête une marge de négociation si besoin.</p>
+                    </div>
+                    <div class="tipcard-row">
+                        <div class="tipscard-drawing">
+                            <div class="tipscard-line"></div>
+                            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+                            <div class="tipscard-line"></div>
+                        </div>
+                        <p>3 photos dans une annonce augmentent de 30% le nombre de contacts !</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <a href="{{ path('app_product_index') }}">Retour aux annonces</a>
+
+    {{ include('product/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+@import url("./components/reset.css");
+@import url("./components/colors.css");
+@import url("./components/home.css");
+@import url("./components/header.css");
+@import url("./components/footer.css");
+@import url("./components/form.css");
+@import url("./components/header-mini.css");
+@import url("./components/forgot-pwd.css");
+@import url("./components/breadcrumb.css");
+@import url("./components/product-display.css");
+@import url("./components/product-new.css");
+
+body {
+    font-family: 'Open Sans', sans-serif, Arial;
+    font-size: 14px;
+    color: black;
+    line-height: 1.5;
+    background-color: white;
+}
+
+/* media queries todo : width 965px */
