@@ -1,6 +1,7 @@
 .container-profile {
     background-color: white;
-    width: 1066px;
+    width: 100%;
+    max-width: 1066px;
     padding: 24px 0;
     margin: 0 auto;
     display: grid;
@@ -17,8 +18,28 @@
     margin: 8px;
     display: flex;
     align-items: center;
+    box-shadow: var(--gradient);
+    border-radius: 10px;
 }
 
+.profile-cards-titles {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.secondary-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+}
+
+.secondary-cards:hover {
+    box-shadow: var(--gradient-darker);
+}
+
+/* First card */
 .public-profile-card {
     border: 1px solid var(--input-border-color);
     border-radius: 10px;
@@ -28,6 +49,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    box-shadow: none;
+}
+
+.profile-user-button {
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    color: var(--purple);
+    font-weight: 600;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.profile-user-button:hover {
+    background-color: #ddccff;
+    color: var(--purple-darker);
+    border-color: var(--purple-darker);
 }
 
 .profile-user {
@@ -36,7 +74,10 @@
 }
 
 .profile-user h1 {
-    font-size: 24px;
+    position: relative;
+    bottom: 10px;
+    left: 85px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -58,22 +99,48 @@
     justify-content: center;
     align-items: center;
     padding: 1.1em;
-    background-color: red;
+    background-color: white;
     border-radius: 50%;
     max-width: 32px;
     max-height: 32px;
+    box-shadow: var(--gradient);
 }
+/* ----- */
 
+/* Second card */
 .wallet-card {
-    border: 2px solid red;
     margin-bottom: 1.5em;
     grid-area: wallet;
 }
 
+.wallet-card-bg {
+    background: url(/public/images/bg-tiny.png);
+    background-position: center right;
+    background-size: 130px 120px;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+}
+
+.wallet-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-balance {
+    font-size: 24px;
+    font-weight: 600;
+}
+/* ----- */
+
+/* Third card */
 .products-card {
-    border: 2px solid darkorange;
     grid-area: products;
 }
+
+.products-card .fa-square {
+    color: #bec1d2;
+}
+/* ----- */
 
 .deals-card {
     border: 2px solid gold;
