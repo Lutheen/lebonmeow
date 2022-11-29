@@ -29,8 +29,7 @@
                 <span class="user-links-span">Messages</span>
             </a>
             {% if app.user %}
-                {# <a href="/logout">Se déconnecter</a> #}
-                <a href="/profile" class="user-links avatar-link-gap header-top-links">
+                <a href="/account" class="user-links avatar-link-gap header-top-links">
                     <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
                     <span class="user-links-span">{{ app.user.username }}</span>
                 </a>

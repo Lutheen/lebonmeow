@@ -1,19 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte{% endblock %}
-
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ app.user.username }}!</h1>
+<div class="container-profile">
+    <div class="profile-cards public-profile-card">
+        <div class="profile-user">
+            <div class="profile-picture">
+                <img src="/images/avatar.png" alt="Avatar par défaut">
+                <div class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></div>
+            </div>
+            <h1>{{ app.user.username }}</h1>
+        </div>
+        <a href="{{ path('app_profile') }}">Voir mon profil public</a>
+    </div>
+    <div class="profile-cards wallet-card">
+        Porte-monnaie
+    </div>
+    <div class="profile-cards products-card">
+        Annonces
+    </div>
+    <div class="profile-cards deals-card">
+        Transactions
+    </div>
+    <div class="profile-cards bookings-card">
+        Réservations
+    </div>
+    <div class="profile-cards spaces-card">
+        Profil & Espaces
+    </div>
+    <div class="profile-cards settings-card">
+        Paramètres
+    </div>
+    <div class="profile-cards security-card">
+        Connexion et sécurité
+    </div>
+    <div class="profile-cards credits-card">
+        Crédits
+    </div>
+    <div class="profile-cards assistance-card">
+        Aide
+    </div>
+    <div class="profile-cards community-card">
+        Communauté Lebonmeow
+    </div>
+    <div class="logout-card">
+        <a href="/logout">Se déconnecter</a>
+    </div>
 
-    {% for message in app.flashes('address_message') %}
+    {# {% for message in app.flashes('address_message') %}
         <div>
             {{ message }}
         </div>
-    {% endfor %}
+    {% endfor %} #}
 
-    <a href="{{ path('app_address_new')}}">Ajouter une adresse</a>
+    {# <a href="{{ path('app_address_new')}}">Ajouter une adresse</a>
     {% if app.user.addresses %}
     {% set index = 0 %}
         {% for address in app.user.addresses %}
@@ -39,6 +79,6 @@
         {% endfor %}
     {% else %}
         <p>Aucune adresse enregistrée.</p>
-    {% endif %}
+    {% endif %} #}
 </div>
 {% endblock %}
