@@ -22,6 +22,13 @@
     border-radius: 10px;
 }
 
+.profile-cards-text-content {
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .profile-cards-titles {
     font-size: 16px;
     font-weight: 600;
@@ -31,8 +38,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    height: 170px;
     transition: box-shadow 0.3s ease;
+}
+
+.tertiary-cards {
+    height: 75px;
+    flex-direction: row;
+    align-items: center;
 }
 
 .secondary-cards:hover {
@@ -138,39 +151,83 @@
 }
 
 .products-card .fa-square {
-    color: #bec1d2;
+    color: var(--icons-grey);
 }
 /* ----- */
 
+/* Fourth card */
 .deals-card {
-    border: 2px solid gold;
     grid-area: deals;
 }
 
+.deals-card .fa-circle {
+    color: var(--icons-grey);
+}
+
+.deals-card .fa-euro-sign {
+    transform: rotate(-30deg);
+}
+/* ----- */
+
+/* Fifth card */
 .bookings-card {
-    border: 2px solid yellow;
     grid-area: bookings;
 }
 
+.bookings-card .fa-umbrella-beach {
+    color: var(--icons-grey);
+    transform: scale(-1, 1);
+}
+/* ----- */
+
+/* Sixth card */
 .spaces-card {
-    border: 2px solid greenyellow;
     grid-area: spaces;
 }
 
+.spaces-card .fa-circle-user {
+    color: var(--icons-grey);
+}
+/* ----- */
+
+/* Seventh card */
 .settings-card {
-    border: 2px solid green;
     grid-area: settings;
 }
 
+.settings-card .fa-gear {
+    color: var(--icons-grey);
+}
+/* ----- */
+
+/* Eighth card */
 .security-card {
-    border: 2px solid teal;
     grid-area: security;
 }
 
-.credits-card {
-    border: 2px solid darkturquoise;
-    grid-area: credits;
+.security-card .fa-shield {
+    color: var(--icons-grey);
 }
+/* ----- */
+
+/* Ninth card */
+.credits-card {
+    grid-area: credits;
+    color: var(--purple);
+}
+
+.credits-card .profile-cards-text-content {
+    margin-top: 0;
+}
+
+.credits-card .profile-cards-icons {
+    margin-right: 0.5em;
+}
+
+.credits-card h2 {
+
+}
+/* ----- */
 
 .assistance-card {
     border: 2px solid blue;
