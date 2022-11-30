@@ -117,7 +117,7 @@
         <a href="/">{# todo route credits #}
             <div class="profile-cards secondary-cards tertiary-cards">
                 <div class="profile-cards-icons">
-                    <i class="fa-solid fa-coins fa-xl"></i>
+                    <i class="fa-solid fa-coins fa-sm"></i>
                 </div>
                 <div class="profile-cards-text-content">
                     <h2 class="profile-cards-titles">Mes crédits</h2>
@@ -125,14 +125,39 @@
             </div>
         </a>
     </div>
-    <div class="profile-cards assistance-card">
-        Aide
+    <div class="assistance-card">
+        <a href="/">{# todo route assistance #}
+            <div class="profile-cards secondary-cards tertiary-cards redirect-icon-cards">
+                <div class="dnr">
+                    <div class="profile-cards-icons">
+                        <i class="fa-solid fa-question fa-2xl"></i>
+                    </div>
+                    <div class="profile-cards-text-content">
+                        <h2 class="profile-cards-titles">Aide</h2>
+                    </div>
+                </div>
+                <div class="profile-cards-redirect">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+        </a>
     </div>
-    <div class="profile-cards community-card">
-        Communauté Lebonmeow
+    <div class="community-card">
+        <a href="/">{# todo route community #}
+            <div class="profile-cards secondary-cards tertiary-cards redirect-icon-cards">
+                <div class="profile-cards-text-content">
+                    <h2 class="profile-cards-titles">Communauté <span>lebonmeow</span></h2>
+                </div>
+                <div class="profile-cards-redirect">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+        </a>
     </div>
     <div class="logout-card">
-        <a href="/logout">Se déconnecter</a>
+        <a href="/logout">
+            <div class="profile-cards">Me déconnecter</div>
+        </a>
     </div>
 
     {# {% for message in app.flashes('address_message') %}
