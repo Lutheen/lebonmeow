@@ -125,6 +125,7 @@
     max-width: 32px;
     max-height: 32px;
     box-shadow: var(--gradient);
+    border: none;
 }
 /* ----- */
 

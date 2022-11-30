@@ -6,9 +6,9 @@
     <div class="profile-cards public-profile-card">
         <div class="profile-user">
             <div class="profile-picture">
-                <a href="/">{# todo modal vers ajout avatar #}
+                <a href="#">{# todo modal vers ajout avatar #}
                     <img src="/images/avatar.png" alt="Avatar par défaut">
-                    <div class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></div>
+                    <button class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></button>
                 </a>
             </div>
             <h1>{{ app.user.username }}</h1>
@@ -160,6 +160,13 @@
         </a>
     </div>
 
+        <div {{ stimulus_controller('modal-form') }}>
+            <button
+                class="btn btn-primary btn-sm"
+                data-action="modal-form#openModal"
+            >Add+</button>
+            {{ include('partials/modal.html.twig') }}
+        </div>
     {# {% for message in app.flashes('address_message') %}
         <div>
             {{ message }}
