@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="main-profile-picture">
+            <div class="profile-picture-display">
+                {% if user.image %}
+                    <img src="{{ asset(user.image) }}" alt="Avatar de {{ user.username }}">
+                {% else %}
+                    <img src="/images/avatar.png" alt="Avatar par défaut">
+                {% endif %}
+            </div>
+            <h2>Photo de profil</h2>
+            <p>Nous sommes ravi.e.s de vous rencontrer pour de vrai !</p>
+            {{ form_start(form) }}
+            <button>Ajouter une photo</button>
+            {{ form_end(form) }}
+            <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
+            <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
+        </div>
+    </div>
+{% endblock %}

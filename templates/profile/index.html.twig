@@ -6,9 +6,9 @@
     <div class="profile-cards public-profile-card">
         <div class="profile-user">
             <div class="profile-picture">
-                <a href="#">{# todo modal vers ajout avatar #}
+                <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
                     <img src="/images/avatar.png" alt="Avatar par défaut">
-                    <button class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></button>
+                    <span class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></span>
                 </a>
             </div>
             <h1>{{ app.user.username }}</h1>
@@ -159,14 +159,6 @@
             <div class="profile-cards">Me déconnecter</div>
         </a>
     </div>
-
-        <div {{ stimulus_controller('modal-form') }}>
-            <button
-                class="btn btn-primary btn-sm"
-                data-action="modal-form#openModal"
-            >Add+</button>
-            {{ include('partials/modal.html.twig') }}
-        </div>
     {# {% for message in app.flashes('address_message') %}
         <div>
             {{ message }}

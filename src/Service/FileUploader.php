@@ -7,12 +7,14 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class FileUploader
 {
-    private $imgDirectory;
+    private $productDirectory;
+    private $avatarDirectory;
     private $staticDirectory;
 
-    public function __construct($imgDirectory, $staticDirectory)
+    public function __construct($productDirectory, $avatarDirectory, $staticDirectory)
     {
-        $this->imgDirectory = $imgDirectory;
+        $this->productDirectory = $productDirectory;
+        $this->avatarDirectory = $avatarDirectory;
         $this->staticDirectory = $staticDirectory;
     }
 
@@ -21,7 +23,7 @@ class FileUploader
         $filename = md5(uniqid()).".".$file->guessExtension();
 
         try {
-            $file->move($this->getImgDirectory(), $filename);
+            $file->move($this->getProductDirectory(), $filename);
         } catch (FileException $e) {
             //throw $th;
         }
@@ -42,9 +44,40 @@ class FileUploader
         return $fileUrl;
     }
 
-    public function getImgDirectory()
+    public function uploadAvatar(UploadedFile $file)
     {
-        return $this->imgDirectory;
+        $filename = md5(uniqid()).".".$file->guessExtension();
+
+        try {
+            $file->move($this->getAvatarDirectory(), $filename);
+        } catch (FileException $e) {
+            //throw $th;
+        }
+        
+        return 'images/avatars/'.$filename;
+    }
+
+    public function updateAvatar(UploadedFile $file, $oldFile)
+    {
+        $fileUrl = $this->uploadAvatar($file);
+        
+        try {
+            unlink($this->getStaticDirectory(), $oldFile);
+        } catch (\Throwable $th){
+            // throw $th
+        }
+
+        return $fileUrl;
+    }
+
+    public function getProductDirectory()
+    {
+        return $this->productDirectory;
+    }
+
+    public function getAvatarDirectory()
+    {
+        return $this->avatarDirectory;
     }
 
     public function getStaticDirectory()
