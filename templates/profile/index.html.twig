@@ -3,21 +3,25 @@
 {% block body %}
 
 <div class="container-profile">
-    <div class="profile-cards public-profile-card">
+    <div class="profile-cards public-profile-card primary-cards">
         <div class="profile-user">
-            <div class="profile-picture">
-                <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
-                    <img src="/images/avatar.png" alt="Avatar par défaut">
-                    <span class="profile-picture-add"><i class="fa-solid fa-plus fa-lg"></i></span>
-                </a>
-            </div>
+            <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
+                <div class="profile-picture">
+                    {% if app.user.image %}
+                        <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Avatar par défaut">
+                    {% endif %}
+                    {# <span class="profile-picture-add">+</span> #}
+                </div>
+            </a>
             <h1>{{ app.user.username }}</h1>
         </div>
         <a href="{{ path('app_profile') }}" class="profile-user-button">Voir mon profil public</a>
     </div>
     <div class="wallet-card">
         <a href="/">{# todo route porte-monnaie #}
-            <div class="profile-cards wallet-card-bg">
+            <div class="profile-cards wallet-card-bg primary-cards">
                 <div class="wallet-card-content">
                     <h2 class="profile-cards-titles">Porte-monnaie</h2>
                     <span class="wallet-balance">0 €</span>

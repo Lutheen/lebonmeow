@@ -154,6 +154,8 @@ a {
 .user-avatar {
     height: 30px;
     width: 30px;
+    object-fit: contain;
+    object-position: center;
 }
 
 .avatar-link-gap {

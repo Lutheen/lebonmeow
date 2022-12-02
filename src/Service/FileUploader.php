@@ -24,8 +24,8 @@ class FileUploader
 
         try {
             $file->move($this->getProductDirectory(), $filename);
-        } catch (FileException $e) {
-            //throw $th;
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
         }
         
         return 'images/products/'.$filename;
@@ -36,9 +36,9 @@ class FileUploader
         $fileUrl = $this->upload($file);
         
         try {
-            unlink($this->getStaticDirectory().$oldFile);
+            unlink($this->getStaticDirectory().'/'.$oldFile);
         } catch (\Throwable $th){
-            // throw $th
+            var_dump($th->getMessage());
         }
 
         return $fileUrl;
@@ -50,8 +50,8 @@ class FileUploader
 
         try {
             $file->move($this->getAvatarDirectory(), $filename);
-        } catch (FileException $e) {
-            //throw $th;
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
         }
         
         return 'images/avatars/'.$filename;
@@ -62,9 +62,9 @@ class FileUploader
         $fileUrl = $this->uploadAvatar($file);
         
         try {
-            unlink($this->getStaticDirectory(), $oldFile);
+            unlink($this->getStaticDirectory().'/'.$oldFile);
         } catch (\Throwable $th){
-            // throw $th
+            var_dump($th->getMessage());
         }
 
         return $fileUrl;

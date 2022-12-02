@@ -30,7 +30,11 @@
             </a>
             {% if app.user %}
                 <a href="/account" class="user-links avatar-link-gap header-top-links">
-                    <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
+                    {% if app.user.image %}
+                        <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}" class="user-avatar">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
+                    {% endif %}
                     <span class="user-links-span">{{ app.user.username }}</span>
                 </a>
             {% else %}
