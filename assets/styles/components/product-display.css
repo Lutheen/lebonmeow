@@ -138,7 +138,7 @@
 .product-page-seller-avatar {
     height: 4.5em;
     width: 4.5em;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     border-radius: 50%;
 }

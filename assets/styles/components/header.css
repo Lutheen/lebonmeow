@@ -154,7 +154,8 @@ a {
 .user-avatar {
     height: 30px;
     width: 30px;
-    object-fit: contain;
+    border-radius: 50%;
+    object-fit: cover;
     object-position: center;
 }
 

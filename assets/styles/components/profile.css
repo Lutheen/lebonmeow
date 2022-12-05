@@ -113,7 +113,7 @@
 .profile-picture img {
     height: 88px;
     width: 88px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     border-radius: 50%;
 }

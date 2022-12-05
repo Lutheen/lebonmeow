@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class UserAvatarType extends AbstractType
 {
@@ -16,6 +17,9 @@ class UserAvatarType extends AbstractType
         $builder
             ->add('image', FileType::class, [
                 'label' => false,
+                'attr' => [
+                    'class' => 'input-file',
+                ],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -27,6 +31,9 @@ class UserAvatarType extends AbstractType
                         'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
                     ])
                 ]
+            ])
+            ->add('button', SubmitType::class, [
+                'label' => 'Valider',
             ])
         ;
     }

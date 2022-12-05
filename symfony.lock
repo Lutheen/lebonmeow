@@ -260,6 +260,9 @@
             "./templates/base.html.twig"
         ]
     },
+    "symfony/ux-cropperjs": {
+        "version": "v2.6.1"
+    },
     "symfony/ux-dropzone": {
         "version": "v2.5.0"
     },

@@ -13,5 +13,3 @@ import './bootstrap';
 
 import './images.js';
 import './button.js';
-import './modal.js';
-

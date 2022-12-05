@@ -17,12 +17,14 @@
                 </div>
                 <div class="profile-picture-form">
                     {{ form_start(form) }}
-                    <button>Ajouter une photo</button>
+                    <label for="user_avatar_image" class="label-file">Ajouter une photo</label>
+                    {{ form_widget(form.image) }}
+                    <div class="profile-picture-form-info">
+                        <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
+                        <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
+                    </div>
+                    {{ form_widget(form.button) }}
                     {{ form_end(form) }}
-                </div>
-                <div class="profile-picture-form-info">
-                    <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
-                    <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
                 </div>
             </div>
         </div>

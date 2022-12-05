@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserAvatarType;
-use App\Repository\UserRepository;
 use App\Service\FileUploader;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,7 +41,7 @@ class ProfileController extends AbstractController
     public function profilePicture(Request $request, User $user, UserRepository $userRepository, string $id): Response
     {
         $user = $userRepository->findOneById($id);
-        
+
         $form = $this->createForm(UserAvatarType::class, $user);
         $form->handleRequest($request);
 
