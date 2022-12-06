@@ -23,6 +23,7 @@ class AppFixtures extends Fixture
                                 ->setPassword(sha1('password'))
                                 ->setIsVerified(true)
                                 ->setImage($faker->imageUrl(100,100, 'user', true))
+                                ->setCreatedAt($faker->dateTime())
             ;
             $users[] = $user;
             $manager->persist($user);

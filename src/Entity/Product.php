@@ -33,7 +33,7 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: RelatedProduct::class)]
     private Collection $relatedProducts;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(length: 255, nullable: false)]
