@@ -24,7 +24,7 @@ class ProfileController extends AbstractController
     #[Route('/', name: 'app_account')]
     public function index(): Response
     {
-        return $this->render('profile/index.html.twig', [
+        return $this->render('account/index.html.twig', [
             'controller_name' => 'ProfileController',
         ]);
     }
@@ -32,13 +32,13 @@ class ProfileController extends AbstractController
     #[Route('/profile', name: 'app_profile')]
     public function profile(): Response
     {
-        return $this->render('profile/profile.html.twig', [
+        return $this->render('account/profile.html.twig', [
             'controller_name' => 'ProfileController',
         ]);
     }
 
     #[Route('/profile/{id}/picture', name: 'app_user_picture', methods: ['GET', 'POST'])]
-    public function profilePicture(Request $request, User $user, UserRepository $userRepository, string $id): Response
+    public function avatar(Request $request, User $user, UserRepository $userRepository, string $id): Response
     {
         $user = $userRepository->findOneById($id);
 
@@ -61,9 +61,28 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('profile/picture.html.twig', [
+        return $this->renderForm('account/picture.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/profile/{id}/picture/delete', name: 'app_user_picture_delete', methods: ['POST'])]
+    public function avatarDelete(Request $request, User $user, UserRepository $userRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getImage(), $request->request->get('_token'))) {
+            $avatar = $user->getImage();
+
+            if ($avatar) {
+                $avatarName = $this->getParameter('static_directory').'/'.$avatar;
+                if (file_exists($avatarName)) {
+                    unlink($avatarName);
+                }
+                $user->setImage(null);
+            }
+            $userRepository->save($user, true);
+        }
+
+        return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
     }
 }

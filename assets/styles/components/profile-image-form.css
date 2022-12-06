@@ -10,12 +10,17 @@
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    padding: 3.2em 2em;
+    padding: 2em 2em;
     width: 650px;
     box-shadow: var(--gradient);
     border-radius: 5px;
     background-color: white;
     text-align: center;
+}
+
+.xmark {
+    align-self: end;
+    color: var(--grey-label);
 }
 
 .profile-picture-title {
@@ -41,7 +46,7 @@
 }
 
 .profile-picture-form-info {
-    margin: 2em 0;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,10 +67,44 @@
     transition: background-color 0.3s ease;
 }
 
+.profile-picture-form .label-file:hover {
+    background-color: var(--purple-darker);
+}
+
 .profile-picture-form .input-file {
     display: none;
 }
 
-.profile-picture-form .label-file:hover {
+.avatar-change-button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.8em 1em;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.av-btn-full {
+    background-color: var(--purple);
+    color: white;
+    transition: background-color 0.3s ease;
+    transform: translate(200px, 25px);
+}
+
+.av-btn-full:hover {
     background-color: var(--purple-darker);
+}
+
+.av-btn-outline {
+    background-color: white;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    transition: background-color 0.3s ease;
+    transform: translate(-200px, -15px);
+}
+
+.av-btn-outline:hover {
+    background-color: var(--background-button-outline);
+    border-color: var(--purple-darker);
+    color: var(--purple-darker);
 }

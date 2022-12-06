@@ -21,4 +21,6 @@
     --alert-danger-color: #B55429;
     /* icons */
     --icons-grey: #bec1d2;
+    /* buttons outline */
+    --background-button-outline: #ddccff;
 }

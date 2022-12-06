@@ -88,7 +88,7 @@
 }
 
 .profile-user-button:hover {
-    background-color: #ddccff;
+    background-color: var(--background-button-outline);
     color: var(--purple-darker);
     border-color: var(--purple-darker);
 }

@@ -19,6 +19,7 @@ class UserAvatarType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'input-file',
+                    'onChange' => 'readURL(this);',
                 ],
                 'mapped' => false,
                 'required' => false,
@@ -31,9 +32,6 @@ class UserAvatarType extends AbstractType
                         'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
                     ])
                 ]
-            ])
-            ->add('button', SubmitType::class, [
-                'label' => 'Valider',
             ])
         ;
     }

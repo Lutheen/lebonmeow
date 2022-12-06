@@ -4,6 +4,7 @@
     <div class="container">
         <div class="main-profile-picture">
             <div class="main-profile-picture-content">
+                <span class="xmark"><a href="{{ path('app_account') }}"><i class="fa-solid fa-xmark fa-2xl"></a></i></span>
                 <div class="profile-picture-display">
                     {% if user.image %}
                         <img src="{{ asset(user.image) }}" alt="Avatar de {{ user.username }}">
@@ -23,8 +24,15 @@
                         <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
                         <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
                     </div>
-                    {{ form_widget(form.button) }}
+                    {% if user.image %}
+                        <button class="avatar-change-button av-btn-full">Modifier ma photo</button>
+                    {% else %}
+                        <button class="avatar-change-button av-btn-full">Valider</button>
+                    {% endif %}
                     {{ form_end(form) }}
+                    {% if user.image %}
+                        {{ include('account/picture_delete.html.twig') }}
+                    {% endif %}
                 </div>
             </div>
         </div>
