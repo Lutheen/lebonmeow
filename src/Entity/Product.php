@@ -153,6 +153,11 @@ class Product
         return $this;
     }
 
+    public function dateFormat(): string
+    {
+        return $this->createdAt->format('d-M-Y H:i');
+    }
+
     public function getSlug(): ?string
     {
         return $this->slug;

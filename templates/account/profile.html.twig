@@ -8,10 +8,10 @@
     <div class="main">
         <div class="user-card">
             {{ app.user.username }}
-            Membre depuis {{ app.user.createdAt }}
+            Membre depuis {{ app.user.dateFormat }}
         </div>
         <div class="user-products-card">
-            {{ app.user.products|length }} annonces
+            {{ app.user.soldProducts|length }} annonces
         </div>
     </div>
 </div>
