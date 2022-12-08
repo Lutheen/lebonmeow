@@ -1,300 +1,83 @@
 .container-profile {
     background-color: white;
-    width: 100%;
-    max-width: 1066px;
-    padding: 24px 0;
     margin: 0 auto;
-    display: grid;
-    grid: [one] "public public wallet" auto [two]
-          [two] "products deals bookings" auto [three]
-          [three] "spaces settings security" auto [four]
-          [four] "credits assistance community" auto [five]
-          [five] "logout . ." auto [six]
-          / 1fr 1fr 1fr;
 }
 
-.profile-cards {
-    padding: 24px;
-    margin: 8px;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--gradient);
-    border-radius: 10px;
-}
-
-.profile-cards-text-content {
-    margin-top: 2.4rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.profile-cards-titles {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.profile-cards-redirect {
-    color: var(--icons-grey);
-}
-
-.primary-cards {
-    height: 120px;
-}
-
-.secondary-cards {
+.main-profile {
+    margin: 2em auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    height: 170px;
-    transition: box-shadow 0.3s ease;
-}
-
-.tertiary-cards {
-    height: 75px;
-    flex-direction: row;
-    align-items: center;
-}
-
-.redirect-icon-cards {
-    justify-content: space-between;
-}
-
-.secondary-cards:hover {
-    box-shadow: var(--gradient-darker);
-}
-
-/* First card */
-.public-profile-card {
-    border: 1px solid var(--input-border-color);
-    border-radius: 10px;
-    padding: 0 24px 0 0;
-    margin-bottom: 1.5em;
-    grid-area: public;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-shadow: none;
-}
-
-.profile-user-button {
-    border: 1px solid var(--purple);
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    color: var(--purple);
-    font-weight: 600;
-    background-color: white;
-    transition: background-color 0.3s ease;
-}
-
-.profile-user-button:hover {
-    background-color: var(--background-button-outline);
-    color: var(--purple-darker);
-    border-color: var(--purple-darker);
-}
-
-.profile-user {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.profile-user h1 {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.profile-picture {
-    padding: 16px 0 16px 16px;
-    display: flex;
-    align-items: end;
-}
-
-.profile-picture img {
-    height: 88px;
-    width: 88px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-}
-
-.profile-picture::after {
-    content: "+";
-    font-size: 24px;
-    font-weight: 600;
-    padding: 5px;
-    display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    box-shadow: var(--gradient);
-    transform: translate(-25px, -5px);
-}
-/* ----- */
-
-/* Second card */
-.wallet-card {
-    margin-bottom: 1.5em;
-    grid-area: wallet;
+    gap: 2em;
 }
 
-.wallet-card-bg {
-    background: url(/public/images/bg-tiny.png);
-    background-position: center right;
-    background-size: 130px 120px;
-    background-repeat: no-repeat;
-    margin-bottom: 0;
-}
-
-.wallet-card-content {
+.user-card {
+    border: 2px solid red;
     display: flex;
     flex-direction: column;
+    width: 1066px;
 }
 
-.wallet-balance {
-    font-size: 24px;
-    font-weight: 600;
-}
-/* ----- */
-
-/* Third card */
-.products-card {
-    grid-area: products;
-}
-
-.products-card .fa-square {
-    color: var(--icons-grey);
-}
-/* ----- */
-
-/* Fourth card */
-.deals-card {
-    grid-area: deals;
-}
-
-.deals-card .fa-circle {
-    color: var(--icons-grey);
-}
-
-.deals-card .fa-euro-sign {
-    transform: rotate(-30deg);
-}
-/* ----- */
-
-/* Fifth card */
-.bookings-card {
-    grid-area: bookings;
-}
-
-.bookings-card .fa-umbrella-beach {
-    color: var(--icons-grey);
-    transform: scale(-1, 1);
-}
-/* ----- */
-
-/* Sixth card */
-.spaces-card {
-    grid-area: spaces;
-}
-
-.spaces-card .fa-circle-user {
-    color: var(--icons-grey);
-}
-/* ----- */
-
-/* Seventh card */
-.settings-card {
-    grid-area: settings;
-}
-
-.settings-card .fa-gear {
-    color: var(--icons-grey);
-}
-/* ----- */
-
-/* Eighth card */
-.security-card {
-    grid-area: security;
-}
-
-.security-card .fa-shield {
-    color: var(--icons-grey);
-}
-/* ----- */
-
-/* Ninth card */
-.credits-card {
-    grid-area: credits;
-    color: var(--purple);
-}
-
-.credits-card .profile-cards-text-content {
-    margin-top: 0;
-}
-
-.credits-card .profile-cards-icons {
-    margin-right: 0.5em;
-}
-
-.credits-card h2 {
-    font-size: 14px;
-}
-/* ----- */
-
-/* Tenth card */
-.assistance-card {
-    grid-area: assistance;
-}
-
-.assistance-card .profile-cards-text-content {
-    margin-top: 0;
-}
-
-.assistance-card .profile-cards-icons {
-    margin-right: 1.5em;
-}
-
-.assistance-card .fa-question {
-    color: var(--icons-grey);
-}
-
-.assistance-card .dnr {
+.user-products-card {
     display: flex;
-}
-/* ----- */
-
-/* Eleventh card */
-.community-card {
-    grid-area: community;
+    flex-direction: column;
+    width: 1066px;
 }
 
-.community-card .profile-cards-text-content {
-    margin-top: 0;
-}
-
-.community-card span {
-    font-family: 'Berkshire Swash', cursive;
+.products-count-span {
     font-size: 18px;
-    letter-spacing: 0.5px;
-    color: var(--purple);
-    margin-left: 3px;
-}
-/* ----- */
-
-/* Twelfth card */
-.logout-card {
-    margin-top: 1.5em;
-    display: flex;
-    align-items: end;
-    grid-area: logout;
     font-weight: 600;
-    color: var(--grey-label);
+    margin-bottom: 1em;
 }
 
-.logout-card .profile-cards {
-    padding: 0;
-    box-shadow: none;
+.user-product-display {
+    display: flex;
+    border-radius: 5px;
+    box-shadow: var(--gradient);
+}
+
+.product-thumbnail {
+    width: 240px;
+    height: 194px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-thumbnail-resize {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-thumbnail-resize img {
+    width: 240px;
+    height: 194px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.profile-product-content {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-product-name,
+.profile-product-price {
+    font-weight: 600;
+}
+
+.profile-product-name {
+    font-size: 20px;
+}
+
+.profile-product-price {
+    font-size: 16px;
+}
+
+.profile-product-category {
+    margin-top: 0.5em;
 }

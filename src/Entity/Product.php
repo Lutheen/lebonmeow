@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
+use App\Service\DateTranslator;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\Collection;
@@ -155,7 +156,7 @@ class Product
 
     public function dateFormat(): string
     {
-        return $this->createdAt->format('d-M-Y H:i');
+        return DateTranslator::translate($this->createdAt->format('d M, H:i'));
     }
 
     public function getSlug(): ?string

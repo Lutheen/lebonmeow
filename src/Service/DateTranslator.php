@@ -8,9 +8,9 @@ class DateTranslator
 {
     public static function translate(string $date)
     {
-        $englishMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $englishMonth = ['January', 'Jan', 'February', 'Feb', 'March', 'Mar', 'April', 'Apr', 'May', 'June', 'Jun', 'July', 'Jul', 'August', 'Aug', 'September', 'Sep', 'October', 'Oct', 'November', 'Nov', 'December', 'Dec'];
 
-        $frenchMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        $frenchMonth = ['janvier', 'jan', 'février', 'fév', 'mars', 'mar', 'avril', 'avr', 'mai', 'juin', 'juin', 'juillet', 'juil', 'août', 'août', 'septembre', 'sep', 'octobre', 'oct', 'novembre', 'nov', 'décembre', 'déc'];
 
         return str_replace($englishMonth, $frenchMonth, $date);
     }

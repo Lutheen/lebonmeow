@@ -4,14 +4,43 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="main">
+<div class="container-profile">
+    <div class="main-profile">
         <div class="user-card">
             {{ app.user.username }}
             Membre depuis {{ app.user.dateFormat }}
         </div>
         <div class="user-products-card">
-            {{ app.user.soldProducts|length }} annonces
+            {% if app.user.soldProducts %}
+                {% if app.user.soldProducts|length == 1 %}
+                    <span class="products-count-span">{{ app.user.soldProducts|length }} annonce</span>
+                {% else %}
+                    <span class="products-count-span">{{ app.user.soldProducts|length }} annonces</span>
+                {% endif %}
+                {% for soldProduct in app.user.soldProducts %}
+                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">
+                        <div class="user-product-display">
+                            {% if soldProduct.firstImage %}
+                                <div class="product-thumbnail-resize">
+                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}">
+                                </div>
+                            {% else %}
+                                <div class="product-thumbnail">
+                                    <img src="public/images/no-picture.png" alt="Image d'annonce par défaut">
+                                </div>
+                            {% endif %}
+                            <div class="profile-product-content">
+                                <h3 class="profile-product-name">{{ soldProduct.name }}</h3>
+                                <span class="profile-product-price">{{ soldProduct.price }} €</span>
+                                <span class="profile-product-category">{{ soldProduct.category }}</span>
+                                <span class="profile-product-date">{{ soldProduct.dateFormat }}</span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <span class="products-count-span">Aucune annonce</span>
+            {% endif %}
         </div>
     </div>
 </div>

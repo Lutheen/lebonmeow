@@ -9,8 +9,9 @@
 @import url("./components/breadcrumb.css");
 @import url("./components/product-display.css");
 @import url("./components/product-new.css");
+@import url("./components/account.css");
+@import url("./components/account-image-form.css");
 @import url("./components/profile.css");
-@import url("./components/profile-image-form.css");
 
 body {
     font-family: 'Open Sans', sans-serif, Arial;

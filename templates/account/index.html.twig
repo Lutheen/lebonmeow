@@ -2,8 +2,8 @@
 
 {% block body %}
 
-<div class="container-profile">
-    <div class="profile-cards public-profile-card primary-cards">
+<div class="container-account">
+    <div class="account-cards public-profile-card primary-cards">
         <div class="profile-user">
             <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
                 <div class="profile-picture">
@@ -20,9 +20,9 @@
     </div>
     <div class="wallet-card">
         <a href="/">{# todo route porte-monnaie #}
-            <div class="profile-cards wallet-card-bg primary-cards">
+            <div class="account-cards wallet-card-bg primary-cards">
                 <div class="wallet-card-content">
-                    <h2 class="profile-cards-titles">Porte-monnaie</h2>
+                    <h2 class="account-cards-titles">Porte-monnaie</h2>
                     <span class="wallet-balance">0 €</span>
                     <span>Solde disponible</span>
                 </div>
@@ -31,115 +31,115 @@
     </div>
     <div class="products-card">
         <a href="/">{# todo route products #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-square fa-stack-2x"></i>
                         <i class="fa-solid fa-bars-staggered fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Annonces</h2>
-                    <span class="profile-cards-description">Gérer mes annonces déposées</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Annonces</h2>
+                    <span class="account-cards-description">Gérer mes annonces déposées</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="deals-card">
         <a href="/">{# todo route deals #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-euro-sign fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Transactions</h2>
-                    <span class="profile-cards-description">Suivre mes achats et mes ventes</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Transactions</h2>
+                    <span class="account-cards-description">Suivre mes achats et mes ventes</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="bookings-card">
         <a href="/">{# todo route bookings #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <i class="fa-solid fa-umbrella-beach fa-2xl"></i>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Réservations de vacances</h2>
-                    <span class="profile-cards-description">Retrouver vos réservations en tant qu'hôte et voyageur</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Réservations de vacances</h2>
+                    <span class="account-cards-description">Retrouver vos réservations en tant qu'hôte et voyageur</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="spaces-card">
         <a href="/">{# todo route spaces #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <i class="fa-solid fa-circle-user fa-2xl"></i>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Profil & Espaces</h2>
-                    <span class="profile-cards-description">Modifier mon espace public, accéder à mes avis, aux espaces candidat et locataire</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Profil & Espaces</h2>
+                    <span class="account-cards-description">Modifier mon espace public, accéder à mes avis, aux espaces candidat et locataire</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="settings-card">
         <a href="/">{# todo route settings #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <i class="fa-solid fa-gear fa-2xl"></i>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Paramètres</h2>
-                    <span class="profile-cards-description">Compléter et modifier mes informations privées et préférences</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Paramètres</h2>
+                    <span class="account-cards-description">Compléter et modifier mes informations privées et préférences</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="security-card">
         <a href="/">{# todo route security #}
-            <div class="profile-cards secondary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards">
+                <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-shield fa-stack-2x"></i>
                         <i class="fa-solid fa-check fa-inverse fa-stack-1x"></i>
                     </span>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Connexion et sécurité</h2>
-                    <span class="profile-cards-description">Protéger mon compte et mettre à jour mon mot de passe</span>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Connexion et sécurité</h2>
+                    <span class="account-cards-description">Protéger mon compte et mettre à jour mon mot de passe</span>
                 </div>
             </div>
         </a>
     </div>
     <div class="credits-card">
         <a href="/">{# todo route credits #}
-            <div class="profile-cards secondary-cards tertiary-cards">
-                <div class="profile-cards-icons">
+            <div class="account-cards secondary-cards tertiary-cards">
+                <div class="account-cards-icons">
                     <i class="fa-solid fa-coins fa-sm"></i>
                 </div>
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Mes crédits</h2>
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Mes crédits</h2>
                 </div>
             </div>
         </a>
     </div>
     <div class="assistance-card">
         <a href="/">{# todo route assistance #}
-            <div class="profile-cards secondary-cards tertiary-cards redirect-icon-cards">
+            <div class="account-cards secondary-cards tertiary-cards redirect-icon-cards">
                 <div class="dnr">
-                    <div class="profile-cards-icons">
+                    <div class="account-cards-icons">
                         <i class="fa-solid fa-question fa-2xl"></i>
                     </div>
-                    <div class="profile-cards-text-content">
-                        <h2 class="profile-cards-titles">Aide</h2>
+                    <div class="account-cards-text-content">
+                        <h2 class="account-cards-titles">Aide</h2>
                     </div>
                 </div>
-                <div class="profile-cards-redirect">
+                <div class="account-cards-redirect">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
@@ -147,11 +147,11 @@
     </div>
     <div class="community-card">
         <a href="/">{# todo route community #}
-            <div class="profile-cards secondary-cards tertiary-cards redirect-icon-cards">
-                <div class="profile-cards-text-content">
-                    <h2 class="profile-cards-titles">Communauté <span>lebonmeow</span></h2>
+            <div class="account-cards secondary-cards tertiary-cards redirect-icon-cards">
+                <div class="account-cards-text-content">
+                    <h2 class="account-cards-titles">Communauté <span>lebonmeow</span></h2>
                 </div>
-                <div class="profile-cards-redirect">
+                <div class="account-cards-redirect">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
@@ -159,7 +159,7 @@
     </div>
     <div class="logout-card">
         <a href="/logout">
-            <div class="profile-cards">Me déconnecter</div>
+            <div class="account-cards">Me déconnecter</div>
         </a>
     </div>
     {# {% for message in app.flashes('address_message') %}

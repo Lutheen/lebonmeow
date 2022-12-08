@@ -1,10 +1,10 @@
-.main-profile-picture {
+.main-account-picture {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.main-profile-picture-content {
+.main-account-picture-content {
     margin: 4em auto;
     display: flex;
     flex-direction: column;
@@ -23,21 +23,21 @@
     color: var(--grey-label);
 }
 
-.profile-picture-title {
+.account-picture-title {
     margin-bottom: 2em;
 }
 
-.profile-picture-title h2 {
+.account-picture-title h2 {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 0.2em;
 }
 
-.profile-picture-title p {
+.account-picture-title p {
     font-size: 14px;
 }
 
-.profile-picture-display img {
+.account-picture-display img {
     height: 152px;
     width: 152px;
     object-fit: cover;
@@ -45,8 +45,8 @@
     border-radius: 50%;
 }
 
-.profile-picture-form-info {
-    margin-top: 2em;
+.account-picture-form-info {
+    margin: 2em 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +56,7 @@
     color: var(--grey-label);
 }
 
-.profile-picture-form .label-file {
+.account-picture-form .label-file {
     cursor: pointer;
     color: white;
     font-weight: 600;
@@ -67,11 +67,11 @@
     transition: background-color 0.3s ease;
 }
 
-.profile-picture-form .label-file:hover {
+.account-picture-form .label-file:hover {
     background-color: var(--purple-darker);
 }
 
-.profile-picture-form .input-file {
+.account-picture-form .input-file {
     display: none;
 }
 
@@ -107,4 +107,15 @@
     background-color: var(--background-button-outline);
     border-color: var(--purple-darker);
     color: var(--purple-darker);
+}
+
+.av-btn-full-centered {
+    background-color: var(--purple);
+    color: white;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.av-btn-full-centered:hover {
+    background-color: var(--purple-darker);
 }

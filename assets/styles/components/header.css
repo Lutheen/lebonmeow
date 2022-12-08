@@ -9,7 +9,7 @@ header {
 .header-content {
     max-width: 1066px;
     margin: 0 auto;
-    padding: 0.2rem 1rem 0;
+    padding: 0 0.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,8 +130,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    padding-left: 0.4rem;
-    padding-right: 0.8rem;
+    padding: 1.2em 0.5rem;
 }
 
 .user-links {
@@ -142,8 +141,7 @@ a {
     align-self: stretch;
     justify-content: center;
     gap: 0.4rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
+    padding: 0.5em;
 }
 
 .user-links-icons {
@@ -162,6 +160,10 @@ a {
 .avatar-link-gap {
     gap: 0.2rem;
     padding-bottom: 4px;
+}
+
+.padding-none {
+    padding-top: 0;
 }
 
 .header-top-links:hover {

@@ -29,7 +29,7 @@
                 <span class="user-links-span">Messages</span>
             </a>
             {% if app.user %}
-                <a href="/account" class="user-links avatar-link-gap header-top-links">
+                <a href="/account" class="user-links padding-none avatar-link-gap header-top-links">
                     {% if app.user.image %}
                         <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}" class="user-avatar">
                     {% else %}
