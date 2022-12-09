@@ -8,9 +8,9 @@
             <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
                 <div class="profile-picture">
                     {% if app.user.image %}
-                        <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}">
+                        <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}" class="h88-w88 cover-center-object round-picture">
                     {% else %}
-                        <img src="/images/avatar.png" alt="Avatar par défaut">
+                        <img src="/images/avatar.png" alt="Avatar par défaut" class="h88-w88 cover-center-object round-picture">
                     {% endif %}
                 </div>
             </a>

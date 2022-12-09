@@ -1,0 +1,80 @@
+.logo {
+    width: 140px;
+    height: 30px;
+}
+
+.h152-w152 {
+    height: 152px;
+    width: 152px;
+}
+
+.h88-w88 {
+    height: 88px;
+    width: 88px;
+    
+}
+
+.h24-w24 {
+    width: 24px;
+    height: 24px;
+}
+
+.h30-w30 {
+    height: 30px;
+    width: 30px;
+}
+
+.responsive-h323-w340 {
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    max-height: 323px;
+}
+
+.h187-w150 {
+    height: 187.5px;
+    width: 150px;
+}
+
+.h150-w150 {
+    height: 150px;
+    width: 150px;
+    
+}
+
+.h63-w63 {
+    height: 63px;
+    width: 63px;
+}
+
+.h180-w225 {
+    width: 180px;
+    height: 225px;
+}
+
+.h194-w240 {
+    width: 240px;
+    height: 194px;
+}
+
+.round-picture {
+    border-radius: 50%;
+}
+
+.roundish-corner {
+    border-radius: 5px;
+}
+
+.rounded-corner {
+    border-radius: 10px;
+}
+
+.cover-center-object {
+    object-fit: cover;
+    object-position: center;
+}
+
+.contain-center-object {
+    object-fit: contain;
+    object-position: center;
+}

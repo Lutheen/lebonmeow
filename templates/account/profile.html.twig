@@ -7,8 +7,8 @@
 <div class="container-profile">
     <div class="main-profile">
         <div class="user-card">
-            {{ app.user.username }}
-            Membre depuis {{ app.user.dateFormat }}
+            <h2 class="user-username">{{ app.user.username }}</h2>
+            <span>Membre depuis {{ app.user.dateFormat }}</span>
         </div>
         <div class="user-products-card">
             {% if app.user.soldProducts %}
@@ -22,7 +22,7 @@
                         <div class="user-product-display">
                             {% if soldProduct.firstImage %}
                                 <div class="product-thumbnail-resize">
-                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}">
+                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h194-w240 contain-center-object">
                                 </div>
                             {% else %}
                                 <div class="product-thumbnail">

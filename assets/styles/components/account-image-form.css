@@ -37,14 +37,6 @@
     font-size: 14px;
 }
 
-.account-picture-display img {
-    height: 152px;
-    width: 152px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-}
-
 .account-picture-form-info {
     margin: 2em 0;
     display: flex;

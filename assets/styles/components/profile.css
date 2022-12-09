@@ -1,40 +1,48 @@
 .container-profile {
-    background-color: white;
-    margin: 0 auto;
+    min-height: calc(100vh - 15em);
 }
 
 .main-profile {
-    margin: 2em auto;
+    padding: 4em 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 2em;
 }
 
 .user-card {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
-    width: 1066px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    padding: 1em;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1066px;
 }
 
 .user-products-card {
     display: flex;
     flex-direction: column;
-    width: 1066px;
+    gap: 1em;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1066px;
 }
 
 .products-count-span {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 1em;
 }
 
 .user-product-display {
     display: flex;
     border-radius: 5px;
     box-shadow: var(--gradient);
+}
+
+.user-product-display:hover .profile-product-name {
+    color: var(--purple);
 }
 
 .product-thumbnail {
@@ -48,14 +56,7 @@
 .product-thumbnail-resize {
     display: flex;
     justify-content: center;
-    text-align: center;
-}
-
-.product-thumbnail-resize img {
-    width: 240px;
-    height: 194px;
-    object-fit: contain;
-    object-position: center;
+    align-items: center;
 }
 
 .profile-product-content {
@@ -72,6 +73,7 @@
 
 .profile-product-name {
     font-size: 20px;
+    transition: color 0.3s ease;
 }
 
 .profile-product-price {

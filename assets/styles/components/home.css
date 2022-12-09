@@ -1,4 +1,4 @@
-.container {
+.background-grey {
     background-color: var(--body-background-color);
 }
 
@@ -42,14 +42,6 @@
     font-weight: 600;
 }
 
-.product-seller-image img {
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
 .product-seller-reviews-number {
     font-size: 12px;
 }
@@ -65,12 +57,6 @@
 
 .product-main:hover {
     color: var(--purple);
-}
-
-.product-image img {
-    width: 180px;
-    height: 225px;
-    border-radius: 5%;
 }
 
 .product-price {

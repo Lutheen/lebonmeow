@@ -5,11 +5,11 @@
         <div class="main-account-picture">
             <div class="main-account-picture-content">
                 <span class="xmark"><a href="{{ path('app_account') }}"><i class="fa-solid fa-xmark fa-2xl"></a></i></span>
-                <div class="account-picture-display">
+                <div>
                     {% if user.image %}
-                        <img src="{{ asset(user.image) }}" alt="Avatar de {{ user.username }}">
+                        <img src="{{ asset(user.image) }}" alt="Avatar de {{ user.username }}" class="h152-w152 cover-center-object round-picture">
                     {% else %}
-                        <img src="/images/avatar.png" alt="Avatar par défaut">
+                        <img src="/images/avatar.png" alt="Avatar par défaut" class="h152-w152 cover-center-object round-picture">
                     {% endif %}
                 </div>
                 <div class="account-picture-title">

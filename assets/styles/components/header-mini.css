@@ -11,11 +11,6 @@
     border-right: 2px solid var(--purple);
 }
 
-.header-mini-logo img {
-    width: 140px;
-    height: 30px;
-}
-
 .header-mini-title {
     padding-left: 20px;
     font-size: 16px;

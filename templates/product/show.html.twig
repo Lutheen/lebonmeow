@@ -11,8 +11,8 @@
                 <div class="product-content-details-top">
                     <div class="product-content-images">
                         {% for image in product.images %}
-                            <div class="page-product-image">
-                                <img src="{{ asset(image.image) }}" alt="Image de {{ product.name }}">
+                            <div>
+                                <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" class="responsive-h323-w340 rounded-corner cover-center-object">
                             </div>
                         {% endfor %}
                     </div>
@@ -47,7 +47,7 @@
             <section class="product-content-related">
                 <div class="seller-more-content product-page-middle-box">
                     <div class="seller-more-content-header">
-                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}" class="product-page-seller-avatar">
+                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
                         <div class="seller-more-content-infos">
                             <span class="seller-username">{{ product.seller.username }}</span>
                             {% if product.seller.soldProducts | length > 1 %}
@@ -65,8 +65,8 @@
                                     <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">
                                         <div class="page-product-item">
                                             <div class="product-main">
-                                                <div class="page-product-other-seller-product-image">
-                                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}">
+                                                <div>
+                                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
                                                 </div>
                                                 <h2 class="product-title">{{ soldProduct.name }}</h2>
                                             </div>
@@ -86,7 +86,7 @@
             <aside class="seller-aside">
                 <div class="seller-card">
                     <div class="seller-card-header">
-                        <img src="{{ asset(product.seller.image) }}" alt="Avatar de {{ product.seller.username }}" class="product-page-seller-avatar">
+                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
                         <div class="seller-infos">
                             <span class="seller-username">{{ product.seller.username }}</span>
                             {% if product.seller.soldProducts | length > 1 %}
