@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="header-mini-title">
+<span class="header-mini-title fs-16 fw-600 color-purple">
     <i class="fa-solid fa-shield-cat fa-xl"></i>
     Connexion
 </span>
@@ -28,29 +28,29 @@
         {% endif %}
 
         <div class="card-form-intro">
-            <h2>Bonjour !</h2>
+            <h2 class="fs-20 fw-600">Bonjour !</h2>
             <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         </div>
         
         <form method="post">
             <div class="login">
                 <div class="card-form-email">
-                    <label for="inputEmail" class="card-form-label">E-mail
-                        <span class="card-form-required-field">champ requis</span>
+                    <label for="inputEmail" class="card-form-label fw-600">E-mail
+                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
                     </label>
                     <div class="card-form-input">
                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
                     </div>
                 </div>
                 <div class="card-form-password">
-                    <label for="inputPassword" class="card-form-label">Mot de passe
-                        <span class="card-form-required-field">champ requis</span>
+                    <label for="inputPassword" class="card-form-label fw-600">Mot de passe
+                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
                     </label>
                     <div class="card-form-input">
                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     </div>
                 </div>
-                <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd">Mot de passe oublié</a>
+                <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd color-purple ta-left fs-12">Mot de passe oublié</a>
                 <input type="hidden" name="_csrf_token"
                         value="{{ csrf_token('authenticate') }}"
                 >

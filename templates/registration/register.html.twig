@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="header-mini-title">
+<span class="header-mini-title fs-16 fw-600 color-purple">
     Création de compte
 </span>
 </div>
@@ -27,7 +27,7 @@
         {% endfor %}
 
         <div class="card-form-intro">
-            <h2>Créez un compte</h2>
+            <h2 class="fs-20 fw-600">Créez un compte</h2>
             <span>Bénéficiez d'une expérience personnalisée avec du contenu en lien avec votre activité et vos centres d'intérêt sur notre service</span>
         </div>
         
@@ -35,24 +35,24 @@
         {{ form_start(registrationForm) }}
             <div class="signup">
                 <div class="card-form-email">
-                    <label for="inputEmail" class="card-form-label">E-mail
-                        <span class="card-form-required-field">champ requis</span>
+                    <label for="inputEmail" class="card-form-label fw-600">E-mail
+                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
                     </label>
                     <div class="card-form-input" id="inputEmail">
                         {{ form_widget(registrationForm.email) }}
                     </div>
                 </div>
                 <div class="card-form-password">
-                    <label for="inputPassword" class="card-form-label">Mot de passe
-                        <span class="card-form-required-field">champ requis</span>
+                    <label for="inputPassword" class="card-form-label fw-600">Mot de passe
+                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
                     </label>
                     <div class="card-form-input" id="inputPassword">
                         {{ form_widget(registrationForm.plainPassword) }}
                     </div>
                 </div>
                 <div class="card-form-username">
-                    <label for="inputUsername" class="card-form-label">Nom d'utilisateur
-                        <span class="card-form-required-field">champ requis</span>
+                    <label for="inputUsername" class="card-form-label fw-600">Nom d'utilisateur
+                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
                     </label>
                     <div class="card-form-input" id="inputUsernamme">
                         {{ form_widget(registrationForm.username) }}

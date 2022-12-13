@@ -28,15 +28,6 @@
     flex-direction: column;
 }
 
-.account-cards-titles {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.account-cards-redirect {
-    color: var(--icons-grey);
-}
-
 .primary-cards {
     height: 120px;
 }
@@ -81,7 +72,6 @@
     border-radius: 5px;
     padding: 0.5em 1em;
     color: var(--purple);
-    font-weight: 600;
     background-color: white;
     transition: background-color 0.3s ease;
 }
@@ -96,11 +86,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-.profile-user h1 {
-    font-size: 20px;
-    font-weight: 600;
 }
 
 .profile-picture {
@@ -144,30 +129,17 @@
     display: flex;
     flex-direction: column;
 }
-
-.wallet-balance {
-    font-size: 24px;
-    font-weight: 600;
-}
 /* ----- */
 
 /* Third card */
 .products-card {
     grid-area: products;
 }
-
-.products-card .fa-square {
-    color: var(--icons-grey);
-}
 /* ----- */
 
 /* Fourth card */
 .deals-card {
     grid-area: deals;
-}
-
-.deals-card .fa-circle {
-    color: var(--icons-grey);
 }
 
 .deals-card .fa-euro-sign {
@@ -181,7 +153,6 @@
 }
 
 .bookings-card .fa-umbrella-beach {
-    color: var(--icons-grey);
     transform: scale(-1, 1);
 }
 /* ----- */
@@ -190,29 +161,17 @@
 .spaces-card {
     grid-area: spaces;
 }
-
-.spaces-card .fa-circle-user {
-    color: var(--icons-grey);
-}
 /* ----- */
 
 /* Seventh card */
 .settings-card {
     grid-area: settings;
 }
-
-.settings-card .fa-gear {
-    color: var(--icons-grey);
-}
 /* ----- */
 
 /* Eighth card */
 .security-card {
     grid-area: security;
-}
-
-.security-card .fa-shield {
-    color: var(--icons-grey);
 }
 /* ----- */
 
@@ -229,10 +188,6 @@
 .credits-card .account-cards-icons {
     margin-right: 0.5em;
 }
-
-.credits-card h2 {
-    font-size: 14px;
-}
 /* ----- */
 
 /* Tenth card */
@@ -246,10 +201,6 @@
 
 .assistance-card .account-cards-icons {
     margin-right: 1.5em;
-}
-
-.assistance-card .fa-question {
-    color: var(--icons-grey);
 }
 
 .assistance-card .dnr {

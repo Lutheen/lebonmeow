@@ -13,21 +13,21 @@
                     {% endif %}
                 </div>
                 <div class="account-picture-title">
-                    <h2>Photo de profil</h2>
+                    <h2 class="fs-20 fw-600">Photo de profil</h2>
                     <p>Nous sommes ravi.e.s de vous rencontrer pour de vrai !</p>
                 </div>
                 <div class="account-picture-form">
                     {{ form_start(form) }}
-                    <label for="user_avatar_image" class="label-file">Ajouter une photo</label>
+                    <label for="user_avatar_image" class="label-file fw-600">Ajouter une photo</label>
                     {{ form_widget(form.image) }}
-                    <div class="account-picture-form-info">
+                    <div class="account-picture-form-info fs-12">
                         <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
                         <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
                     </div>
                     {% if user.image %}
-                        <button class="avatar-change-button av-btn-full">Modifier ma photo</button>
+                        <button class="avatar-change-button fs-14 fw-600 av-btn-full">Modifier ma photo</button>
                     {% else %}
-                        <button class="avatar-change-button av-btn-full-centered">Valider</button>
+                        <button class="avatar-change-button fs-14 fw-600 av-btn-full-centered">Valider</button>
                     {% endif %}
                     {{ form_end(form) }}
                     {% if user.image %}

@@ -2,7 +2,7 @@
 
 {% block body %}
 <main class="background-grey">
-    <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    <h1 class="main-title fs-24 fw-600">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="products">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
@@ -15,10 +15,10 @@
                             <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
                         {% endif %}
                     </div>
-                    <div class="product-seller-username">{{ product.seller.username }}</div>
+                    <div class="fw-600">{{ product.seller.username }}</div>
                     <div class="product-seller-reviews">
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <span class="product-seller-reviews-number">3</span>
+                        <i class="fa-solid fa-star fa-sm color-purple"></i>
+                        <span class="fs-12">3</span>
                     </div>
                 </div>
 
@@ -26,10 +26,10 @@
                     <div>
                         <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h180-w225 rounded-corner cover-center-object">
                     </div>
-                    <h2 class="product-title">{{ product.name }}</h2>
+                    <h2 class="product-title fs-16 fw-600">{{ product.name }}</h2>
                 </div>
 
-                <div class="product-price">{{ product.price }} €</div>
+                <div class="product-price fw-600">{{ product.price }} €</div>
             </div>
         </a>
         {% endfor %}

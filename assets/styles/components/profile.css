@@ -30,11 +30,6 @@
     max-width: 1066px;
 }
 
-.products-count-span {
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .user-product-display {
     display: flex;
     border-radius: 5px;
@@ -46,22 +41,17 @@
 }
 
 .product-thumbnail {
-    width: 240px;
-    height: 194px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product-thumbnail-resize {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bcgd-grey {
+    background-color: var(--input-border-color);
 }
 
 .profile-product-content {
     padding: 24px;
-    width: 100%;
     display: flex;
     flex-direction: column;
 }

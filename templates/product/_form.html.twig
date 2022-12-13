@@ -1,15 +1,15 @@
 {{ form_start(form) }}
     <div class="card-form-name new-product-form-group">
-        <label for="product_name" class="card-form-label">
+        <label for="product_name" class="card-form-label fw-600">
             Quel est le titre de l'annonce ?
-            <span class="card-form-required-field">champ requis</span>
+            <span class="card-form-required-field fs-12 fw-400">champ requis</span>
         </label>
         <div class="card-form-input">
             {{ form_widget(form.name) }}
         </div>
     </div>
     <div class="card-form-category new-product-form-group">
-        <label for="product_category" class="card-form-label">
+        <label for="product_category" class="card-form-label fw-600">
             Choisissez une catégorie
         </label>
         <div class="card-form-select">
@@ -18,25 +18,25 @@
         </div>
     </div>
     <div class="card-form-description">
-        <label for="product_description" class="card-form-label">
+        <label for="product_description" class="card-form-label fw-600">
             Ecrivez une description pertinente !
-            <span class="card-form-required-field">champ requis</span>
+            <span class="card-form-required-field fs-12 fw-400">champ requis</span>
         </label>
         <div class="card-form-textarea">
             {{ form_widget(form.description) }}
         </div>
     </div>
     <div class="card-form-price new-product-form-group">
-        <label for="product_price" class="card-form-label">
+        <label for="product_price" class="card-form-label fw-600">
             Fixez le prix de votre article
-            <span class="card-form-required-field">champ requis</span>
+            <span class="card-form-required-field fs-12 fw-400">champ requis</span>
         </label>
         <div class="card-form-input">
             {{ form_widget(form.price) }}
         </div>
     </div>
     <div class="card-form-image">
-        <label class="card-form-label">
+        <label class="card-form-label fw-600">
             Ajoutez des photos
         </label>
         {% if app.request.attributes.get('_route') == 'app_product_edit' %}
@@ -44,7 +44,7 @@
                 <div class="product-images-display">
                     {% for image in product.images %}
                         <div class="product-single-image-display">
-                            <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}">
+                            <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}" class="h150-w150 cover-center-object roundish-corner">
                             <a href="{{ path('app_product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}" class="product-single-image-display-button"><i class="fa-solid fa-xmark"></i></a>
                         </div>
                     {% endfor %}

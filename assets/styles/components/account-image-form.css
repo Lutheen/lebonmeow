@@ -14,7 +14,6 @@
     width: 650px;
     box-shadow: var(--gradient);
     border-radius: 5px;
-    background-color: white;
     text-align: center;
 }
 
@@ -28,13 +27,7 @@
 }
 
 .account-picture-title h2 {
-    font-size: 20px;
-    font-weight: 600;
     margin-bottom: 0.2em;
-}
-
-.account-picture-title p {
-    font-size: 14px;
 }
 
 .account-picture-form-info {
@@ -44,14 +37,12 @@
     justify-content: center;
     align-items: center;
     gap: 2em;
-    font-size: 12px;
     color: var(--grey-label);
 }
 
 .account-picture-form .label-file {
     cursor: pointer;
     color: white;
-    font-weight: 600;
     padding: 0.6em 1em;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -72,8 +63,6 @@
     border-radius: 5px;
     padding: 0.8em 1em;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
 }
 
 .av-btn-full {

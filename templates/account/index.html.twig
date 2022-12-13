@@ -14,16 +14,16 @@
                     {% endif %}
                 </div>
             </a>
-            <h1>{{ app.user.username }}</h1>
+            <h1 class="fs-20 fw-600">{{ app.user.username }}</h1>
         </div>
-        <a href="{{ path('app_profile') }}" class="profile-user-button">Voir mon profil public</a>
+        <a href="{{ path('app_profile') }}" class="profile-user-button fw-600">Voir mon profil public</a>
     </div>
     <div class="wallet-card">
         <a href="/">{# todo route porte-monnaie #}
             <div class="account-cards wallet-card-bg primary-cards">
                 <div class="wallet-card-content">
-                    <h2 class="account-cards-titles">Porte-monnaie</h2>
-                    <span class="wallet-balance">0 €</span>
+                    <h2 class="fs-16 fw-600">Porte-monnaie</h2>
+                    <span class="fs-24 fw-600">0 €</span>
                     <span>Solde disponible</span>
                 </div>
             </div>
@@ -34,12 +34,12 @@
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
-                        <i class="fa-solid fa-square fa-stack-2x"></i>
+                        <i class="fa-solid fa-square fa-stack-2x color-grey"></i>
                         <i class="fa-solid fa-bars-staggered fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Annonces</h2>
+                    <h2 class="fs-16 fw-600">Annonces</h2>
                     <span class="account-cards-description">Gérer mes annonces déposées</span>
                 </div>
             </div>
@@ -50,12 +50,12 @@
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
-                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-circle fa-stack-2x color-grey"></i>
                         <i class="fa-solid fa-euro-sign fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Transactions</h2>
+                    <h2 class="fs-16 fw-600">Transactions</h2>
                     <span class="account-cards-description">Suivre mes achats et mes ventes</span>
                 </div>
             </div>
@@ -65,10 +65,10 @@
         <a href="/">{# todo route bookings #}
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
-                    <i class="fa-solid fa-umbrella-beach fa-2xl"></i>
+                    <i class="fa-solid fa-umbrella-beach fa-2xl color-grey"></i>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Réservations de vacances</h2>
+                    <h2 class="fs-16 fw-600">Réservations de vacances</h2>
                     <span class="account-cards-description">Retrouver vos réservations en tant qu'hôte et voyageur</span>
                 </div>
             </div>
@@ -78,10 +78,10 @@
         <a href="/">{# todo route spaces #}
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
-                    <i class="fa-solid fa-circle-user fa-2xl"></i>
+                    <i class="fa-solid fa-circle-user fa-2xl color-grey"></i>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Profil & Espaces</h2>
+                    <h2 class="fs-16 fw-600">Profil & Espaces</h2>
                     <span class="account-cards-description">Modifier mon espace public, accéder à mes avis, aux espaces candidat et locataire</span>
                 </div>
             </div>
@@ -91,10 +91,10 @@
         <a href="/">{# todo route settings #}
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
-                    <i class="fa-solid fa-gear fa-2xl"></i>
+                    <i class="fa-solid fa-gear fa-2xl color-grey"></i>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Paramètres</h2>
+                    <h2 class="fs-16 fw-600">Paramètres</h2>
                     <span class="account-cards-description">Compléter et modifier mes informations privées et préférences</span>
                 </div>
             </div>
@@ -105,12 +105,12 @@
             <div class="account-cards secondary-cards">
                 <div class="account-cards-icons">
                     <span class="fa-stack fa-1x">
-                        <i class="fa-solid fa-shield fa-stack-2x"></i>
+                        <i class="fa-solid fa-shield fa-stack-2x color-grey"></i>
                         <i class="fa-solid fa-check fa-inverse fa-stack-1x"></i>
                     </span>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Connexion et sécurité</h2>
+                    <h2 class="fs-16 fw-600">Connexion et sécurité</h2>
                     <span class="account-cards-description">Protéger mon compte et mettre à jour mon mot de passe</span>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                     <i class="fa-solid fa-coins fa-sm"></i>
                 </div>
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Mes crédits</h2>
+                    <h2 class="fw-600">Mes crédits</h2>
                 </div>
             </div>
         </a>
@@ -133,13 +133,13 @@
             <div class="account-cards secondary-cards tertiary-cards redirect-icon-cards">
                 <div class="dnr">
                     <div class="account-cards-icons">
-                        <i class="fa-solid fa-question fa-2xl"></i>
+                        <i class="fa-solid fa-question fa-2xl color-grey"></i>
                     </div>
                     <div class="account-cards-text-content">
-                        <h2 class="account-cards-titles">Aide</h2>
+                        <h2 class="fs-16 fw-600">Aide</h2>
                     </div>
                 </div>
-                <div class="account-cards-redirect">
+                <div class="color-grey">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
@@ -149,9 +149,9 @@
         <a href="/">{# todo route community #}
             <div class="account-cards secondary-cards tertiary-cards redirect-icon-cards">
                 <div class="account-cards-text-content">
-                    <h2 class="account-cards-titles">Communauté <span>lebonmeow</span></h2>
+                    <h2 class="fs-16 fw-600">Communauté <span>lebonmeow</span></h2>
                 </div>
-                <div class="account-cards-redirect">
+                <div class="color-grey">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>

@@ -13,6 +13,7 @@
 @import url("./components/account-image-form.css");
 @import url("./components/profile.css");
 @import url("./components/picture.css");
+@import url("./components/typography.css");
 
 body {
     font-family: 'Open Sans', sans-serif, Arial;

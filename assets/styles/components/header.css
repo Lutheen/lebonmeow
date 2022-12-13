@@ -16,7 +16,6 @@ header {
     flex-wrap: wrap;
     column-gap: 0.8rem;
     position: relative;
-    line-height: 1.5;
 }
 
 .header-left-content {
@@ -25,7 +24,6 @@ header {
     align-items: center;
     justify-content: flex-start;
     gap: 1.2rem;
-    font-weight: 600;
 }
 
 .header-right-content {
@@ -38,7 +36,6 @@ header {
 
 .header-nav {
     flex: 1 1 auto;
-    font-size: 14px;
     padding-top: 12px;
 }
 
@@ -124,7 +121,6 @@ span.dot:last-child {
 }
 
 .user-links {
-    font-size: 12px;
     display: flex;
     align-items: center;
     flex-direction: column;

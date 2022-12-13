@@ -1,0 +1,51 @@
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.color-grey {
+    color: var(--icons-grey);
+}
+
+.color-purple {
+    color: var(--purple);
+}
+
+.ta-left {
+    text-align: left;
+}
+
+.ta-center {
+    text-align: center;
+}

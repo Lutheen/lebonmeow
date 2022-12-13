@@ -35,19 +35,8 @@
     border-bottom: 1px solid #cad1d9;
 }
 
-.page-product-name {
-    font-size: 24px;
-    font-weight: 600;
-}
-
 .page-product-price {
-    font-size: 18px;
-    font-weight: 600;
     margin: 0.3rem 0;
-}
-
-.page-product-date {
-    font-size: 12px;
 }
 
 
@@ -58,11 +47,6 @@
     display: grid;
     gap: 1em;
     border-bottom: 1px solid #cad1d9;
-}
-
-.page-product-middle-title {
-    font-size: 18px;
-    font-weight: 600;
 }
 
 
@@ -87,8 +71,6 @@
 }
 
 .seller-other-sold-products {
-    font-weight: 600;
-    font-size: 16px;
     margin-bottom: 1.2em;
 }
 
@@ -133,11 +115,6 @@
     justify-content: center;
     align-items: baseline;
     margin-left: 1rem;
-}
-
-.seller-username {
-    font-size: 16px;
-    font-weight: 600;
 }
 
 .seller-buttons {
