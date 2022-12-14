@@ -72,6 +72,10 @@
     border-radius: 10px;
 }
 
+.ltlbc-rounded {
+    border-radius: 10px 0 0 10px;
+}
+
 .cover-center-object {
     object-fit: cover;
     object-position: center;

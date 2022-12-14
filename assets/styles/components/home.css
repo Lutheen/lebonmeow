@@ -38,19 +38,9 @@
 
 .product-main {
     order: 2;
-    transition: color ease-in;
-}
-
-.product-main:hover {
-    color: var(--purple);
 }
 
 .product-price {
     order: 3;
     align-self: flex-start;
-}
-
-.product-title {
-    transition: color 0.3s ease;
-    white-space: normal;
 }

@@ -88,26 +88,8 @@ span.dot:last-child {
 }
 
 .app-new-post {
-    background-color: var(--purple);
-    border-radius: 4px;
-    height: 40px;
-    padding: 0 0.8em;
-    color: white;
     display: flex;
     align-items: center;
-    transition: background-color 0.5s ease;
-}
-
-.app-new-post span {
-    padding-bottom: 0.2em;
-}
-
-.app-new-post:hover {
-    background-color: var(--purple-darker);
-}
-
-.app-new-post i {
-    margin-right: 8px;
 }
 
 .app-search {

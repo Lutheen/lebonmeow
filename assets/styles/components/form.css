@@ -96,23 +96,10 @@
 
 .card-form-button {
     width: 100%;
-    margin: 1.8rem 0 1.8rem;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: white;
-    background-color: var(--purple);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
     display: inline-flex;
     align-items: center;
-    font-size: 14px;
-    font-weight: 600;
     justify-content: center;
     min-height: 2.6rem;
-}
-
-.card-form-button:hover {
-    background-color: var(--purple-darker);
 }
 
 .card-form-link {

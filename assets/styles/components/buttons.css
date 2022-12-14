@@ -1,0 +1,49 @@
+.button {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.button-outline {
+    background-color: white;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    transition: background-color 0.3s ease;
+}
+.button-outline:hover {
+    background-color: var(--background-button-outline);
+    border-color: var(--purple-darker);
+    color: var(--purple-darker);
+}
+
+.button-yellow {
+    background-color: var(--yellow);
+    color: black;
+    transition: background-color 0.3s ease;
+}
+.button-yellow:hover {
+    background-color: var(--yellow-darker);
+}
+
+.button-full {
+    background-color: var(--purple);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.button-full:hover {
+    background-color: var(--purple-darker);
+}
+.button-full:disabled {
+    background-color: var(--grey);
+    color: var(--input-border-color);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.trs-trl-right {
+    transform: translate(210px, 30px);
+}
+.trs-trl-left {
+    transform: translate(-200px, -15px);
+}

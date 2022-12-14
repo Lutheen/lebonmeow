@@ -5,7 +5,7 @@
     <h1 class="main-title fs-24 fw-600">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="products">
         {% for product in products %}
-        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
+        <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
             <div class="product-item">
                 <div class="product-seller-details">
                     <div>
@@ -26,7 +26,7 @@
                     <div>
                         <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h180-w225 rounded-corner cover-center-object">
                     </div>
-                    <h2 class="product-title fs-16 fw-600">{{ product.name }}</h2>
+                    <h2 class="title-color-change fs-16 fw-600">{{ product.name }}</h2>
                 </div>
 
                 <div class="product-price fw-600">{{ product.price }} €</div>

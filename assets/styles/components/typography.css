@@ -49,3 +49,10 @@
 .ta-center {
     text-align: center;
 }
+
+.title-color-change {
+    transition: color 0.3s ease;
+}
+.lthfcc:hover .title-color-change {
+    color: var(--purple);
+}

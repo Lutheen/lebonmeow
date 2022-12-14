@@ -1,8 +1,6 @@
 .container-account {
     width: 100%;
     max-width: 1066px;
-    padding: 24px 0;
-    margin: 0 auto;
     display: grid;
     grid: [one] "public public wallet" auto [two]
           [two] "products deals bookings" auto [three]
@@ -13,8 +11,8 @@
 }
 
 .account-cards {
-    padding: 24px;
-    margin: 8px;
+    padding: 1.5em;
+    margin: 0.5em;
     display: flex;
     align-items: center;
     box-shadow: var(--gradient);
@@ -22,9 +20,8 @@
 }
 
 .account-cards-text-content {
-    margin-top: 2.4rem;
+    margin-top: 2rem;
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -39,6 +36,9 @@
     height: 170px;
     transition: box-shadow 0.3s ease;
 }
+.secondary-cards:hover {
+    box-shadow: var(--gradient-darker);
+}
 
 .tertiary-cards {
     height: 75px;
@@ -48,10 +48,6 @@
 
 .redirect-icon-cards {
     justify-content: space-between;
-}
-
-.secondary-cards:hover {
-    box-shadow: var(--gradient-darker);
 }
 
 /* First card */
@@ -65,21 +61,6 @@
     flex-direction: row;
     justify-content: space-between;
     box-shadow: none;
-}
-
-.profile-user-button {
-    border: 1px solid var(--purple);
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    color: var(--purple);
-    background-color: white;
-    transition: background-color 0.3s ease;
-}
-
-.profile-user-button:hover {
-    background-color: var(--background-button-outline);
-    color: var(--purple-darker);
-    border-color: var(--purple-darker);
 }
 
 .profile-user {

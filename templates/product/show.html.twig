@@ -55,22 +55,22 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="seller-more-sold-products">
-                        <h3 class="seller-other-sold-products fs-16 fw-600">
+                    <div class="mt-105em">
+                        <h3 class="mb-102em fs-16 fw-600">
                             Les annonces de {{ product.seller.username }}
                         </h3>
                         <div class="product-page-other-seller-products">
                             {% for soldProduct in product.seller.soldProducts %}
                                 {% if product.id != soldProduct.id %}
-                                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">
+                                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
                                         <div class="page-product-item">
                                             <div class="product-main">
                                                 <div>
                                                     <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
                                                 </div>
-                                                <h2 class="product-title">{{ soldProduct.name }}</h2>
+                                                <h2 class="title-color-change fs-16 fw-600">{{ soldProduct.name }}</h2>
                                             </div>
-                                            <div class="product-price">{{ soldProduct.price }} €</div>
+                                            <div class="product-price fw-600">{{ soldProduct.price }} €</div>
                                         </div>
                                     </a>
                                 {% endif %}
@@ -95,8 +95,8 @@
                         </div>
                     </div>
                     <div class="seller-buttons">
-                        <button class="seller-button-buy">Acheter</button>
-                        <button class="seller-button-chat">Message</button>
+                        <button class="button button-full ptb-08em">Acheter</button>
+                        <button class="button button-yellow ptb-08em">Message</button>
                     </div>
                 </div>
             </aside>

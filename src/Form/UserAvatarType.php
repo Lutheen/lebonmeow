@@ -19,7 +19,6 @@ class UserAvatarType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'input-file',
-                    'onChange' => 'readURL(this);',
                 ],
                 'mapped' => false,
                 'required' => false,

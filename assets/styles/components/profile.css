@@ -32,12 +32,8 @@
 
 .user-product-display {
     display: flex;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: var(--gradient);
-}
-
-.user-product-display:hover .profile-product-name {
-    color: var(--purple);
 }
 
 .product-thumbnail {
@@ -51,23 +47,9 @@
 }
 
 .profile-product-content {
-    padding: 24px;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
-}
-
-.profile-product-name,
-.profile-product-price {
-    font-weight: 600;
-}
-
-.profile-product-name {
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
-
-.profile-product-price {
-    font-size: 16px;
 }
 
 .profile-product-category {

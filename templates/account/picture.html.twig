@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container">
         <div class="main-account-picture">
-            <div class="main-account-picture-content">
+            <div class="main-account-picture-content mtb-4em p-2em roundish-corner ta-center">
                 <span class="xmark"><a href="{{ path('app_account') }}"><i class="fa-solid fa-xmark fa-2xl"></a></i></span>
                 <div>
                     {% if user.image %}
@@ -12,22 +12,22 @@
                         <img src="/images/avatar.png" alt="Avatar par défaut" class="h152-w152 cover-center-object round-picture">
                     {% endif %}
                 </div>
-                <div class="account-picture-title">
-                    <h2 class="fs-20 fw-600">Photo de profil</h2>
+                <div class="mb-2em">
+                    <h2 class="fs-20 fw-600 mb-02em">Photo de profil</h2>
                     <p>Nous sommes ravi.e.s de vous rencontrer pour de vrai !</p>
                 </div>
                 <div class="account-picture-form">
                     {{ form_start(form) }}
-                    <label for="user_avatar_image" class="label-file fw-600">Ajouter une photo</label>
+                    <label for="user_avatar_image" class="button button-full p06-1em">Ajouter une photo</label>
                     {{ form_widget(form.image) }}
-                    <div class="account-picture-form-info fs-12">
+                    <div class="account-picture-form-info mt-2em mb-2em fs-12">
                         <p>Votre photo ne doit pas être contraire aux bonnes mœurs ou à l'ordre public, ni porter atteinte aux droits de tiers.</p>
                         <p>Nous acceptons les formats : jpg, jpeg, png • Poids max : 8 Mo</p>
                     </div>
                     {% if user.image %}
-                        <button class="avatar-change-button fs-14 fw-600 av-btn-full">Modifier ma photo</button>
+                        <button class="button fs-14 button-full p08-1em trs-trl-right">Modifier ma photo</button>
                     {% else %}
-                        <button class="avatar-change-button fs-14 fw-600 av-btn-full-centered">Valider</button>
+                        <button class="button fs-14 button-full m-0auto p08-1em">Valider</button>
                     {% endif %}
                     {{ form_end(form) }}
                     {% if user.image %}

@@ -5,16 +5,12 @@
 }
 
 .main-account-picture-content {
-    margin: 4em auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    padding: 2em 2em;
     width: 650px;
     box-shadow: var(--gradient);
-    border-radius: 5px;
-    text-align: center;
 }
 
 .xmark {
@@ -22,16 +18,7 @@
     color: var(--grey-label);
 }
 
-.account-picture-title {
-    margin-bottom: 2em;
-}
-
-.account-picture-title h2 {
-    margin-bottom: 0.2em;
-}
-
 .account-picture-form-info {
-    margin: 2em 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,63 +27,6 @@
     color: var(--grey-label);
 }
 
-.account-picture-form .label-file {
-    cursor: pointer;
-    color: white;
-    padding: 0.6em 1em;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background-color: var(--purple);
-    transition: background-color 0.3s ease;
-}
-
-.account-picture-form .label-file:hover {
-    background-color: var(--purple-darker);
-}
-
-.account-picture-form .input-file {
+.input-file {
     display: none;
-}
-
-.avatar-change-button {
-    border: none;
-    border-radius: 5px;
-    padding: 0.8em 1em;
-    cursor: pointer;
-}
-
-.av-btn-full {
-    background-color: var(--purple);
-    color: white;
-    transition: background-color 0.3s ease;
-    transform: translate(200px, 25px);
-}
-
-.av-btn-full:hover {
-    background-color: var(--purple-darker);
-}
-
-.av-btn-outline {
-    background-color: white;
-    border: 1px solid var(--purple);
-    color: var(--purple);
-    transition: background-color 0.3s ease;
-    transform: translate(-200px, -15px);
-}
-
-.av-btn-outline:hover {
-    background-color: var(--background-button-outline);
-    border-color: var(--purple-darker);
-    color: var(--purple-darker);
-}
-
-.av-btn-full-centered {
-    background-color: var(--purple);
-    color: white;
-    margin: 0 auto;
-    transition: background-color 0.3s ease;
-}
-
-.av-btn-full-centered:hover {
-    background-color: var(--purple-darker);
 }
