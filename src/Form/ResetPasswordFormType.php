@@ -25,9 +25,9 @@ class ResetPasswordFormType extends AbstractType
                         'max' => 4096
                     ]),
                 ],
-                'label' => 'Nouveau mot de passe',
+                'label' => false,
                 'attr' => [
-                    'class' => 'listened'
+                    'class' => 'listened input'
                 ],
                 'mapped' => false
             ])

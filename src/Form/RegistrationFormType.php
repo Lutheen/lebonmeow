@@ -18,13 +18,20 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'attr' => ['placeholder' => 'Carole38']
+                'attr' => [
+                    'placeholder' => 'Carole38',
+                    'class' => 'input',
+                ]
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', 'placeholder' => 'Votre mot de passe'],
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                    'placeholder' => 'Votre mot de passe',
+                    'class' => 'input',
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -38,7 +45,10 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('email', EmailType::class, [
-                'attr' => ['placeholder' => 'carole38@exemple.fr']
+                'attr' => [
+                    'placeholder' => 'carole38@exemple.fr',
+                    'class' => 'input',
+                ]
             ])
         ;
     }

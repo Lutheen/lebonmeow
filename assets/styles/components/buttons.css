@@ -41,8 +41,28 @@
     pointer-events: none;
 }
 
+.button-delete {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: background-color 0.3s ease;
+}
+.button-delete:hover {
+    background-color: var(--purple);
+    color: black;
+}
+
 .trs-trl-right {
-    transform: translate(210px, 30px);
+    transform: translate(210px, 55px);
 }
 .trs-trl-left {
     transform: translate(-200px, -15px);

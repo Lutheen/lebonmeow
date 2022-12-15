@@ -21,41 +21,33 @@
         </div>
     {% endif %}
 
-    <div class="card-form">
+    <div class="card-form w-400px">
 
         {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-        <div class="card-form-intro">
-            <h2 class="fs-20 fw-600">Bonjour !</h2>
+        <div class="card-form-intro pb-1em">
+            <h2 class="fs-20 fw-600 mt-05em mb-102em">Bonjour !</h2>
             <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         </div>
-        
-        <form method="post">
-            <div class="login">
-                <div class="card-form-email">
-                    <label for="inputEmail" class="card-form-label fw-600">E-mail
-                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
-                    </label>
-                    <div class="card-form-input">
-                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
-                    </div>
-                </div>
-                <div class="card-form-password">
-                    <label for="inputPassword" class="card-form-label fw-600">Mot de passe
-                        <span class="card-form-required-field fs-12 fw-400">champ requis</span>
-                    </label>
-                    <div class="card-form-input">
-                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                    </div>
-                </div>
-                <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd color-purple ta-left fs-12">Mot de passe oublié</a>
-                <input type="hidden" name="_csrf_token"
-                        value="{{ csrf_token('authenticate') }}"
-                >
-                <button class="card-form-button button button-full fs-14 mtb-105em">Se connecter</button>
+
+        <form method="post" name="login_form">
+            <div class="form-item">
+                <label for="inputEmail" class="label">E-mail
+                    <span class="required-field">champ requis</span>
+                </label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="input" autocomplete="email" required>
             </div>
+            <div class="form-item">
+                <label for="inputPassword" class="label">Mot de passe
+                    <span class="required-field">champ requis</span>
+                </label>
+                <input type="password" name="password" id="inputPassword" class="input" autocomplete="current-password" required>
+            </div>
+            <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd color-purple ta-left fs-12">Mot de passe oublié</a>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button class="card-form-button button button-full fs-14 mtb-105em">Se connecter</button>
         </form>
         <div class="card-form-link">Envie de nous rejoindre ? <a href="{{ path('app_register') }}">Créer un compte</a></div>
     </div>

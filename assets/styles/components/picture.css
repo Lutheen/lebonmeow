@@ -1,3 +1,4 @@
+/* picture sizes */
 .logo {
     height: 30px;
     width: 140px;
@@ -60,6 +61,7 @@
     max-height: 323px;
 }
 
+/* picture corners */
 .round-picture {
     border-radius: 50%;
 }
@@ -76,6 +78,7 @@
     border-radius: 10px 0 0 10px;
 }
 
+/* picture behaviour */
 .cover-center-object {
     object-fit: cover;
     object-position: center;
@@ -84,4 +87,15 @@
 .contain-center-object {
     object-fit: contain;
     object-position: center;
+}
+
+.picture-with-button {
+    display: flex;
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+.picture-with-button:hover {
+    border: 2px solid var(--purple);
 }

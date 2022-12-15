@@ -27,63 +27,6 @@
     justify-items: center;
 }
 
-.card-form-intro h2 {
-    margin-top: 0.6rem;
-    margin-bottom: 1.3rem;
-}
-
-.card-form-intro span {
-    width: 400px;
-}
-
-.card-form form {
-    padding-top: 20px;
-    width: 100%;
-}
-
-.card-form-email {
-    margin-bottom: 0.8rem;
-}
-
-.card-form-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 2.4rem 0 0.4rem;
-}
-
-.card-form-name .card-form-label {
-    margin-top: 1rem;
-}
-
-.card-form-required-field {
-    margin-left: 0.4rem;
-    flex-shrink: 0;
-    color: var(--grey-label);
-}
-
-.card-form-input {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--input-border-color);
-    border-radius: 3px;
-    height: 2.5rem;
-    width: 100%;
-}
-
-.card-form-input input {
-    background: transparent;
-    border: none;
-    border-radius: 4px;
-    flex: 5 1 0%;
-    font-size: 14px;
-    height: 100%;
-    min-width: 0px;
-    padding: 0px 1rem;
-    width: 100%;
-}
-
 .card-form-forgot-pwd {
     padding-top: 2px;
     display: flex;

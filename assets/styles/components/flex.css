@@ -1,0 +1,31 @@
+.asc {
+    align-self: center;
+}
+
+.ase {
+    align-self: end;
+}
+
+.fdc {
+    flex-direction: column;
+}
+
+.aic {
+    align-items: center;
+}
+
+.jcc {
+    justify-content: center;
+}
+
+.jcsb {
+    justify-content: space-between;
+}
+
+.df {
+    display: flex;
+}
+
+.g2em {
+    gap: 2em;
+}

@@ -1,0 +1,13 @@
+.dg {
+    display: grid;
+}
+
+.grid-account {
+    display: grid;
+    grid: [one] "public public wallet" auto [two]
+          [two] "products deals bookings" auto [three]
+          [three] "spaces settings security" auto [four]
+          [four] "credits assistance community" auto [five]
+          [five] "logout . ." auto [six]
+          / 1fr 1fr 1fr;
+}

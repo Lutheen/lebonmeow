@@ -42,6 +42,10 @@
     color: var(--purple);
 }
 
+.color-grey-darker {
+    color: var(--grey-label);
+}
+
 .ta-left {
     text-align: left;
 }

@@ -1,0 +1,40 @@
+.box-shadow {
+    box-shadow: var(--gradient);
+}
+
+.account-card {
+    padding: 1.5em;
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.secondary-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 170px;
+    transition: box-shadow 0.3s ease;
+}
+.secondary-cards:hover {
+    box-shadow: var(--gradient-darker);
+}
+
+.tertiary-cards {
+    height: 75px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.public-profile-card {
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    padding: 0 24px 0 0;
+    margin-bottom: 1.5em;
+    grid-area: public;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: none;
+}
