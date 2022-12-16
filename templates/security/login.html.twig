@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="header-mini-title fs-16 fw-600 color-purple">
+<span class="fs-16 fw-600 color-purple">
     <i class="fa-solid fa-shield-cat fa-xl"></i>
     Connexion
 </span>
@@ -13,21 +13,21 @@
 {% endblock %}
 
 {% block body %}
-<main class="main-form">
+<main class="bg-cats df fdc h-full-mini-header">
 
     {% if app.user %}
         <div class="alert alert-success">
-            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="color-purple">Se déconnecter ?</a>
         </div>
     {% endif %}
 
-    <div class="card-form w-400px">
+    <div class="df fdc jcc aic box-shadow mt-2em-sb-auto p-2em bg-white w-400px">
 
         {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-        <div class="card-form-intro pb-1em">
+        <div class="ta-center pb-1em">
             <h2 class="fs-20 fw-600 mt-05em mb-102em">Bonjour !</h2>
             <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         </div>
@@ -39,17 +39,17 @@
                 </label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="input" autocomplete="email" required>
             </div>
-            <div class="form-item">
+            <div class="form-item pb-0">
                 <label for="inputPassword" class="label">Mot de passe
                     <span class="required-field">champ requis</span>
                 </label>
                 <input type="password" name="password" id="inputPassword" class="input" autocomplete="current-password" required>
             </div>
-            <a href="{{ path('app_forgotten_password') }}" class="card-form-forgot-pwd color-purple ta-left fs-12">Mot de passe oublié</a>
+            <a href="{{ path('app_forgotten_password') }}" class="link-color-change ta-left fs-12">Mot de passe oublié</a>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            <button class="card-form-button button button-full fs-14 mtb-105em">Se connecter</button>
+            <button class="w-100 dif aic jcc mnh-206em button button-full fs-14 mtb-105em">Se connecter</button>
         </form>
-        <div class="card-form-link">Envie de nous rejoindre ? <a href="{{ path('app_register') }}">Créer un compte</a></div>
+        <div class="fs-13">Envie de nous rejoindre ? <a href="{{ path('app_register') }}" class="link-color-change">Créer un compte</a></div>
     </div>
 </main>
 {% endblock %}

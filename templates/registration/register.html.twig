@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="header-mini-title fs-16 fw-600 color-purple">
+<span class="fs-16 fw-600 color-purple">
     Création de compte
 </span>
 </div>
@@ -12,21 +12,21 @@
 {% endblock %}
 
 {% block body %}
-<main class="main-form">
+<main class="bg-cats df fdc h-full-mini-header">
 
     {% if app.user %}
         <div class="alert alert-success">
-            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="color-purple">Se déconnecter ?</a>
         </div>
     {% endif %}
 
-    <div class="card-form w-500px">
+    <div class="df fdc jcc aic box-shadow mt-2em-sb-auto p-2em bg-white w-500px">
 
         {% for flash_error in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
         {% endfor %}
 
-        <div class="card-form-intro pb-1em">
+        <div class="ta-center pb-1em">
             <h2 class="fs-20 fw-600 mt-05em mb-102em">Créez un compte</h2>
             <span>Bénéficiez d'une expérience personnalisée avec du contenu en lien avec votre activité et vos centres d'intérêt sur notre service</span>
         </div>
@@ -50,9 +50,9 @@
                 </label>
                 {{ form_widget(registrationForm.username) }}
             </div>
-            <button type="submit" class="card-form-button button button-full fs-14 mtb-105em">Créer mon compte</button>
+            <button type="submit" class="w-100 dif aic jcc mnh-206em button button-full fs-14 mtb-105em">Créer mon compte</button>
         {{ form_end(registrationForm) }}
-        <div class="card-form-link">Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Me connecter</a></div>
+        <div class="fs-13">Vous avez déjà un compte ? <a href="{{ path('app_login') }}" class="link-color-change">Me connecter</a></div>
     </div>
 </main>
 {% endblock %}

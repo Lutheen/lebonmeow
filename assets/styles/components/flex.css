@@ -1,11 +1,13 @@
 .df {
     display: flex;
 }
+.dif {
+    display: inline-flex;
+}
 
 .fdc {
     flex-direction: column;
 }
-
 .fdr {
     flex-direction: row;
 }
@@ -13,11 +15,9 @@
 .aic {
     align-items: center;
 }
-
 .ais {
     align-items: flex-start;
 }
-
 .aie {
     align-items: flex-end;
 }
@@ -25,15 +25,29 @@
 .jcc {
     justify-content: center;
 }
-
+.jcs {
+    justify-content: flex-start;
+}
+.jce {
+    justify-content: flex-end;
+}
 .jcsb {
     justify-content: space-between;
 }
-
 .jcsa {
     justify-content: space-around;
 }
 
+.fww {
+    flex-wrap: wrap;
+}
+
+.g06em {
+    gap: 0.6em;
+}
+.g102em {
+    gap: 1.2em;
+}
 .g2em {
     gap: 2em;
 }
@@ -41,7 +55,16 @@
 .asc {
     align-self: center;
 }
-
 .ase {
     align-self: flex-end;
+}
+.ass {
+    align-self: stretch;
+}
+
+.f110 {
+    flex: 1 1 0%;
+}
+.f11auto {
+    flex: 1 1 auto;
 }

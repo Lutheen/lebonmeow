@@ -44,3 +44,20 @@
 .box-w-shadowh:hover {
     box-shadow: var(--gradient-darker);
 }
+
+.alert {
+    margin: 2rem auto 0;
+    border-radius: 5px;
+    padding: 0.625em;
+    font-weight: 600;
+}
+.alert-success {
+    border: 1px solid var(--alert-success-color);
+    background-color: var(--alert-success-background);
+    color: var(--alert-success-color);
+}
+.alert-danger {
+    border: 1px solid var(--alert-danger-color);
+    background-color: var(--alert-danger-background);
+    color: var(--alert-danger-color);
+}

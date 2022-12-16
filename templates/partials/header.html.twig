@@ -1,21 +1,21 @@
 <header>
-    <div class="header-content">
+    <div class="mxw-1066px m-0auto ps-02em df jcsb aic fww">
 
-        <div class="header-left-content fw-600">
+        <div class="df aic jcs f11auto g102em fw-600">
             <a href="/">
                 <img src="/images/logo-pressed.png" alt="Logo du site Lebonmeow" class="logo">
             </a>
-            <a href={{ path('app_product_new') }} class="app-new-post button button-full ptb-05em-lr-06em">
+            <a href={{ path('app_product_new') }} class="df aic button button-full ptb-05em-lr-06em">
                 <i class="fa-regular fa-square-plus fa-xl mr-05em"></i>
                 <span class="pb-02em">Déposer une annonce</span>
             </a>
-            <a href="/" class="app-search header-top-links">
+            <a href="/" class="df aic jcc ass fdr g06em ptb-102em-lr-05em header-top-links">
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
                 Rechercher
             </a>
         </div>
         
-        <div class="header-right-content fs-12">
+        <div class="df aic jce f11auto ass fs-12">
             <a href="/" class="user-links header-top-links">
                 <img src="/images/bell.svg" alt="Icône d'une cloche" class="h24-w24">
                 <span class="user-links-span">Mes recherches</span>
@@ -29,7 +29,7 @@
                 <span class="user-links-span">Messages</span>
             </a>
             {% if app.user %}
-                <a href="/account" class="user-links padding-none avatar-link-gap header-top-links">
+                <a href="/account" class="user-links pt-0 avatar-link-gap header-top-links">
                     {% if app.user.image %}
                         <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h30-w30 round-picture cover-center-object">
                     {% else %}
@@ -45,10 +45,10 @@
             {% endif %}
         </div>
 
-        <nav class="header-nav">
-            <ul>
+        <nav class="f11auto pt-075em">
+            <ul class="ass df aic h-100">
                 {% for category in categories %}
-                    <li><a href={{ path('app_category_show', {id: category.id}) }}>{{ category.name | capitalize }}</a></li>
+                    <li class="asc ps-1em-b-0875em navlink rm-p-first rm-p-last"><a href={{ path('app_category_show', {id: category.id}) }}>{{ category.name | capitalize }}</a></li>
                     <span class="dot"></span>
                 {% endfor %}
             </ul>

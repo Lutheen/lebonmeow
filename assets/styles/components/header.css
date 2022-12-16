@@ -6,61 +6,15 @@ header {
     box-shadow: var(--gradient);
 }
 
-.header-content {
-    max-width: 1066px;
-    margin: 0 auto;
-    padding: 0 0.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 0.8rem;
-    position: relative;
-}
-
-.header-left-content {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.2rem;
-}
-
-.header-right-content {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    justify-content: flex-end;
-}
-
-.header-nav {
-    flex: 1 1 auto;
-    padding-top: 12px;
-}
-
-.header-nav ul {
-    align-self: stretch;
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.header-nav li {
-    align-self: center;
-    padding-bottom: 14px;
-    padding: 0 16px 14px;
-}
-
-.header-nav li:first-of-type {
+.rm-p-first:first-of-type {
     padding-left: 0;
 }
 
-.header-nav li:last-of-type {
+.rm-p-last:last-of-type {
     padding-right: 0;
 }
 
-.header-nav li:hover {
+.navlink:hover {
     box-shadow: inset 0 -2px 0 0 black;
     font-weight: 600;
     transition: box-shadow 0.5s ease-in-out, font-weight 1.5s;
@@ -87,21 +41,6 @@ span.dot:last-child {
     transform: translate(-50%, -80%);
 }
 
-.app-new-post {
-    display: flex;
-    align-items: center;
-}
-
-.app-search {
-    display: flex;
-    flex-direction: row;
-    align-self: stretch;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 1.2em 0.5rem;
-}
-
 .user-links {
     display: flex;
     align-items: center;
@@ -117,11 +56,22 @@ span.dot:last-child {
     padding-bottom: 4px;
 }
 
-.padding-none {
-    padding-top: 0;
-}
-
 .header-top-links:hover {
     box-shadow: inset 0 -2px 0 0 var(--purple);
     transition: 0.5s ease-in-out;
+}
+
+
+/* header mini */
+.header-mini {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 0;
+}
+
+.header-mini-logo {
+    padding-right: 1.250em;
+    border-right: 2px solid var(--purple);
+    margin-right: 1.250em;
 }

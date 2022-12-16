@@ -77,6 +77,12 @@
     transform: translate(-25px, -5px);
 }
 
+.button-arrow-back {
+    position: absolute;
+    left: 3rem;
+    top: 1.2rem;
+}
+
 .trs-trl-right {
     transform: translate(210px, 55px);
 }
