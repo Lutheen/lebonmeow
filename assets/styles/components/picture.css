@@ -99,3 +99,20 @@
 .picture-with-button:hover {
     border: 2px solid var(--purple);
 }
+
+/* icons */
+.trs-rot-30 {
+    transform: rotate(-25deg);
+}
+
+.trs-sca-inverse {
+    transform: scale(-1, 1);
+}
+
+/* background */
+.bg-piggy-bank {
+    background: url(/public/images/bg-tiny.png);
+    background-position: center right;
+    background-size: 130px 120px;
+    background-repeat: no-repeat;
+}

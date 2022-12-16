@@ -61,6 +61,22 @@
     color: black;
 }
 
+.button-add::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: var(--gradient);
+    transform: translate(-25px, -5px);
+}
+
 .trs-trl-right {
     transform: translate(210px, 55px);
 }

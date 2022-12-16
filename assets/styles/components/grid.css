@@ -5,9 +5,58 @@
 .grid-account {
     display: grid;
     grid: [one] "public public wallet" auto [two]
+          [empty-start] " . . . " 1.5em [empty-end]
           [two] "products deals bookings" auto [three]
           [three] "spaces settings security" auto [four]
           [four] "credits assistance community" auto [five]
           [five] "logout . ." auto [six]
           / 1fr 1fr 1fr;
+}
+
+.gapublic {
+    grid-area: public;
+}
+
+.gawallet {
+    grid-area: wallet;
+}
+
+.gaproducts {
+    grid-area: products;
+}
+
+.gadeals {
+    grid-area: deals;
+}
+
+.gabookings {
+    grid-area: bookings;
+}
+
+.gaspaces {
+    grid-area: spaces;
+}
+
+.gasettings {
+    grid-area: settings;
+}
+
+.gasecurity {
+    grid-area: security;
+}
+
+.gacredits {
+    grid-area: credits;
+}
+
+.gahelp {
+    grid-area: assistance;
+}
+
+.gacommunity {
+    grid-area: community;
+}
+
+.galogout {
+    grid-area: logout;
 }

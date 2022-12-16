@@ -60,3 +60,11 @@
 .lthfcc:hover .title-color-change {
     color: var(--purple);
 }
+
+.logo-txt {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--purple);
+    margin-left: 3px;
+}

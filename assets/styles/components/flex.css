@@ -1,17 +1,25 @@
-.asc {
-    align-self: center;
-}
-
-.ase {
-    align-self: end;
+.df {
+    display: flex;
 }
 
 .fdc {
     flex-direction: column;
 }
 
+.fdr {
+    flex-direction: row;
+}
+
 .aic {
     align-items: center;
+}
+
+.ais {
+    align-items: flex-start;
+}
+
+.aie {
+    align-items: flex-end;
 }
 
 .jcc {
@@ -22,10 +30,18 @@
     justify-content: space-between;
 }
 
-.df {
-    display: flex;
+.jcsa {
+    justify-content: space-around;
 }
 
 .g2em {
     gap: 2em;
+}
+
+.asc {
+    align-self: center;
+}
+
+.ase {
+    align-self: flex-end;
 }

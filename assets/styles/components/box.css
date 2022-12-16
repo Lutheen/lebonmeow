@@ -1,40 +1,46 @@
 .box-shadow {
+    border-radius: 10px;
     box-shadow: var(--gradient);
 }
 
-.account-card {
-    padding: 1.5em;
+.box {
     margin: 0.5em;
     display: flex;
-    align-items: center;
-    border-radius: 10px;
 }
 
-.secondary-cards {
-    display: flex;
+.medium-box {
+    height: 120px;
+}
+
+.small-box {
+    flex-direction: row;
+    align-items: center;
+    height: 75px;
+}
+
+.big-box {
     flex-direction: column;
     align-items: flex-start;
     height: 170px;
-    transition: box-shadow 0.3s ease;
-}
-.secondary-cards:hover {
-    box-shadow: var(--gradient-darker);
 }
 
-.tertiary-cards {
-    height: 75px;
-    flex-direction: row;
-    align-items: center;
+.big-box-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
 }
 
-.public-profile-card {
+.box-w-border {
     border: 1px solid var(--input-border-color);
     border-radius: 10px;
-    padding: 0 24px 0 0;
-    margin-bottom: 1.5em;
-    grid-area: public;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-shadow: none;
+}
+
+.box-w-shadowh {
+    border-radius: 10px;
+    box-shadow: var(--gradient);
+    transition: box-shadow 0.3s ease;
+}
+.box-w-shadowh:hover {
+    box-shadow: var(--gradient-darker);
 }
