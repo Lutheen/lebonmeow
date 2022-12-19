@@ -136,3 +136,12 @@ select:focus + .focus {
 .form-fixed-width form {
     width: 305px;
 }
+
+.form-white-bg {
+    background-color: white;
+    border-radius: 1em;
+}
+.form-white-bg form {
+    display: flex;
+    flex-direction: column;
+}

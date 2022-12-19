@@ -1,5 +1,5 @@
 <header>
-    <div class="mxw-1066px m-0auto ps-02em df jcsb aic fww">
+    <div class="mxw-1066px m-0auto ps-1em df jcsb aic fww">
 
         <div class="df aic jcs f11auto g102em fw-600">
             <a href="/">
@@ -9,46 +9,46 @@
                 <i class="fa-regular fa-square-plus fa-xl mr-05em"></i>
                 <span class="pb-02em">Déposer une annonce</span>
             </a>
-            <a href="/" class="df aic jcc ass fdr g06em ptb-102em-lr-05em header-top-links">
+            <a href="/" class="df aic jcc ass fdr g06em ptb-102em-lr-05em border-bottom-change-purple">
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
                 Rechercher
             </a>
         </div>
         
         <div class="df aic jce f11auto ass fs-12">
-            <a href="/" class="user-links header-top-links">
+            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
                 <img src="/images/bell.svg" alt="Icône d'une cloche" class="h24-w24">
-                <span class="user-links-span">Mes recherches</span>
+                <span>Mes recherches</span>
             </a>
-            <a href="/" class="user-links header-top-links">
+            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
                 <img src="/images/heart.svg" alt="Icône d'un coeur" class="h24-w24">
-                <span class="user-links-span">Favoris</span>
+                <span>Favoris</span>
             </a>
-            <a href="/" class="user-links header-top-links">
+            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
                 <img src="/images/messages.svg" alt="Icône d'une bulle avec trois points" class="h24-w24">
-                <span class="user-links-span">Messages</span>
+                <span>Messages</span>
             </a>
             {% if app.user %}
-                <a href="/account" class="user-links pt-0 avatar-link-gap header-top-links">
+                <a href="/account" class="df aic fdc ass jcc g02em pt-02em-05em border-bottom-change-purple">
                     {% if app.user.image %}
                         <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h30-w30 round-picture cover-center-object">
                     {% else %}
                         <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="h30-w30 round-picture cover-center-object">
                     {% endif %}
-                    <span class="user-links-span">{{ app.user.username }}</span>
+                    <span>{{ app.user.username }}</span>
                 </a>
             {% else %}
-                <a href="/login" class="user-links header-top-links">
+                <a href="/login" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
                     <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="h24-w24">
-                    <span class="user-links-span">Se connecter</span>
+                    <span>Se connecter</span>
                 </a>
             {% endif %}
         </div>
 
-        <nav class="f11auto pt-075em">
+        <nav class="f11auto pt-1em">
             <ul class="ass df aic h-100">
                 {% for category in categories %}
-                    <li class="asc ps-1em-b-0875em navlink rm-p-first rm-p-last"><a href={{ path('app_category_show', {id: category.id}) }}>{{ category.name | capitalize }}</a></li>
+                    <li class="asc ps-1em-b-101em border-bottom-change-black rm-p"><a href={{ path('app_category_show', {id: category.id}) }}>{{ category.name | capitalize }}</a></li>
                     <span class="dot"></span>
                 {% endfor %}
             </ul>

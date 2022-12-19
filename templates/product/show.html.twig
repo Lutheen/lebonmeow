@@ -3,105 +3,101 @@
 {% block title %}{{ product.name }} - {{ product.category.name | capitalize }}{% endblock %}
 
 {% block body %}
-<main class="main-product">
+<main class="mtb-105em-auto mxw-1066px">
     {% include "partials/breadcrumb.html.twig" %}
-    <div class="product-container">
-        <article class="product-content">
-            <section class="product-content-details">
-                <div class="product-content-details-top">
-                    <div class="product-content-images">
-                        {% for image in product.images %}
-                            <div>
-                                <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" class="responsive-h323-w340 rounded-corner cover-center-object">
-                            </div>
+    <article class="grid-product-show">
+        <section class="mnw-320px ga-fs">
+            <div class="df fdc">
+                <div class="df jcsb g05em">
+                    {% for image in product.images %}
+                        <div>
+                            <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" class="responsive-h323-w340 rounded-corner cover-center-object">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="df fdc ptb-102em ms-02em">
+                    <h1 class="fs-24 fw-600">
+                        {{ product.name }}
+                    </h1>
+                    <span class="mtb-03em fs-18 fw-600">
+                        {{ product.price }} € 
+                    </span>
+                    <span class="fs-12">
+                        {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
+                    </span>
+                </div>
+            </div>
+            <div class="med-box-w-topbottom-border">
+                <h2 class="fs-18 fw-600">Description</h2>
+                <p>
+                    {{ product.description }} 
+                </p>
+            </div>
+            <div class="med-box-w-topbottom-border">
+                <h2 class="fs-18 fw-600">Critères</h2>
+                <div>
+                    TODO
+                </div>
+            </div>
+            <div class="med-box-w-topbottom-border">
+                TODO localisation & livraison
+            </div>
+        </section>
+        <section class="ga-ss">
+            <div class="med-box-w-topbottom-border">
+                <div class="g1em df">
+                    <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    <div class="df jcc fdc">
+                        <span class="fs-16 fw-600">{{ product.seller.username }}</span>
+                        {% if product.seller.soldProducts | length > 1 %}
+                            <span>{{ product.seller.soldProducts | length }} annonces</span> 
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="mt-105em">
+                    <h3 class="mb-102em fs-16 fw-600">
+                        Les annonces de {{ product.seller.username }}
+                    </h3>
+                    <div class="df fdr jcs g1em">
+                        {% for soldProduct in product.seller.soldProducts %}
+                            {% if product.id != soldProduct.id %}
+                                <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
+                                    <div class="mxw-150px">
+                                        <div>
+                                            <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
+                                        </div>
+                                        <h2 class="title-color-change fs-16 fw-600">{{ soldProduct.name }}</h2>
+                                        <span class="fw-600">{{ soldProduct.price }} €</span>
+                                    </div>
+                                </a>
+                            {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="product-content-details-header">
-                        <h1 class="fs-24 fw-600">
-                            {{ product.name }}
-                        </h1>
-                        <span class="page-product-price fs-18 fw-600">
-                            {{ product.price }} € 
-                        </span>
-                        <span class="fs-12">
-                            {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
-                        </span>
+                </div>
+            </div>
+            <div class="med-box-w-topbottom-border">
+                <h2 class="fs-18 fw-600">Ces annonces peuvent vous intéresser</h2>
+                <div>TODO related products</div>
+            </div>
+        </section>
+        <aside class="ga-as df fdc">
+            <div class="mnw-320px box-shadow">
+                <div class="ms-1em ptb-105em df bb-1px-lightgrey">
+                    <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    <div class="df fdc jcc aib ml-1em">
+                        <span class="fs-16 fw-600">{{ product.seller.username }}</span>
+                        {% if product.seller.soldProducts | length > 1 %}
+                            <span>{{ product.seller.soldProducts | length }} annonces</span> 
+                        {% endif %}
                     </div>
                 </div>
-                <div class="product-page-middle-box">
-                    <h2 class="fs-18 fw-600">Description</h2>
-                    <p class="page-product-description">
-                        {{ product.description }} 
-                    </p>
+                <div class="ptb-105em-lr-1em df fdc g05em">
+                    <button class="button button-full p08-0em">Acheter</button>
+                    <button class="button button-yellow p08-0em">Message</button>
                 </div>
-                <div class="product-page-middle-box">
-                    <h2 class="fs-18 fw-600">Critères</h2>
-                    <div class="page-product-criteria">
-                        TODO
-                    </div>
-                </div>
-                <div class="product-page-middle-box">
-                    TODO localisation & livraison
-                </div>
-            </section>
-            <section class="product-content-related">
-                <div class="seller-more-content product-page-middle-box">
-                    <div class="seller-more-content-header">
-                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
-                        <div class="seller-more-content-infos">
-                            <span class="fs-16 fw-600">{{ product.seller.username }}</span>
-                            {% if product.seller.soldProducts | length > 1 %}
-                                <span class="seller-sold-products">{{ product.seller.soldProducts | length }} annonces</span> 
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="mt-105em">
-                        <h3 class="mb-102em fs-16 fw-600">
-                            Les annonces de {{ product.seller.username }}
-                        </h3>
-                        <div class="product-page-other-seller-products">
-                            {% for soldProduct in product.seller.soldProducts %}
-                                {% if product.id != soldProduct.id %}
-                                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
-                                        <div class="page-product-item">
-                                            <div class="product-main">
-                                                <div>
-                                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
-                                                </div>
-                                                <h2 class="title-color-change fs-16 fw-600">{{ soldProduct.name }}</h2>
-                                            </div>
-                                            <div class="product-price fw-600">{{ soldProduct.price }} €</div>
-                                        </div>
-                                    </a>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="product-page-related-products product-page-middle-box">
-                    <h2 class="fs-18 fw-600">Ces annonces peuvent vous intéresser</h2>
-                    <div>TODO related products</div>
-                </div>
-            </section>
-            <aside class="seller-aside">
-                <div class="seller-card">
-                    <div class="seller-card-header">
-                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
-                        <div class="seller-infos">
-                            <span class="fs-16 fw-600">{{ product.seller.username }}</span>
-                            {% if product.seller.soldProducts | length > 1 %}
-                                <span class="seller-sold-products">{{ product.seller.soldProducts | length }} annonces</span> 
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="seller-buttons">
-                        <button class="button button-full p08-0em">Acheter</button>
-                        <button class="button button-yellow p08-0em">Message</button>
-                    </div>
-                </div>
-            </aside>
-        </article>
-    </div>
+            </div>
+        </aside>
+    </article>
     <!-- <a href="{{ path('app_product_index') }}">back to list</a> -->
     <a href="{{ path('app_product_edit', {'slug': product.slug}) }}">edit</a>
     <!-- {{ include('product/_delete_form.html.twig') }} -->

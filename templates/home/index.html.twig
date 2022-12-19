@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<main class="background-grey">
-    <h1 class="main-title fs-24 fw-600">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
-    <div class="products">
+<div class="bg-grey">
+<main class="mxw-1066px m-0auto">
+    <h1 class="ta-center ptb-105em fs-24 fw-600">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    <div class="df fww jcc">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
-            <div class="product-item">
-                <div class="product-seller-details">
+            <div class="mxw-195px ptb-1em-lr-05em df fdc aic">
+                <div class="df asst g02em o1">
                     <div>
                         {% if product.seller.image is defined %}
                             <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
@@ -16,23 +17,24 @@
                         {% endif %}
                     </div>
                     <div class="fw-600">{{ product.seller.username }}</div>
-                    <div class="product-seller-reviews">
+                    <div>
                         <i class="fa-solid fa-star fa-sm color-purple"></i>
                         <span class="fs-12">3</span>
                     </div>
                 </div>
 
-                <div class="product-main">
+                <div class="o2">
                     <div>
                         <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h180-w225 rounded-corner cover-center-object">
                     </div>
                     <h2 class="title-color-change fs-16 fw-600">{{ product.name }}</h2>
                 </div>
 
-                <div class="product-price fw-600">{{ product.price }} €</div>
+                <div class="o3 asst fw-600">{{ product.price }} €</div>
             </div>
         </a>
         {% endfor %}
     </div>
 </main>
+</div>
 {% endblock %}

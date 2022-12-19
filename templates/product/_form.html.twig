@@ -1,6 +1,6 @@
 {{ form_start(form) }}
     <div class="form-item form-item-half">
-        <label for="product_name" class="label mt-1em">
+        <label for="product_name" class="label">
             Quel est le titre de l'annonce ?
             <span class="required-field">champ requis</span>
         </label>
@@ -36,7 +36,7 @@
         </label>
         {% if app.request.attributes.get('_route') == 'app_product_edit' %}
             {% if product.images %}
-                <div class="product-images-display mb-1em">
+                <div class="df g03em mb-1em">
                     {% for image in product.images %}
                         <div class="picture-with-button">
                             <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}" class="h150-w150 cover-center-object roundish-corner">

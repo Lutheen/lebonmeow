@@ -89,6 +89,7 @@
     object-position: center;
 }
 
+/* picture with action */
 .picture-with-button {
     display: flex;
     position: relative;
@@ -113,6 +114,12 @@
 .bg-white {
     background-color: white;
 }
+.bg-grey {
+    background-color: var(--body-background-color);
+}
+.bg-lighter-grey {
+    background-color: var(--input-border-color);
+}
 
 .bg-piggy-bank {
     background-image: url(/public/images/bg-tiny.png);
@@ -120,14 +127,12 @@
     background-size: 130px 120px;
     background-repeat: no-repeat;
 }
-
 .bg-cats {
     background-image: url(/public/images/cat-background.png);
     background-position: center bottom;
     background-size: 980px;
     background-repeat: no-repeat;
 }
-
 .bg-padlock {
     background-image: url(/public/images/forgot-pwd.png);
     background-position: center center;

@@ -3,44 +3,45 @@
 {% block title %}Modifier votre annonce {{ product.name }} sur lebonmeow{% endblock %}
 
 {% block body %}
-    <div class="container background-grey">
-        <main class="pt-105em">
-            <h1 class="new-product-title m-0auto pb-08em fs-24 fw-600">Modifier une annonce</h1>
-            <div class="new-product-row m-0auto">
-                <div class="new-product-form pts-2em-b-205em">
-                {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
+<div class="bg-grey">
+<main class="mxw-1066px m-0auto">
+    <h1 class="p-t105em-s1em-b08em fs-24 fw-600">Modifier une annonce</h1>
+    <div class="grid-product-change">
+        <div class="form-white-bg pts-2em-b-205em">
+        {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+        <div class="df jcc fdc g15 ps-2em ta-center">
+            <div>
+                <div class="tipscard-drawing">
+                    <div class="tipscard-line"></div>
+                    <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
+                    <div class="tipscard-line"></div>
                 </div>
-                <div class="new-product-tipscard ps-2em ta-center">
-                    <div class="mb-405em">
-                        <div class="tipscard-drawing">
-                            <div class="tipscard-line"></div>
-                            <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
-                            <div class="tipscard-line"></div>
-                        </div>
-                        <p>Mettez en valeur votre annonce !</p>
-                        <p>Plus il y a de détails, plus votre futur acheteur vous trouvera rapidement.</p>
-                    </div>
-                    <div class="mb-405em">
-                        <div class="tipscard-drawing">
-                            <div class="tipscard-line"></div>
-                            <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
-                            <div class="tipscard-line"></div>
-                        </div>
-                        <p>Vous le savez, le prix est important, autant pour vous que pour l’acheteur. Soyez juste, mais ayez en tête une marge de négociation si besoin.</p>
-                    </div>
-                    <div class="mb-405em">
-                        <div class="tipscard-drawing">
-                            <div class="tipscard-line"></div>
-                            <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
-                            <div class="tipscard-line"></div>
-                        </div>
-                        <p>3 photos dans une annonce augmentent de 30% le nombre de contacts !</p>
-                    </div>
-                </div>
+                <p>Mettez en valeur votre annonce !</p>
+                <p>Plus il y a de détails, plus votre futur acheteur vous trouvera rapidement.</p>
             </div>
-        </main>
-    <a href="{{ path('app_product_index') }}">Retour aux annonces</a>
-
-    {{ include('product/_delete_form.html.twig') }}
+            <div>
+                <div class="tipscard-drawing">
+                    <div class="tipscard-line"></div>
+                    <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
+                    <div class="tipscard-line"></div>
+                </div>
+                <p>Vous le savez, le prix est important, autant pour vous que pour l’acheteur. Soyez juste, mais ayez en tête une marge de négociation si besoin.</p>
+            </div>
+            <div>
+                <div class="tipscard-drawing">
+                    <div class="tipscard-line"></div>
+                    <i class="fa-regular fa-lightbulb ms-04em fa-2xl"></i>
+                    <div class="tipscard-line"></div>
+                </div>
+                <p>3 photos dans une annonce augmentent de 30% le nombre de contacts !</p>
+            </div>
+        </div>
     </div>
+    <a href="{{ path('app_product_index') }}">Retour aux annonces</a>
+    {{ include('product/_delete_form.html.twig') }}
+</main>
+</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}

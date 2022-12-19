@@ -1,35 +1,27 @@
 .fs-12 {
     font-size: 12px;
 }
-
 .fs-13 {
     font-size: 13px;
 }
-
 .fs-14 {
     font-size: 14px;
 }
-
 .fs-16 {
     font-size: 16px;
 }
-
 .fs-18 {
     font-size: 18px;
 }
-
 .fs-20 {
     font-size: 20px;
 }
-
 .fs-24 {
     font-size: 24px;
 }
-
 .fw-600 {
     font-weight: 600;
 }
-
 .fw-400 {
     font-weight: 400;
 }
@@ -37,11 +29,9 @@
 .color-grey {
     color: var(--icons-grey);
 }
-
 .color-purple {
     color: var(--purple);
 }
-
 .color-grey-darker {
     color: var(--grey-label);
 }
@@ -49,9 +39,12 @@
 .ta-left {
     text-align: left;
 }
-
 .ta-center {
     text-align: center;
+}
+
+.tt-up {
+    text-transform: uppercase;
 }
 
 .title-color-change {
@@ -73,7 +66,59 @@
     color: var(--purple);
     transition: color 0.3s ease;
 }
-
 .link-color-change:hover {
     color: var(--purple-darker);
+}
+
+.link-underlined:hover {
+    text-decoration: underline;
+}
+
+.border-bottom-change-black:hover {
+    box-shadow: inset 0 -2px 0 0 black;
+    font-weight: 600;
+    transition: box-shadow 0.5s ease-in-out, font-weight 1.5s;
+}
+.border-bottom-change-purple:hover {
+    box-shadow: inset 0 -2px 0 0 var(--purple);
+    transition: 0.5s ease-in-out;
+}
+
+.dot {
+    flex: 1 1 0%;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+span.dot:last-child {
+    display: none;
+}
+.dot::after {
+    top: 50%;
+    left: 50%;
+    font-weight: 600;
+    content: '•';
+    position: absolute;
+    transform: translate(-50%, -80%);
+}
+
+.chevron:not(:first-of-type)::before {
+    content: ">";
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+/* Tipscard */
+.tipscard-drawing {
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2em 0;
+}
+.tipscard-line {
+    height: 1px;
+    flex: 1 1;
+    background: var(--purple);
 }

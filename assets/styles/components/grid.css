@@ -12,51 +12,64 @@
           [five] "logout . ." auto [six]
           / 1fr 1fr 1fr;
 }
-
 .gapublic {
     grid-area: public;
 }
-
 .gawallet {
     grid-area: wallet;
 }
-
 .gaproducts {
     grid-area: products;
 }
-
 .gadeals {
     grid-area: deals;
 }
-
 .gabookings {
     grid-area: bookings;
 }
-
 .gaspaces {
     grid-area: spaces;
 }
-
 .gasettings {
     grid-area: settings;
 }
-
 .gasecurity {
     grid-area: security;
 }
-
 .gacredits {
     grid-area: credits;
 }
-
 .gahelp {
     grid-area: assistance;
 }
-
 .gacommunity {
     grid-area: community;
 }
-
 .galogout {
     grid-area: logout;
+}
+
+
+.grid-product-show {
+    display: grid;
+    grid-template-columns: [col-first] 65% [col-second] 35% [col-third];
+    grid-template-rows: [row-start] auto [row-middle] auto [row-end];
+    gap: 1.5em;
+}
+.ga-fs {
+    grid-area: row-start / col-first / row-middle / col-second;
+}
+.ga-ss {
+    grid-area: row-middle / col-first / row-end / col-second;
+}
+.ga-as {
+    grid-area: row-start / col-second / row-middle / col-third;
+}
+
+
+.grid-product-change {
+    display: grid;
+    grid-template: 
+        [start-row] "main tipscard" auto [end-row]
+        / 75% 25%;
 }

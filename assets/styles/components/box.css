@@ -23,12 +23,20 @@
     align-items: flex-start;
     height: 170px;
 }
-
 .big-box-content {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.1em;
+}
+
+.med-box-w-topbottom-border {
+    margin: 0.5em;
+    padding: 1.6em 0;
+    display: grid;
+    gap: 1em;
+    border-top: 1px solid var(--input-border-color);
+    border-bottom: 1px solid var(--input-border-color);
 }
 
 .box-w-border {
@@ -60,4 +68,20 @@
     border: 1px solid var(--alert-danger-color);
     background-color: var(--alert-danger-background);
     color: var(--alert-danger-color);
+}
+
+
+/* containers */
+header {
+    z-index: 1100;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: var(--gradient);
+}
+
+footer {
+    color: white;
+    padding: 1.5em 0.5em;
+    background-color: var(--footer-background-color);
 }

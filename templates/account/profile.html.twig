@@ -4,45 +4,43 @@
 
 {% block body %}
 
-<div class="container-profile">
-    <div class="main-profile">
-        <div class="user-card">
-            <h2 class="user-username">{{ app.user.username }}</h2>
-            <span>Membre depuis {{ app.user.dateFormat }}</span>
-        </div>
-        <div class="user-products-card">
-            {% if app.user.soldProducts %}
-                {% if app.user.soldProducts|length == 1 %}
-                    <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonce</span>
-                {% else %}
-                    <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonces</span>
-                {% endif %}
-                {% for soldProduct in app.user.soldProducts %}
-                    <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
-                        <div class="user-product-display">
-                            {% if soldProduct.firstImage %}
-                                <div class="product-thumbnail">
-                                    <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h194-w240 cover-center-object ltlbc-rounded">
-                                </div>
-                            {% else %}
-                                <div class="product-thumbnail bcgd-grey h194-w240">
-                                    <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
-                                </div>
-                            {% endif %}
-                            <div class="profile-product-content">
-                                <h3 class="title-color-change fw-600 fs-20">{{ soldProduct.name }}</h3>
-                                <span class="profile-product-price fw-600 fs-16">{{ soldProduct.price }} €</span>
-                                <span class="profile-product-category">{{ soldProduct.category }}</span>
-                                <span class="profile-product-date">{{ soldProduct.dateFormat }}</span>
-                            </div>
-                        </div>
-                    </a>
-                {% endfor %}
-            {% else %}
-                <span class="fs-18 fw-600">Aucune annonce</span>
-            {% endif %}
-        </div>
+<main class="ptb-4em df fdc g2em mxw-1066px m-0auto">
+    <div class="df fdc box-w-border p-1em">
+        <h2>{{ app.user.username }}</h2>
+        <span>Membre depuis {{ app.user.dateFormat }}</span>
     </div>
-</div>
+    <div class="df fdc g1em">
+        {% if app.user.soldProducts %}
+            {% if app.user.soldProducts|length == 1 %}
+                <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonce</span>
+            {% else %}
+                <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonces</span>
+            {% endif %}
+            {% for soldProduct in app.user.soldProducts %}
+                <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
+                    <div class="df box-shadow">
+                        {% if soldProduct.firstImage %}
+                            <div class="df jcc aic">
+                                <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h194-w240 cover-center-object ltlbc-rounded">
+                            </div>
+                        {% else %}
+                            <div class="df jcc aic bg-lighter-grey h194-w240">
+                                <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
+                            </div>
+                        {% endif %}
+                        <div class="df fdc p-105em">
+                            <h3 class="title-color-change fw-600 fs-20">{{ soldProduct.name }}</h3>
+                            <span class="fw-600 fs-16">{{ soldProduct.price }} €</span>
+                            <span class="mt-05em">{{ soldProduct.category }}</span>
+                            <span>{{ soldProduct.dateFormat }}</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <span class="fs-18 fw-600">Aucune annonce</span>
+        {% endif %}
+    </div>
+</main>
 
 {% endblock %}
