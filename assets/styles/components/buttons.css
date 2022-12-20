@@ -3,6 +3,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 14px;
 }
 
 .button-outline {
@@ -84,8 +85,24 @@
 }
 
 .trs-trl-right {
-    transform: translate(210px, 55px);
+    transform: translate(110%, 70%);
 }
 .trs-trl-left {
-    transform: translate(-200px, -15px);
+    transform: translate(-110%, -100%);
+    margin-top: 0!important;
+}
+
+.button-small {
+    padding: 0.8em;
+    width: 30%;
+    margin: 1.5em auto 0;
+}
+
+.button-wide {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0;
+    padding: 0.6em 0;
+    width: 100%;
 }

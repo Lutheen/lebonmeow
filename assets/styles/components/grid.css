@@ -47,6 +47,7 @@
 }
 .galogout {
     grid-area: logout;
+    margin-top: 0.5em;
 }
 
 

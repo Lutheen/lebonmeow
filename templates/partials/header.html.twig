@@ -1,7 +1,7 @@
 <header>
-    <div class="mxw-1066px m-0auto ps-1em df jcsb aic fww">
+    <div class="center-content ps-1em df jcsb aic fww">
 
-        <div class="df aic jcs f11auto g102em fw-600">
+        <div class="df aic jcs f11auto g102em">
             <a href="/">
                 <img src="/images/logo-pressed.png" alt="Logo du site Lebonmeow" class="logo">
             </a>
@@ -9,27 +9,27 @@
                 <i class="fa-regular fa-square-plus fa-xl mr-05em"></i>
                 <span class="pb-02em">Déposer une annonce</span>
             </a>
-            <a href="/" class="df aic jcc ass fdr g06em ptb-102em-lr-05em border-bottom-change-purple">
+            <a href="/" class="df fdr jcc aic ass g06em ptb-102em-lr-05em border-bottom-change-purple normal-text">
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
                 Rechercher
             </a>
         </div>
         
-        <div class="df aic jce f11auto ass fs-12">
-            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
+        <div class="df aic jce f11auto ass tiny-text">
+            <a href="/" class="df fdc jcc aic ass g04em p-05em border-bottom-change-purple">
                 <img src="/images/bell.svg" alt="Icône d'une cloche" class="h24-w24">
                 <span>Mes recherches</span>
             </a>
-            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
+            <a href="/" class="df fdc jcc aic ass g04em p-05em border-bottom-change-purple">
                 <img src="/images/heart.svg" alt="Icône d'un coeur" class="h24-w24">
                 <span>Favoris</span>
             </a>
-            <a href="/" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
+            <a href="/" class="df fdc jcc aic ass g04em p-05em border-bottom-change-purple">
                 <img src="/images/messages.svg" alt="Icône d'une bulle avec trois points" class="h24-w24">
                 <span>Messages</span>
             </a>
             {% if app.user %}
-                <a href="/account" class="df aic fdc ass jcc g02em pt-02em-05em border-bottom-change-purple">
+                <a href="/account" class="df fdc jcc aic ass g02em pt-02em-05em border-bottom-change-purple">
                     {% if app.user.image %}
                         <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h30-w30 round-picture cover-center-object">
                     {% else %}
@@ -38,7 +38,7 @@
                     <span>{{ app.user.username }}</span>
                 </a>
             {% else %}
-                <a href="/login" class="df aic fdc ass jcc g04em p-05em border-bottom-change-purple">
+                <a href="/login" class="df fdc jcc aic ass g04em p-05em border-bottom-change-purple">
                     <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="h24-w24">
                     <span>Se connecter</span>
                 </a>

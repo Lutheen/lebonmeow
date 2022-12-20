@@ -2,9 +2,9 @@
 
 {% block body %}
 <div class="bg-grey">
-<main class="mxw-1066px m-0auto">
-    <h1 class="ta-center ptb-105em fs-24 fw-600">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
-    <div class="df fww jcc">
+<main class="center-content">
+    <h1 class="ta-center ptb-105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    <div class="df jcc fww">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
             <div class="mxw-195px ptb-1em-lr-05em df fdc aic">
@@ -16,10 +16,10 @@
                             <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
                         {% endif %}
                     </div>
-                    <div class="fw-600">{{ product.seller.username }}</div>
+                    <div class="normal-text">{{ product.seller.username }}</div>
                     <div>
                         <i class="fa-solid fa-star fa-sm color-purple"></i>
-                        <span class="fs-12">3</span>
+                        <span class="tiny-text">3</span>
                     </div>
                 </div>
 
@@ -27,10 +27,10 @@
                     <div>
                         <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h180-w225 rounded-corner cover-center-object">
                     </div>
-                    <h2 class="title-color-change fs-16 fw-600">{{ product.name }}</h2>
+                    <h2 class="title-color-change big-text">{{ product.name }}</h2>
                 </div>
 
-                <div class="o3 asst fw-600">{{ product.price }} €</div>
+                <div class="o3 asst normal-text">{{ product.price }} €</div>
             </div>
         </a>
         {% endfor %}

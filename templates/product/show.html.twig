@@ -3,7 +3,7 @@
 {% block title %}{{ product.name }} - {{ product.category.name | capitalize }}{% endblock %}
 
 {% block body %}
-<main class="mtb-105em-auto mxw-1066px">
+<main class="center-content">
     {% include "partials/breadcrumb.html.twig" %}
     <article class="grid-product-show">
         <section class="mnw-320px ga-fs">
@@ -15,47 +15,47 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="df fdc ptb-102em ms-02em">
-                    <h1 class="fs-24 fw-600">
+                <div class="box-column-content">
+                    <h1 class="massive-text">
                         {{ product.name }}
                     </h1>
-                    <span class="mtb-03em fs-18 fw-600">
+                    <span class="mtb03em jumbo-text">
                         {{ product.price }} € 
                     </span>
-                    <span class="fs-12">
+                    <span class="tiny-text">
                         {{ product.createdAt | date("d/m/Y \\à\\ H:i") }} 
                     </span>
                 </div>
             </div>
-            <div class="med-box-w-topbottom-border">
-                <h2 class="fs-18 fw-600">Description</h2>
+            <div class="box-topbottom-border">
+                <h2 class="jumbo-text">Description</h2>
                 <p>
                     {{ product.description }} 
                 </p>
             </div>
-            <div class="med-box-w-topbottom-border">
-                <h2 class="fs-18 fw-600">Critères</h2>
+            <div class="box-topbottom-border">
+                <h2 class="jumbo-text">Critères</h2>
                 <div>
                     TODO
                 </div>
             </div>
-            <div class="med-box-w-topbottom-border">
+            <div class="box-topbottom-border">
                 TODO localisation & livraison
             </div>
         </section>
         <section class="ga-ss">
-            <div class="med-box-w-topbottom-border">
+            <div class="box-topbottom-border">
                 <div class="g1em df">
                     <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
-                    <div class="df jcc fdc">
-                        <span class="fs-16 fw-600">{{ product.seller.username }}</span>
+                    <div class="df fdc jcc">
+                        <span class="big-text">{{ product.seller.username }}</span>
                         {% if product.seller.soldProducts | length > 1 %}
                             <span>{{ product.seller.soldProducts | length }} annonces</span> 
                         {% endif %}
                     </div>
                 </div>
-                <div class="mt-105em">
-                    <h3 class="mb-102em fs-16 fw-600">
+                <div class="mt105em">
+                    <h3 class="mb-102em big-text">
                         Les annonces de {{ product.seller.username }}
                     </h3>
                     <div class="df fdr jcs g1em">
@@ -66,8 +66,8 @@
                                         <div>
                                             <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
                                         </div>
-                                        <h2 class="title-color-change fs-16 fw-600">{{ soldProduct.name }}</h2>
-                                        <span class="fw-600">{{ soldProduct.price }} €</span>
+                                        <h2 class="title-color-change big-text">{{ soldProduct.name }}</h2>
+                                        <span class="normal-text">{{ soldProduct.price }} €</span>
                                     </div>
                                 </a>
                             {% endif %}
@@ -75,17 +75,17 @@
                     </div>
                 </div>
             </div>
-            <div class="med-box-w-topbottom-border">
-                <h2 class="fs-18 fw-600">Ces annonces peuvent vous intéresser</h2>
+            <div class="box-topbottom-border">
+                <h2 class="jumbo-text">Ces annonces peuvent vous intéresser</h2>
                 <div>TODO related products</div>
             </div>
         </section>
         <aside class="ga-as df fdc">
             <div class="mnw-320px box-shadow">
-                <div class="ms-1em ptb-105em df bb-1px-lightgrey">
+                <div class="box-bottom-border">
                     <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
                     <div class="df fdc jcc aib ml-1em">
-                        <span class="fs-16 fw-600">{{ product.seller.username }}</span>
+                        <span class="big-text">{{ product.seller.username }}</span>
                         {% if product.seller.soldProducts | length > 1 %}
                             <span>{{ product.seller.soldProducts | length }} annonces</span> 
                         {% endif %}

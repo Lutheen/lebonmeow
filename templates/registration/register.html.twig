@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="fs-16 fw-600 color-purple">
+<span class="big-text color-purple">
     Création de compte
 </span>
 </div>
@@ -20,14 +20,14 @@
         </div>
     {% endif %}
 
-    <div class="df fdc jcc aic box-shadow mt-2em-sb-auto p-2em bg-white w-500px">
+    <div class="box-shadow box-form">
 
         {% for flash_error in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
         {% endfor %}
 
         <div class="ta-center pb-1em">
-            <h2 class="fs-20 fw-600 mt-05em mb-102em">Créez un compte</h2>
+            <h2 class="boxform-title">Créez un compte</h2>
             <span>Bénéficiez d'une expérience personnalisée avec du contenu en lien avec votre activité et vos centres d'intérêt sur notre service</span>
         </div>
         
@@ -50,9 +50,9 @@
                 </label>
                 {{ form_widget(registrationForm.username) }}
             </div>
-            <button type="submit" class="w-100 dif aic jcc mnh-206em button button-full fs-14 mtb-105em">Créer mon compte</button>
+            <button type="submit" class="button button-full button-wide">Créer mon compte</button>
         {{ form_end(registrationForm) }}
-        <div class="fs-13">Vous avez déjà un compte ? <a href="{{ path('app_login') }}" class="link-color-change">Me connecter</a></div>
+        <div class="small-text">Vous avez déjà un compte ? <a href="{{ path('app_login') }}" class="link-color-change">Me connecter</a></div>
     </div>
 </main>
 {% endblock %}

@@ -4,17 +4,17 @@
 
 {% block body %}
 
-<main class="ptb-4em df fdc g2em mxw-1066px m-0auto">
-    <div class="df fdc box-w-border p-1em">
+<main class="ptb-4em df fdc g2em center-content">
+    <div class="df fdc box-border p-1em">
         <h2>{{ app.user.username }}</h2>
         <span>Membre depuis {{ app.user.dateFormat }}</span>
     </div>
     <div class="df fdc g1em">
         {% if app.user.soldProducts %}
             {% if app.user.soldProducts|length == 1 %}
-                <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonce</span>
+                <span class="jumbo-text">{{ app.user.soldProducts|length }} annonce</span>
             {% else %}
-                <span class="fs-18 fw-600">{{ app.user.soldProducts|length }} annonces</span>
+                <span class="jumbo-text">{{ app.user.soldProducts|length }} annonces</span>
             {% endif %}
             {% for soldProduct in app.user.soldProducts %}
                 <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
@@ -29,16 +29,16 @@
                             </div>
                         {% endif %}
                         <div class="df fdc p-105em">
-                            <h3 class="title-color-change fw-600 fs-20">{{ soldProduct.name }}</h3>
-                            <span class="fw-600 fs-16">{{ soldProduct.price }} €</span>
-                            <span class="mt-05em">{{ soldProduct.category }}</span>
+                            <h3 class="title-color-change huge-text">{{ soldProduct.name }}</h3>
+                            <span class="big-text">{{ soldProduct.price }} €</span>
+                            <span class="mt05em">{{ soldProduct.category }}</span>
                             <span>{{ soldProduct.dateFormat }}</span>
                         </div>
                     </div>
                 </a>
             {% endfor %}
         {% else %}
-            <span class="fs-18 fw-600">Aucune annonce</span>
+            <span class="jumbo-text">Aucune annonce</span>
         {% endif %}
     </div>
 </main>

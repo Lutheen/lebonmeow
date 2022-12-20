@@ -2,9 +2,9 @@
 
 {% block body %}
 
-<div class="grid-account mxw-1066px w-100 ptb-105em m-0auto">
-    <div class="box p-105em aic box-w-border gapublic medium-box jcsb">
-        <div class="df aic jcsa">
+<main class="grid-account ptb-105em center-content">
+    <div class="box box-border gapublic medium-box jcsb">
+        <div class="df">
             <a href="{{ path('app_user_picture', {'id': app.user.id }) }}">
                 <div class="df aie button-add">
                     {% if app.user.image %}
@@ -14,16 +14,16 @@
                     {% endif %}
                 </div>
             </a>
-            <h1 class="fs-20 fw-600">{{ app.user.username }}</h1>
+            <h1 class="huge-text asc">{{ app.user.username }}</h1>
         </div>
         <a href="{{ path('app_profile') }}" class="button button-outline p05-1em">Voir mon profil public</a>
     </div>
     <div class="gawallet">
         <a href="/">{# todo route porte-monnaie #}
-            <div class="box-shadow box p-105em aic bg-piggy-bank medium-box">
+            <div class="box-shadow box bg-piggy-bank medium-box">
                 <div class="df fdc">
-                    <h2 class="fs-16 fw-600">Porte-monnaie</h2>
-                    <span class="fs-24 fw-600">0 €</span>
+                    <h2 class="big-text">Porte-monnaie</h2>
+                    <span class="massive-text">0 €</span>
                     <span>Solde disponible</span>
                 </div>
             </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="gaproducts">
         <a href="/">{# todo route products #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-square fa-stack-2x color-grey"></i>
@@ -39,7 +39,7 @@
                     </span>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Annonces</h2>
+                    <h2 class="big-text">Annonces</h2>
                     <span>Gérer mes annonces déposées</span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
     </div>
     <div class="gadeals">
         <a href="/">{# todo route deals #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-circle fa-stack-2x color-grey"></i>
@@ -55,7 +55,7 @@
                     </span>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Transactions</h2>
+                    <h2 class="big-text">Transactions</h2>
                     <span>Suivre mes achats et mes ventes</span>
                 </div>
             </div>
@@ -63,12 +63,12 @@
     </div>
     <div class="gabookings">
         <a href="/">{# todo route bookings #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <i class="fa-solid fa-umbrella-beach fa-2xl color-grey trs-sca-inverse"></i>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Réservations de vacances</h2>
+                    <h2 class="big-text">Réservations de vacances</h2>
                     <span>Retrouver vos réservations en tant qu'hôte et voyageur</span>
                 </div>
             </div>
@@ -76,12 +76,12 @@
     </div>
     <div class="gaspaces">
         <a href="/">{# todo route spaces #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <i class="fa-solid fa-circle-user fa-2xl color-grey"></i>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Profil & Espaces</h2>
+                    <h2 class="big-text">Profil & Espaces</h2>
                     <span>Modifier mon espace public, accéder à mes avis, aux espaces candidat et locataire</span>
                 </div>
             </div>
@@ -89,12 +89,12 @@
     </div>
     <div class="gasettings">
         <a href="/">{# todo route settings #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <i class="fa-solid fa-gear fa-2xl color-grey"></i>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Paramètres</h2>
+                    <h2 class="big-text">Paramètres</h2>
                     <span>Compléter et modifier mes informations privées et préférences</span>
                 </div>
             </div>
@@ -102,7 +102,7 @@
     </div>
     <div class="gasecurity">
         <a href="/">{# todo route security #}
-            <div class="box p-105em aic big-box box-w-shadowh">
+            <div class="box p-105em big-box box-shadow shadow-hover">
                 <div>
                     <span class="fa-stack fa-1x">
                         <i class="fa-solid fa-shield fa-stack-2x color-grey"></i>
@@ -110,56 +110,42 @@
                     </span>
                 </div>
                 <div class="big-box-content">
-                    <h2 class="fs-16 fw-600">Connexion et sécurité</h2>
+                    <h2 class="big-text">Connexion et sécurité</h2>
                     <span>Protéger mon compte et mettre à jour mon mot de passe</span>
                 </div>
             </div>
         </a>
     </div>
-    <div class="gacredits color-purple">
+    <div class="gacredits">
         <a href="/">{# todo route credits #}
-            <div class="box p-105em aic small-box box-w-shadowh">
-                <div class="mr-05em">
-                    <i class="fa-solid fa-coins fa-sm"></i>
-                </div>
-                <div class="mt-0">
-                    <h2 class="fw-600">Mes crédits</h2>
-                </div>
+            <div class="box p-105em small-box box-shadow shadow-hover mr-05em g03em color-purple">
+                <i class="fa-solid fa-coins fa-sm"></i>
+                <h2 class="normal-text">Mes crédits</h2>
             </div>
         </a>
     </div>
     <div class="gahelp">
         <a href="/">{# todo route assistance #}
-            <div class="box p-105em aic small-box jcsb box-w-shadowh">
+            <div class="box p-105em small-box jcsb box-shadow shadow-hover">
                 <div class="df">
-                    <div class="mr-105em">
-                        <i class="fa-solid fa-question fa-2xl color-grey"></i>
-                    </div>
-                    <div class="mt-0">
-                        <h2 class="fs-16 fw-600">Aide</h2>
-                    </div>
+                    <i class="fa-solid fa-question fa-2xl color-grey mr-05em asc"></i>
+                    <h2 class="big-text">Aide</h2>
                 </div>
-                <div class="color-grey">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square color-grey"></i>
             </div>
         </a>
     </div>
     <div class="gacommunity">
         <a href="/">{# todo route community #}
-            <div class="box p-105em aic small-box jcsb box-w-shadowh">
-                <div class="mt-0">
-                    <h2 class="fs-16 fw-600">Communauté <span class="logo-txt">lebonmeow</span></h2>
-                </div>
-                <div class="color-grey">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
+            <div class="box p-105em small-box jcsb box-shadow shadow-hover">
+                <h2 class="big-text">Communauté <span class="logo-txt">lebonmeow</span></h2>
+                <i class="fa-solid fa-arrow-up-right-from-square color-grey"></i>
             </div>
         </a>
     </div>
-    <div class="galogout mt-05em df aie fw-600 color-grey-darker">
+    <div class="galogout">
         <a href="/logout">
-            <div class="box">Me déconnecter</div>
+            <div class="box normal-text color-grey-darker">Me déconnecter</div>
         </a>
     </div>
     {# {% for message in app.flashes('address_message') %}
@@ -195,5 +181,5 @@
     {% else %}
         <p>Aucune adresse enregistrée.</p>
     {% endif %} #}
-</div>
+</main>
 {% endblock %}

@@ -4,7 +4,7 @@
 
 {% block header %}
 {% include "partials/header_mini.html.twig" %}
-<span class="fs-16 fw-600 color-purple">
+<span class="big-text color-purple">
     <i class="fa-solid fa-shield-cat fa-xl"></i>
     Connexion
 </span>
@@ -21,14 +21,14 @@
         </div>
     {% endif %}
 
-    <div class="df fdc jcc aic box-shadow mt-2em-sb-auto p-2em bg-white w-400px">
+    <div class="box-shadow box-form">
 
         {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
         <div class="ta-center pb-1em">
-            <h2 class="fs-20 fw-600 mt-05em mb-102em">Bonjour !</h2>
+            <h2 class="boxform-title">Bonjour !</h2>
             <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         </div>
 
@@ -45,11 +45,11 @@
                 </label>
                 <input type="password" name="password" id="inputPassword" class="input" autocomplete="current-password" required>
             </div>
-            <a href="{{ path('app_forgotten_password') }}" class="link-color-change ta-left fs-12">Mot de passe oublié</a>
+            <a href="{{ path('app_forgotten_password') }}" class="link-color-change ta-left tiny-text">Mot de passe oublié</a>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            <button class="w-100 dif aic jcc mnh-206em button button-full fs-14 mtb-105em">Se connecter</button>
+            <button class="button button-full button-wide">Se connecter</button>
         </form>
-        <div class="fs-13">Envie de nous rejoindre ? <a href="{{ path('app_register') }}" class="link-color-change">Créer un compte</a></div>
+        <div class="small-text">Envie de nous rejoindre ? <a href="{{ path('app_register') }}" class="link-color-change">Créer un compte</a></div>
     </div>
 </main>
 {% endblock %}
