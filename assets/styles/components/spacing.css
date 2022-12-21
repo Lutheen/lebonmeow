@@ -22,9 +22,7 @@
     margin-bottom: 0.2em;
 }
 
-.p1em {
-    padding: 1em;
-}
+
 .ptb105em {
     padding: 1.5em 0;
 }
@@ -34,8 +32,8 @@
 .ptb05emlr06em {
     padding: 0.5em 0.6em;
 }
-.ptb4em {
-    padding: 4em 0;
+.ptb3emlr1em {
+    padding: 3em 1em;
 }
 .ps1emb101em {
     padding: 0 1em 1.1em;

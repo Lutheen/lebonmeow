@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/account')]
-class ProfileController extends AbstractController
+class AccountController extends AbstractController
 {
     private $fileUploader;
 
@@ -25,7 +25,7 @@ class ProfileController extends AbstractController
     public function index(): Response
     {
         return $this->render('account/index.html.twig', [
-            'controller_name' => 'ProfileController',
+            'controller_name' => 'AccountController',
         ]);
     }
 
@@ -33,7 +33,7 @@ class ProfileController extends AbstractController
     public function profile(): Response
     {
         return $this->render('account/profile.html.twig', [
-            'controller_name' => 'ProfileController',
+            'controller_name' => 'AccountController',
         ]);
     }
 
@@ -84,5 +84,16 @@ class ProfileController extends AbstractController
         }
 
         return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/my-products', name: 'app_user_products', methods: ['GET'])]
+    public function showProducts(UserRepository $userRepository, int $id): Response
+    {
+        $products = $userRepository->findOneById($id);
+
+        return $this->render('account/products.html.twig', [
+            'controller_name' => 'AccountController',
+            'products' => $products,
+        ]);
     }
 }

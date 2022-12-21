@@ -59,11 +59,14 @@
 .color-grey {
     color: var(--icons-grey);
 }
-.color-purple {
-    color: var(--purple);
-}
 .color-grey-darker {
     color: var(--grey-label);
+}
+.color-grey-lighter {
+    color: var(--footer-border-color);
+}
+.color-purple {
+    color: var(--purple);
 }
 
 .ta-left {

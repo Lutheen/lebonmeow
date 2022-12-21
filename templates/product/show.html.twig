@@ -46,7 +46,11 @@
         <section class="ga-ss">
             <div class="box-topbottom-border">
                 <div class="g1em df">
-                    <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    {% if product.seller.image %}
+                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Avatar par défaut" class="h63-w63 cover-center-object round-picture">
+                    {% endif %}
                     <div class="df fdc jcc">
                         <span class="big-text">{{ product.seller.username }}</span>
                         {% if product.seller.soldProducts | length > 1 %}
@@ -83,7 +87,11 @@
         <aside class="ga-as df fdc">
             <div class="box-shadow">
                 <div class="box-bottom-border">
-                    <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    {% if product.seller.image %}
+                        <img src={{ asset(product.seller.image) }} alt="Avatar de {{ product.seller.username }}" class="h63-w63 cover-center-object round-picture">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Avatar par défaut" class="h63-w63 cover-center-object round-picture">
+                    {% endif %}
                     <div class="df fdc jcc aib">
                         <span class="big-text">{{ product.seller.username }}</span>
                         {% if product.seller.soldProducts | length > 1 %}

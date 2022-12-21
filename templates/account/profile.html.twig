@@ -4,10 +4,20 @@
 
 {% block body %}
 
-<main class="ptb4em df fdc g2em center-content">
-    <div class="df fdc box-border p1em">
-        <h2>{{ app.user.username }}</h2>
-        <span>Membre depuis {{ app.user.dateFormat }}</span>
+<main class="ptb3emlr1em df fdc g3em center-content">
+    <div class="df fdc g2em box-border heavy-padded-box">
+        <div class="df g2em">
+            {% if app.user.image %}
+                <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}" class="h104-w104 cover-center-object round-picture">
+            {% else %}
+                <img src="/images/avatar.png" alt="Avatar par défaut" class="h104-w104 cover-center-object round-picture">
+            {% endif %}
+            <h2 class="jumbo-text asc">{{ app.user.username }}</h2>
+        </div>
+        <span class="color-grey-lighter">
+            <i class="fa-regular fa-bookmark fa-lg ms-social-icons"></i>
+            Membre depuis {{ app.user.dateFormat }}
+        </span>
     </div>
     <div class="df fdc g1em">
         {% if app.user.soldProducts %}

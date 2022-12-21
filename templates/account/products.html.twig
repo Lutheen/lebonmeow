@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<main class="center-content partials-padding">
+    bonjour
+    <div class="df fdr jcs">
+        {% for soldProduct in app.user.soldProducts %}
+            <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
+                <div class="thumbnail-box-tiny mxw-164px">
+                    <div>
+                        <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ soldProduct.name }}" class="h187-w150 roundish-corner cover-center-object">
+                    </div>
+                    <h2 class="title-color-change big-text">{{ soldProduct.name }}</h2>
+                    <span class="normal-text">{{ soldProduct.price }} €</span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
