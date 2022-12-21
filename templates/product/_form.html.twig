@@ -36,7 +36,7 @@
         </label>
         {% if app.request.attributes.get('_route') == 'app_product_edit' %}
             {% if product.images %}
-                <div class="df g03em mb-1em">
+                <div class="pictures-box-tiny">
                     {% for image in product.images %}
                         <div class="picture-with-button">
                             <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}" class="h150-w150 cover-center-object roundish-corner">

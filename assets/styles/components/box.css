@@ -38,10 +38,14 @@
     gap: 0.1em;
 }
 
+.padded-box {
+    padding: 1.5em;
+}
+
 .box-column-content {
     display: flex;
     flex-direction: column;
-    padding: 1.2em 0;
+    padding: 0 0 1.2em;
     margin: 0 0.2em;
 }
 
@@ -59,6 +63,7 @@
     padding: 1.5em 0;
     border-bottom: 1px solid #e6ebef;
     margin: 0 1em;
+    gap: 1em;
 }
 
 .box-topbottom-border {
@@ -109,9 +114,27 @@ footer {
     background-color: var(--footer-background-color);
 }
 
+.mini-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 0;
+}
+
 .center-content {
     max-width: 1066px;
     margin: 0 auto;
+}
+
+.box-whitebg {
+    background-color: white;
+    border-radius: 1em;
+    margin: 2em 0;
+    padding: 2em 2em 2.5em;
+}
+.box-whitebg form {
+    display: flex;
+    flex-direction: column;
 }
 
 .box-form {
@@ -122,6 +145,17 @@ footer {
     padding: 2em;
     margin: 3em auto auto;
     max-width: 500px;
+}
+.box-form-fixed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    padding: 0 1em;
+}
+.box-form-fixed form {
+    width: 305px;
 }
 
 .modal-box {
@@ -140,4 +174,53 @@ footer {
     flex-direction: column;
     gap: 2em;
     margin-top: 2em;
+}
+
+.pictures-box {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.pictures-box-tiny {
+    display: flex;
+    justify-content: start;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.5em;
+}
+
+.narrow-column-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    text-align: center;
+    justify-content: center;
+    gap: 5em;
+}
+
+.breadcrumb-box {
+    padding: 1em 0;
+    font-size: 12px;
+}
+
+.thumbnail-box-tiny {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.5em;
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1.5em 1em;
 }

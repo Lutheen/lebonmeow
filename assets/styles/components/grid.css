@@ -55,7 +55,8 @@
     display: grid;
     grid-template-columns: [col-first] 65% [col-second] 35% [col-third];
     grid-template-rows: [row-start] auto [row-middle] auto [row-end];
-    gap: 1.5em;
+    justify-content: center;
+    gap: 1em;
 }
 .ga-fs {
     grid-area: row-start / col-first / row-middle / col-second;

@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<main class="ptb-4em df fdc g2em center-content">
-    <div class="df fdc box-border p-1em">
+<main class="ptb4em df fdc g2em center-content">
+    <div class="df fdc box-border p1em">
         <h2>{{ app.user.username }}</h2>
         <span>Membre depuis {{ app.user.dateFormat }}</span>
     </div>
@@ -28,7 +28,7 @@
                                 <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
                             </div>
                         {% endif %}
-                        <div class="df fdc p-105em">
+                        <div class="df fdc padded-box">
                             <h3 class="title-color-change huge-text">{{ soldProduct.name }}</h3>
                             <span class="big-text">{{ soldProduct.price }} €</span>
                             <span class="mt05em">{{ soldProduct.category }}</span>

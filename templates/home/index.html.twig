@@ -3,11 +3,11 @@
 {% block body %}
 <div class="bg-grey">
 <main class="center-content">
-    <h1 class="ta-center ptb-105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    <h1 class="ta-center ptb105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
     <div class="df jcc fww">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
-            <div class="mxw-195px ptb-1em-lr-05em df fdc aic">
+            <div class="thumbnail-box-tiny mxw-195px">
                 <div class="df asst g02em o1">
                     <div>
                         {% if product.seller.image is defined %}

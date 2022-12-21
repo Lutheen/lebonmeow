@@ -54,11 +54,10 @@
     width: 240px;
 }
 
-.responsive-h323-w340 {
+.h323-w340 {
     width: 100%;
     max-width: 340px;
-    height: 100%;
-    max-height: 323px;
+    height: 323px;
 }
 
 /* picture corners */
@@ -105,7 +104,6 @@
 .trs-rot-30 {
     transform: rotate(-25deg);
 }
-
 .trs-sca-inverse {
     transform: scale(-1, 1);
 }
