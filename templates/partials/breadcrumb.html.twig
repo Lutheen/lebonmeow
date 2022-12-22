@@ -1,7 +1,13 @@
 <div class="breadcrumb-box">
     <ol class="df jcs">
-        <li class="chevron"><a href="/" class="link-color-change link-underlined">Accueil</a></li>
-        <li class="chevron"><a href="/category/{{ product.category.id }}" class="link-color-change link-underlined">{{ product.category.name | capitalize }}</a></li>
-        <li class="chevron">{{ product.name }}</li>
+        {% if app.request.attributes.get('_route') == 'app_product_show' %}
+            <li class="chevron tiny-text"><a href="/" class="link-color-change link-underlined">Accueil</a></li>
+            <li class="chevron tiny-text"><a href="/category/{{ product.category.id }}" class="link-color-change link-underlined">{{ product.category.name | capitalize }}</a></li>
+            <li class="chevron tiny-text">{{ product.name }}</li>
+        {% endif %}
+        {% if app.request.attributes.get('_route') == 'app_user_products' %}
+            <li class="dota normal-text"><a href="/account" class="link-color-change">Mon compte</a></li>
+            <li class="dota normal-text">Annonces</li>
+        {% endif %}
     </ol>
 </div>

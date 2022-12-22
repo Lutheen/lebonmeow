@@ -9,11 +9,17 @@
         <section class="mnw-320px ga-fs">
             <div class="df fdc">
                 <div class="pictures-box">
-                    {% for image in product.images %}
-                        <div>
-                            <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" class="h323-w340 rounded-corner cover-center-object">
+                    {% if product.images is not empty %}
+                        {% for image in product.images %}
+                            <div>
+                                <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" class="h323responsive rounded-corner cover-center-object">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="df jcc aic bg-lighter-grey h323responsive rounded-corner">
+                            <img src="/images/no-picture-big.png" alt="Image d'annonce par défaut" class="contain-center-object">
                         </div>
-                    {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="box-column-content">
                     <h1 class="massive-text">
@@ -68,7 +74,13 @@
                                 <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
                                     <div class="thumbnail-box-tiny mxw-164px">
                                         <div>
-                                            <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
+                                            {% if soldProduct.firstImage %}
+                                                <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h187-w150 roundish-corner cover-center-object">
+                                            {% else %}
+                                                <div class="df jcc aic bg-lighter-grey h187-w150 roundish-corner">
+                                                    <img src="/images/no-picture.png" class="contain-center-object h80-w140">
+                                                </div>
+                                            {% endif %}
                                         </div>
                                         <h2 class="title-color-change big-text">{{ soldProduct.name }}</h2>
                                         <span class="normal-text">{{ soldProduct.price }} €</span>

@@ -44,9 +44,9 @@
     width: 140px;
 }
 
-.h180-w225 {
-    width: 180px;
-    height: 225px;
+.h130-w160 {
+    height: 130px;
+    width: 160px;
 }
 
 .h187-w150 {
@@ -54,15 +54,25 @@
     width: 150px;
 }
 
+.h225-w180 {
+    height: 225px;
+    width: 180px;
+}
+
 .h194-w240 {
     height: 194px;
     width: 240px;
 }
 
-.h323-w340 {
+.h323responsive {
     width: 100%;
-    max-width: 340px;
+    min-width: 220px;
     height: 323px;
+}
+
+.h500-w500 {
+    height: 500px;
+    width: 500px;
 }
 
 /* picture corners */
@@ -71,7 +81,7 @@
 }
 
 .roundish-corner {
-    border-radius: 5px;
+    border-radius: 5px!important;
 }
 
 .rounded-corner {
@@ -116,6 +126,9 @@
 /* background */
 .bg-white {
     background-color: white;
+}
+.bg-white-darker {
+    background-color: var(--grey);
 }
 .bg-grey {
     background-color: var(--body-background-color);

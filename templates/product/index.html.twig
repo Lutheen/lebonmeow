@@ -24,7 +24,7 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td>{% for image in product.images %}
-                        <img src="{{ asset(image.image) }}" alt="Image de {{ product.name }}" width="100">
+                        <img src={{ asset(image.image) }} alt="Image de {{ product.name }}" width="100">
                     {% endfor %}
                 </td>
                 <td>

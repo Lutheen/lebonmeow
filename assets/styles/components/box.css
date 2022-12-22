@@ -38,10 +38,12 @@
     gap: 0.1em;
 }
 
+.light-padded-box {
+    padding: 1rem 0.5rem;
+}
 .padded-box {
     padding: 1.5em;
 }
-
 .heavy-padded-box {
     padding: 2rem;
 }
@@ -212,8 +214,7 @@ footer {
 }
 
 .breadcrumb-box {
-    padding: 1em 0;
-    font-size: 12px;
+    padding: 1.5rem 0;
 }
 
 .thumbnail-box-tiny {

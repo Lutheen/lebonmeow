@@ -8,7 +8,7 @@
     <div class="df fdc g2em box-border heavy-padded-box">
         <div class="df g2em">
             {% if app.user.image %}
-                <img src="{{ asset(app.user.image) }}" alt="Avatar de {{ app.user.username }}" class="h104-w104 cover-center-object round-picture">
+                <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h104-w104 cover-center-object round-picture">
             {% else %}
                 <img src="/images/avatar.png" alt="Avatar par défaut" class="h104-w104 cover-center-object round-picture">
             {% endif %}
@@ -34,7 +34,7 @@
                                 <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h194-w240 cover-center-object ltlbc-rounded">
                             </div>
                         {% else %}
-                            <div class="df jcc aic bg-lighter-grey h194-w240">
+                            <div class="df jcc aic bg-lighter-grey h194-w240 ltlbc-rounded">
                                 <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
                             </div>
                         {% endif %}

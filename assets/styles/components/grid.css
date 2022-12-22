@@ -75,3 +75,11 @@
         [start-row] "main tipscard" auto [end-row]
         / 75% 25%;
 }
+
+.grid-card {
+    display: grid;
+    grid-template: 
+        [start] "picture main date" auto [end]
+        / auto 65% 15%;
+    gap: 0.5em;
+}

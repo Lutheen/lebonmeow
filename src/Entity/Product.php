@@ -156,7 +156,7 @@ class Product
 
     public function dateFormat(): string
     {
-        return DateTranslator::translate($this->createdAt->format('d M, H:i'));
+        return DateTranslator::translate($this->createdAt->format('d M H:i'));
     }
 
     public function getSlug(): ?string

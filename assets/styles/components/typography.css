@@ -25,6 +25,10 @@
     font-weight: 600;
 }
 
+.tiny-bold {
+    font-size: 12px;
+    font-weight: 600;
+}
 
 .massive-title {
     font-size: 24px;
@@ -116,9 +120,6 @@
 .dot {
     flex: 1 1 0%;
     position: relative;
-    z-index: 1;
-    margin: 0;
-    padding: 0;
 }
 span.dot:last-child {
     display: none;
@@ -134,8 +135,12 @@ span.dot:last-child {
 
 .chevron:not(:first-of-type)::before {
     content: ">";
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
+    padding: 0 0.3rem;
+}
+
+.dota:not(:first-of-type)::before {
+    content: '•';
+    padding: 0 0.5rem;
 }
 
 /* Tipscard */

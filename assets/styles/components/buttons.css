@@ -18,6 +18,16 @@
     color: var(--purple-darker);
 }
 
+.button-red-outline {
+    background-color: white;
+    border: 1px solid var(--red);
+    color: var(--red);
+    transition: background-color 0.3s ease;
+}
+.button-red-outline:hover {
+    background-color: var(--background-button-red);
+}
+
 .button-yellow {
     background-color: var(--yellow);
     color: black;

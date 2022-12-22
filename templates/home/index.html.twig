@@ -25,7 +25,13 @@
 
                 <div class="o2">
                     <div>
-                        <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h180-w225 rounded-corner cover-center-object">
+                        {% if product.firstImage %}
+                            <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h225-w180 rounded-corner cover-center-object">
+                        {% else %}
+                            <div class="df jcc aic bg-lighter-grey h225-w180 rounded-corner">
+                                <img src="/images/no-picture-big.png" class="contain-center-object h187-w150 roundish-corner">
+                            </div>
+                        {% endif %}
                     </div>
                     <h2 class="title-color-change big-text">{{ product.name }}</h2>
                 </div>

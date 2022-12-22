@@ -2,19 +2,40 @@
 
 {% block body %}
 <main class="center-content partials-padding">
-    bonjour
-    <div class="df fdr jcs">
-        {% for soldProduct in app.user.soldProducts %}
-            <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
-                <div class="thumbnail-box-tiny mxw-164px">
-                    <div>
-                        <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce : {{ soldProduct.name }}" class="h187-w150 roundish-corner cover-center-object">
+    {% include "partials/breadcrumb.html.twig" %}
+    <div class="df fdc g1em ptb105em">
+        {% if app.user.soldProducts %}
+            {% for soldProduct in app.user.soldProducts %}
+                <div class="grid-card box-shadow light-padded-box roundish-corner">
+                    {% if soldProduct.firstImage %}
+                        <div>
+                            <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h130-w160 cover-center-object">
+                        </div>
+                    {% else %}
+                        <div class="df jcc aic bg-white-darker h130-w160">
+                            <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
+                        </div>
+                    {% endif %}
+                    <div class="df fdc jcsb">
+                        <div class="df fdc">
+                            <h3 class="link-underlined color-purple big-text dif"><a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">{{ soldProduct.name }}</a></h3>
+                            <span class="jumbo-text">{{ soldProduct.price }} €</span>
+                            <span class="tiny-text">{{ soldProduct.category }}</span>
+                        </div>
+                        <div class="df g06em">
+                            <a href="{{ path('app_product_edit', {'slug': soldProduct.slug}) }}" class="p05-1em button button-full">Modifier</a>
+                            {{ include('product/_delete_form.html.twig') }}
+                        </div>
                     </div>
-                    <h2 class="title-color-change big-text">{{ soldProduct.name }}</h2>
-                    <span class="normal-text">{{ soldProduct.price }} €</span>
+                    <div class="df fdc aic partials-padding asc">
+                        <span class="tiny-bold">Date</span>
+                        <span class="small-text">{{ soldProduct.dateFormat }}</span>
+                    </div>
                 </div>
-            </a>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <span class="jumbo-text">Aucune annonce</span>
+        {% endif %}
     </div>
 </main>
 {% endblock %}
