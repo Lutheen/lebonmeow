@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserAddressType;
 use App\Form\UserAvatarType;
+use App\Form\UserFullNameType;
 use App\Service\FileUploader;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,14 +88,48 @@ class AccountController extends AbstractController
         return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/my-products', name: 'app_user_products', methods: ['GET'])]
-    public function showProducts(UserRepository $userRepository, int $id): Response
+    #[Route('/my-products', name: 'app_user_products', methods: ['GET'])]
+    public function showProducts(): Response
     {
-        $products = $userRepository->findOneById($id);
-
         return $this->render('account/products.html.twig', [
             'controller_name' => 'AccountController',
-            'products' => $products,
+        ]);
+    }
+
+    #[Route('/{id}/settings', name: 'app_user_settings', methods: ['GET', 'POST'])]
+    public function settings(Request $request, User $user, UserRepository $userRepository, string $id): Response
+    {
+        $user = $userRepository->findOneById($id);
+
+        $fullnameForm = $this->createForm(UserFullNameType::class, $user);
+        $addressForm = $this->createForm(UserAddressType::class, $user);
+        $fullnameForm->handleRequest($request);
+        $addressForm->handleRequest($request);
+
+        if ($fullnameForm->isSubmitted() && $fullnameForm->isValid()) {
+            $userRepository->save($user, true);
+
+            return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
+        }
+
+        if ($addressForm->isSubmitted() && $addressForm->isValid()) {
+            $userRepository->save($user, true);
+
+            return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('account/settings.html.twig', [
+            'user' => $user,
+            'fullnameForm' => $fullnameForm,
+            'addressForm' => $addressForm,
+        ]);
+    }
+
+    #[Route('/security', name: 'app_user_security', methods: ['GET', 'POST'])]
+    public function security(Request $request, User $user, UserRepository $userRepository): Response
+    {
+        return $this->render('account/security.html.twig', [
+            'controller_name' => 'AccountController',
         ]);
     }
 }

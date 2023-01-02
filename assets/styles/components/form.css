@@ -130,3 +130,7 @@ select:focus + .focus {
 .form-item-half {
     width: 50%;
 }
+
+.form-item-tier {
+    width: 30%;
+}

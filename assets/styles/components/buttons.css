@@ -108,6 +108,11 @@
     margin: 1.5em auto 0;
 }
 
+.button-medium {
+    margin: 2.5em auto 1em;
+    padding: 1em;
+}
+
 .button-wide {
     display: inline-flex;
     justify-content: center;

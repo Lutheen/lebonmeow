@@ -120,3 +120,9 @@
 .rm-p:last-of-type {
     padding-right: 0;
 }
+
+.bt-border-grey {
+    margin-bottom: 2em;
+    padding: 1.5em 0;
+    border-bottom: 1px solid #e6ebef;
+}

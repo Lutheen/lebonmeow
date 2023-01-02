@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{% include "partials/breadcrumb.html.twig" %}
+<main class="center-content partials-padding">
+    <h1 class="massive-title">Paramètres</h1>
+    <h2 class="jumbo-text">Informations de compte</h2>
+    <div class="bt-border-grey">
+        {{ form_start(fullnameForm) }}
+            <div class="df g102em">
+                <div class="form-item-tier">
+                    <label for="user_full_name_lastname" class="label">
+                        Nom
+                    </label>
+                    {{ form_widget(fullnameForm.lastname) }}
+                </div>
+                <div class="form-item-tier">
+                    <label for="user_full_name_firstname" class="label">
+                        Prénom
+                    </label>
+                    {{ form_widget(fullnameForm.firstname) }}
+                </div>
+            </div>
+            <button class="button button-full button-disabled button-medium">Enregistrer les modifications</button>
+        {{ form_end(fullnameForm) }}
+    </div>
+    <h2 class="jumbo-text">Adresse</h2>
+    <div class="bt-border-grey">
+        {{ form_start(addressForm) }}
+            <div class="df g102em">
+                <div class="form-item-tier">
+                    <label for="user_address_address" class="label">
+                        Adresse
+                        <span class="required-field">champ requis</span>
+                    </label>
+                    {{ form_widget(addressForm.address) }}
+                </div>
+                <div class="form-item-tier">
+                    <label for="user_address_city" class="label">
+                        Ville
+                        <span class="required-field">champ requis</span>
+                    </label>
+                    {{ form_widget(addressForm.city) }}
+                </div>
+            </div>
+            <button class="button button-full button-disabled button-medium">Enregistrer les modifications</button>
+        {{ form_end(addressForm) }}
+    </div>
+</main>
+{% endblock %}

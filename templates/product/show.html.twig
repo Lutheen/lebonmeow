@@ -3,10 +3,10 @@
 {% block title %}{{ product.name }} - {{ product.category.name | capitalize }}{% endblock %}
 
 {% block body %}
+{% include "partials/breadcrumb.html.twig" %}
 <main class="center-content partials-padding">
-    {% include "partials/breadcrumb.html.twig" %}
     <article class="grid-product-show">
-        <section class="mnw-320px ga-fs">
+        <section class="mnw-320px">
             <div class="df fdc">
                 <div class="pictures-box">
                     {% if product.images is not empty %}
@@ -96,7 +96,7 @@
                 <div>TODO related products</div>
             </div>
         </section>
-        <aside class="ga-as df fdc">
+        <aside class="df fdc">
             <div class="box-shadow">
                 <div class="box-bottom-border">
                     {% if product.seller.image %}
@@ -118,8 +118,5 @@
             </div>
         </aside>
     </article>
-    <!-- <a href="{{ path('app_product_index') }}">back to list</a> -->
-    <a href="{{ path('app_product_edit', {'slug': product.slug}) }}">edit</a>
-    <!-- {{ include('product/_delete_form.html.twig') }} -->
 </main>
 {% endblock %}

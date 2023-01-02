@@ -58,18 +58,12 @@
     justify-content: center;
     gap: 1em;
 }
-.ga-fs {
-    grid-area: row-start / col-first / row-middle / col-second;
-}
 .ga-ss {
     grid-area: row-middle / col-first / row-end / col-second;
 }
-.ga-as {
-    grid-area: row-start / col-second / row-middle / col-third;
-}
 
 
-.grid-product-change {
+.grid-product-form {
     display: grid;
     grid-template: 
         [start-row] "main tipscard" auto [end-row]
