@@ -3,15 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\UserAddressType;
 use App\Form\UserAvatarType;
-use App\Form\UserFullNameType;
+use App\Form\UserAddressType;
 use App\Service\FileUploader;
+use App\Form\UserFullNameType;
 use App\Repository\UserRepository;
+use App\Form\UserPasswordChangeType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/account')]
 class AccountController extends AbstractController
@@ -39,7 +41,7 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/profile/{id}/picture', name: 'app_user_picture', methods: ['GET', 'POST'])]
+    #[Route('/avatar/{id}', name: 'app_avatar', methods: ['GET', 'POST'])]
     public function avatar(Request $request, User $user, UserRepository $userRepository, string $id): Response
     {
         $user = $userRepository->findOneById($id);
@@ -63,13 +65,13 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('app_account', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('account/picture.html.twig', [
+        return $this->renderForm('account/avatar.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
     }
 
-    #[Route('/profile/{id}/picture/delete', name: 'app_user_picture_delete', methods: ['POST'])]
+    #[Route('/avatar/{id}/delete', name: 'app_avatar_delete', methods: ['POST'])]
     public function avatarDelete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getImage(), $request->request->get('_token'))) {
@@ -96,7 +98,7 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/settings', name: 'app_user_settings', methods: ['GET', 'POST'])]
+    #[Route('/settings/{id}', name: 'app_user_settings', methods: ['GET', 'POST'])]
     public function settings(Request $request, User $user, UserRepository $userRepository, string $id): Response
     {
         $user = $userRepository->findOneById($id);
@@ -125,11 +127,30 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/security', name: 'app_user_security', methods: ['GET', 'POST'])]
-    public function security(Request $request, User $user, UserRepository $userRepository): Response
+    #[Route('/security/{id}', name: 'app_user_security', methods: ['GET', 'POST'])]
+    public function security(string $id, Request $request, User $user, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
+        $user = $userRepository->findOneById($id);
+
+        $form = $this->createForm(UserPasswordChangeType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword(
+                $passwordHasher->hashPassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
+
+            $userRepository->save($user, true);
+            $this->addFlash('success', 'Mot de passe modifié');
+
+            return $this->redirectToRoute('app_login');
+        }
+        
         return $this->render('account/security.html.twig', [
-            'controller_name' => 'AccountController',
+            'form' => $form->createView()
         ]);
     }
 }

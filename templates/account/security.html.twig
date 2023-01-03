@@ -4,25 +4,19 @@
 {% include "partials/breadcrumb.html.twig" %}
 <main class="center-content partials-padding">
     <h1 class="massive-title">Connexion et sécurité</h1>
-    <h2 class="jumbo-text">Mot de passe</h2>
-    <div>
-        {{ form_start(fullnameForm) }}
-            <div class="df g102em">
-                <div class="form-item-tier">
-                    <label for="user_full_name_lastname" class="label">
-                        Nom
-                    </label>
-                    {{ form_widget(fullnameForm.lastname) }}
-                </div>
-                <div class="form-item-tier">
-                    <label for="user_full_name_firstname" class="label">
-                        Prénom
-                    </label>
-                    {{ form_widget(fullnameForm.firstname) }}
-                </div>
+    <h2 class="jumbo-text mt105em mb02em">Mot de passe</h2>
+    <p class="tiny-text color-grey-lighter">Choisissez un mot de passe unique et sécurisé et ne le réutilisez pas pour d’autres comptes.</p>
+    <div class="mt105em">
+        {{ form_start(form) }}
+            <div class="form-item-tier">
+                <label for="user_password_change_plainPassword" class="label">
+                    Nouveau mot de passe
+                    <span class="required-field">champ requis</span>
+                </label>
+                {{ form_widget(form.plainPassword) }}
             </div>
-            <button class="button button-full button-disabled button-medium">Enregistrer les modifications</button>
-        {{ form_end(fullnameForm) }}
+            <button class="button button-full button-disabled button-medium">Modifier mon mot de passe</button>
+        {{ form_end(form) }}
     </div>
 </main>
 {% endblock %}

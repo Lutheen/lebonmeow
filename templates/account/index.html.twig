@@ -5,7 +5,7 @@
 <main class="grid-account ptb105em center-content">
     <div class="box box-border gapublic medium-box jcsb">
         <div class="df">
-            <a href="{{ path('app_user_picture', {'id': app.user.id}) }}">
+            <a href="{{ path('app_avatar', {'id': app.user.id}) }}">
                 <div class="df aie button-add">
                     {% if app.user.image %}
                         <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h88-w88 cover-center-object round-picture">
@@ -101,7 +101,7 @@
         </a>
     </div>
     <div class="gasecurity">
-        <a href="/">{# todo route security #}
+        <a href="{{ path('app_user_security', {'id': app.user.id}) }}">
             <div class="box padded-box big-box box-shadow shadow-hover">
                 <div>
                     <span class="fa-stack fa-1x">
