@@ -41,10 +41,12 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/avatar/{id}', name: 'app_avatar', methods: ['GET', 'POST'])]
-    public function avatar(Request $request, User $user, UserRepository $userRepository, string $id): Response
+    #[Route('/avatar', name: 'app_avatar', methods: ['GET', 'POST'])]
+    public function avatar(Request $request, UserRepository $userRepository): Response
     {
-        $user = $userRepository->findOneById($id);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
 
         $form = $this->createForm(UserAvatarType::class, $user);
         $form->handleRequest($request);
@@ -71,9 +73,13 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/avatar/{id}/delete', name: 'app_avatar_delete', methods: ['POST'])]
-    public function avatarDelete(Request $request, User $user, UserRepository $userRepository): Response
+    #[Route('/avatar/delete', name: 'app_avatar_delete', methods: ['POST'])]
+    public function avatarDelete(Request $request, UserRepository $userRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+
         if ($this->isCsrfTokenValid('delete'.$user->getImage(), $request->request->get('_token'))) {
             $avatar = $user->getImage();
 
@@ -98,10 +104,12 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/settings/{id}', name: 'app_user_settings', methods: ['GET', 'POST'])]
-    public function settings(Request $request, User $user, UserRepository $userRepository, string $id): Response
+    #[Route('/settings', name: 'app_user_settings', methods: ['GET', 'POST'])]
+    public function settings(Request $request, UserRepository $userRepository): Response
     {
-        $user = $userRepository->findOneById($id);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
 
         $fullnameForm = $this->createForm(UserFullNameType::class, $user);
         $addressForm = $this->createForm(UserAddressType::class, $user);
@@ -127,10 +135,12 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/security/{id}', name: 'app_user_security', methods: ['GET', 'POST'])]
-    public function security(string $id, Request $request, User $user, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
+    #[Route('/security', name: 'app_user_security', methods: ['GET', 'POST'])]
+    public function security(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $user = $userRepository->findOneById($id);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
 
         $form = $this->createForm(UserPasswordChangeType::class);
         $form->handleRequest($request);
