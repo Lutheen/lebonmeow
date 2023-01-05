@@ -2,9 +2,17 @@
 
 {% block body %}
 {% include "partials/breadcrumb.html.twig" %}
-<main class="center-content partials-padding">
+<main class="center-content partials-padding min-height">
     <div class="df fdc g1em ptb105em">
-        {% if app.user.soldProducts %}
+        {% if app.user.soldProducts|length == 0 %}
+            <div class="df fdc jcc aic g1em">
+                <span class="jumbo-text">Vous n'avez aucune annonce en ligne.</span>
+                <a href={{ path('app_product_new') }} class="df aic button button-full ptb05emlr06em g05em">
+                    <i class="fa-regular fa-square-plus fa-xl"></i>
+                    <span>Déposer une annonce</span>
+                </a>
+            </div>
+        {% elseif app.user.soldProducts|length >= 1 %}
             {% for soldProduct in app.user.soldProducts %}
                 <div class="grid-card box-shadow light-padded-box roundish-corner">
                     {% if soldProduct.firstImage %}
@@ -33,9 +41,11 @@
                     </div>
                 </div>
             {% endfor %}
-        {% else %}
-            <span class="jumbo-text">Aucune annonce</span>
         {% endif %}
     </div>
 </main>
+{% endblock %}
+
+{% block footer %}
+{% include "partials/footer_mini.html.twig" %}
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Image;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Service\FileUploader;
@@ -14,6 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
+    private $fileUploader;
+
+    public function __construct(FileUploader $fileUploader)
+    {
+        $this->fileUploader = $fileUploader;
+    }
+
     #[Route('/', name: 'app_category_index', methods: ['GET'])]
     public function index(CategoryRepository $categoryRepository): Response
     {
@@ -22,30 +30,30 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_category_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CategoryRepository $categoryRepository, FileUploader $fileUploader): Response
-    {
-        $category = new Category();
-        $form = $this->createForm(CategoryType::class, $category);
-        $form->handleRequest($request);
+    // #[Route('/new', name: 'app_category_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, CategoryRepository $categoryRepository, FileUploader $fileUploader): Response
+    // {
+    //     $category = new Category();
+    //     $form = $this->createForm(CategoryType::class, $category);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form->get('image')->getData();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $imageFile = $form->get('image')->getData();
 
-            if ($imageFile) {
-                $imageFileName = $fileUploader->upload($imageFile);
-                $category->setImage($imageFileName);
-            }
-            $categoryRepository->save($category, true);
+    //         if ($imageFile) {
+    //             $imageFileName = $fileUploader->upload($imageFile);
+    //             $category->setImage($imageFileName);
+    //         }
+    //         $categoryRepository->save($category, true);
 
-            return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('category/new.html.twig', [
-            'category' => $category,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('category/new.html.twig', [
+    //         'category' => $category,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{id}', name: 'app_category_show', methods: ['GET'])]
     public function show(Category $category): Response
@@ -62,6 +70,16 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pictureFile = $form->get('image')->getData();
+            if ($pictureFile) {
+                if ($category->getImage()) {
+                    $pictureFileName = $this->fileUploader->updateCategory($pictureFile, $category->getImage());
+                }
+                else {
+                    $pictureFileName = $this->fileUploader->uploadCategory($pictureFile);
+                }
+                $category->setImage($pictureFileName);
+            }
             $categoryRepository->save($category, true);
 
             return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
@@ -73,13 +91,13 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_category_delete', methods: ['POST'])]
-    public function delete(Request $request, Category $category, CategoryRepository $categoryRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
-            $categoryRepository->remove($category, true);
-        }
+    // #[Route('/{id}', name: 'app_category_delete', methods: ['POST'])]
+    // public function delete(Request $request, Category $category, CategoryRepository $categoryRepository): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+    //         $categoryRepository->remove($category, true);
+    //     }
 
-        return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
-    }
+    //     return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }

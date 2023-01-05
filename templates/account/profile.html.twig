@@ -3,7 +3,7 @@
 {% block title %}Profil de {{ app.user.username }}{% endblock %}
 
 {% block body %}
-<main class="ptb3emlr1em df fdc g3em center-content">
+<main class="ptb3emlr1em df fdc g3em center-content min-height">
     <div class="df fdc g2em box-border heavy-padded-box">
         <div class="df g2em">
             {% if app.user.image %}
@@ -20,7 +20,17 @@
     </div>
     <div class="df fdc g1em">
         {% if app.user.soldProducts %}
-            {% if app.user.soldProducts|length == 1 %}
+            {% if app.user.soldProducts|length == 0 %}
+                <div class="df fdc jcc aic g102em bg-lilac padded-box rounded-corner">
+                    <div class="df fdc jcc aic g05em">
+                        <span class="big-text">Vous n'avez pas d'annonces en ligne</span>
+                        <p>Vendre, gagner de l’argent, faire un geste pour la planète, tout ça simplement en déposant une annonce sur leboncoin !</p>
+                    </div>
+                    <a href={{ path('app_product_new') }} class="df aic button button-full p05-1em">
+                        <span>Déposer une annonce</span>
+                    </a>
+                </div>
+            {% elseif app.user.soldProducts|length == 1 %}
                 <span class="jumbo-text">{{ app.user.soldProducts|length }} annonce</span>
             {% else %}
                 <span class="jumbo-text">{{ app.user.soldProducts|length }} annonces</span>
@@ -46,8 +56,6 @@
                     </div>
                 </a>
             {% endfor %}
-        {% else %}
-            <span class="jumbo-text">Aucune annonce</span>
         {% endif %}
     </div>
 </main>

@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     product_directory: '%kernel.project_dir%/public/images/products'
+    category_directory: '%kernel.project_dir%/public/images/categories'
     avatar_directory: '%kernel.project_dir%/public/images/avatars'
     static_directory: '%kernel.project_dir%/public'
 
@@ -28,5 +29,6 @@ services:
     App\Service\FileUploader:
         arguments:
             $productDirectory: '%product_directory%'
+            $categoryDirectory: '%category_directory%'
             $avatarDirectory: '%avatar_directory%'
             $staticDirectory: '%static_directory%'

@@ -98,6 +98,10 @@
     height: calc(100vh - 59px);
 }
 
+.min-height {
+    min-height: calc(100vh - 242px);
+}
+
 .h600px {
     height: 600px;
 }

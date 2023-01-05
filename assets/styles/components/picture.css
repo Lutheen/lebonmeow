@@ -49,6 +49,11 @@
     width: 160px;
 }
 
+.h120-w180 {
+    height: 120px;
+    width: 180px;
+}
+
 .h187-w150 {
     height: 187.5px;
     width: 150px;
@@ -135,6 +140,9 @@
 }
 .bg-lighter-grey {
     background-color: var(--input-border-color);
+}
+.bg-lilac {
+    background-color: var(--background-button-outline);
 }
 
 .bg-piggy-bank {
