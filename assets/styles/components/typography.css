@@ -156,3 +156,16 @@ span.dot:last-child {
     flex: 1 1;
     background: var(--purple);
 }
+
+/* Image with title */
+.pix-title {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    box-shadow: rgb(0 0 0 / 60%) 0px -70px 15px -40px inset;
+    color: white;
+}

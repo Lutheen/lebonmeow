@@ -64,6 +64,11 @@
     width: 180px;
 }
 
+.h292-w234 {
+    height: 292.5px;
+    width: 234px;
+}
+
 .h194-w240 {
     height: 194px;
     width: 240px;
@@ -118,6 +123,12 @@
 }
 .picture-with-button:hover {
     border: 2px solid var(--purple);
+}
+
+/* opacity on hover */
+.lighter:hover img {
+    transition: opacity 0.3s ease;
+    opacity: 0.9;
 }
 
 /* icons */

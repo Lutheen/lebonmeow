@@ -47,6 +47,9 @@
 .pb0 {
     padding-bottom: 0!important;
 }
+.pb1em {
+    padding-bottom: 1em;
+}
 
 
 
@@ -129,4 +132,8 @@
     margin-bottom: 2em;
     padding: 1.5em 0;
     border-bottom: 1px solid #e6ebef;
+}
+
+.p-relative {
+    position: relative;
 }

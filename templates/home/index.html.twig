@@ -2,13 +2,15 @@
 
 {% block body %}
 <div class="bg-grey">
-<main class="center-content">
+<main class="center-content pb1em">
     <h1 class="ta-center ptb105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    {{ include('partials/categories-cards.html.twig') }}
+    <h1 class="massive-text mt105em mb02em">D'après vos dernières recherches</h1>
     <div class="df jcc fww">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
             <div class="thumbnail-box-tiny mxw-195px">
-                <div class="df asst g02em o1">
+                <div class="df asst g05em o1">
                     <div>
                         {% if product.seller.image is defined %}
                             <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
