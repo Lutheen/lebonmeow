@@ -44,6 +44,9 @@
 .pt1em {
     padding-top: 1em;
 }
+.pl105em {
+    padding-left: 1.5em;
+}
 .pb0 {
     padding-bottom: 0!important;
 }
@@ -87,10 +90,12 @@
     min-width: 320px;
 }
 
+.mxw-250px {
+    max-width: 250px;
+}
 .mxw-195px {
     max-width: 195px;
 }
-
 .mxw-164px {
     max-width: 164px;
 }

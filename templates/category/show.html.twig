@@ -5,12 +5,13 @@
 {% block body %}
 <main class="center-content min-height pb1em">
     {% if category.products | length == 0 %}
-        Aucune annonce dans cette catégorie.
+        <h1 class="massive-title ta-center">Aucune annonce dans cette catégorie.</h1>
     {% else %}
-        <div class="df jcc fww">
+        <h1 class="massive-title pl105em">{{ category.products | length }} annonces {{ category.description }}</h1>
+        <div class="df jcc fww g1em">
             {% for product in category.products %}
                 <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
-                    <div class="thumbnail-box-tiny">
+                    <div class="thumbnail-box-tiny mxw-250px">
                         <div class="df asst g05em o1">
                             <div>
                                 {% if product.seller.image is defined %}

@@ -48,7 +48,9 @@
         <nav class="f11auto pt1em">
             <ul class="df">
                 {% for category in categories %}
-                    <li class="asc ps1emb101em bb-black rm-p"><a href={{ path('app_category_show', {slug: category.slug}) }}>{{ category.name | capitalize }}</a></li>
+                    <li class="asc ps1emb101em bb-black rm-p {{ route|matches(category.slug) ? 'active' : '' }}">
+                        <a href={{ path('app_category_show', {slug: category.slug}) }}>{{ category.name | capitalize }}</a>
+                    </li>
                     <span class="dot"></span>
                 {% endfor %}
             </ul>
