@@ -13,8 +13,9 @@ class ResetPasswordRequestFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
+                'label' => false,
                 'attr' => [
-                    'class' => 'listened'
+                    'class' => 'listened input'
                 ]
             ])
         ;

@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,28 +22,23 @@ class ProductType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'class' => 'form-field'
+                    'class' => 'input'
                 ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
             ->add('description', TextareaType::class, [
                 'label' => false,
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Décrivez votre article',
-                    'class' => 'form-field',
+                    'class' => 'textarea',
                     'rows' => 10
                 ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
             ->add('price', MoneyType::class, [
                 'currency' => false,
                 'attr' => [
-                    'placeholder' => '€'
+                    'placeholder' => '€',
+                    'class' => 'input'
                 ]
             ])
             ->add('firstImage', DropzoneType::class, [
@@ -64,9 +58,6 @@ class ProductType extends AbstractType
                         'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
                     ])
                 ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
             ->add('secondImage', DropzoneType::class, [
                 'label' => false,
@@ -85,9 +76,6 @@ class ProductType extends AbstractType
                         'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
                     ])
                 ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
             ->add('thirdImage', DropzoneType::class, [
                 'label' => false,
@@ -106,20 +94,11 @@ class ProductType extends AbstractType
                         'mimeTypesMessage' => 'Merci de fournir une image JPEG ou PNG.'
                     ])
                 ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
             ->add('category', EntityType::class, [
                 'label' => false,
                 'class' => Category::class,
                 'choice_label' => 'name',
-                'attr' => [
-                    'class' => 'form-field'
-                ],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
             ])
         ;
     }

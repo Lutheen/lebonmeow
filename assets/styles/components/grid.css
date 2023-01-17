@@ -1,0 +1,79 @@
+.dg {
+    display: grid;
+}
+
+.grid-account {
+    display: grid;
+    grid: [one] "public public wallet" auto [two]
+          [empty-start] " . . . " 1.5em [empty-end]
+          [two] "products deals bookings" auto [three]
+          [three] "spaces settings security" auto [four]
+          [four] "credits assistance community" auto [five]
+          [five] "logout . ." auto [six]
+          / 1fr 1fr 1fr;
+}
+.gapublic {
+    grid-area: public;
+}
+.gawallet {
+    grid-area: wallet;
+}
+.gaproducts {
+    grid-area: products;
+}
+.gadeals {
+    grid-area: deals;
+}
+.gabookings {
+    grid-area: bookings;
+}
+.gaspaces {
+    grid-area: spaces;
+}
+.gasettings {
+    grid-area: settings;
+}
+.gasecurity {
+    grid-area: security;
+}
+.gacredits {
+    grid-area: credits;
+}
+.gahelp {
+    grid-area: assistance;
+}
+.gacommunity {
+    grid-area: community;
+}
+.galogout {
+    grid-area: logout;
+    margin-top: 0.5em;
+}
+
+
+.grid-product-show {
+    display: grid;
+    grid-template-columns: [col-first] 65% [col-second] 35% [col-third];
+    grid-template-rows: [row-start] auto [row-middle] auto [row-end];
+    justify-content: center;
+    gap: 1em;
+}
+.ga-ss {
+    grid-area: row-middle / col-first / row-end / col-second;
+}
+
+
+.grid-product-form {
+    display: grid;
+    grid-template: 
+        [start-row] "main tipscard" auto [end-row]
+        / 75% 25%;
+}
+
+.grid-card {
+    display: grid;
+    grid-template: 
+        [start] "picture main date" auto [end]
+        / auto 65% 15%;
+    gap: 0.5em;
+}

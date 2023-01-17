@@ -1,67 +1,62 @@
 {{ form_start(form) }}
-    <div class="card-form-name new-product-form-group">
-        <label for="product_name" class="card-form-label">
+    <div class="form-item form-item-half">
+        <label for="product_name" class="label">
             Quel est le titre de l'annonce ?
-            <span class="card-form-required-field">champ requis</span>
+            <span class="required-field">champ requis</span>
         </label>
-        <div class="card-form-input">
-            {{ form_widget(form.name) }}
-        </div>
+        {{ form_widget(form.name) }}
     </div>
-    <div class="card-form-category new-product-form-group">
-        <label for="product_category" class="card-form-label">
+    <div class="form-item form-item-half">
+        <label for="product_category" class="label">
             Choisissez une catégorie
+            <span class="required-field">champ requis</span>
         </label>
-        <div class="card-form-select">
+        <div class="select">
             {{ form_widget(form.category) }}
             <span class="focus"></span>
         </div>
     </div>
-    <div class="card-form-description">
-        <label for="product_description" class="card-form-label">
+    <div class="form-item">
+        <label for="product_description" class="label">
             Ecrivez une description pertinente !
-            <span class="card-form-required-field">champ requis</span>
+            <span class="required-field">champ requis</span>
         </label>
-        <div class="card-form-textarea">
-            {{ form_widget(form.description) }}
-        </div>
+        {{ form_widget(form.description) }}
     </div>
-    <div class="card-form-price new-product-form-group">
-        <label for="product_price" class="card-form-label">
+    <div class="form-item form-item-half">
+        <label for="product_price" class="label">
             Fixez le prix de votre article
-            <span class="card-form-required-field">champ requis</span>
+            <span class="required-field">champ requis</span>
         </label>
-        <div class="card-form-input">
-            {{ form_widget(form.price) }}
-        </div>
+        {{ form_widget(form.price) }}
     </div>
-    <div class="card-form-image">
-        <label class="card-form-label">
+    <div class="form-item">
+        <label class="label">
             Ajoutez des photos
         </label>
         {% if app.request.attributes.get('_route') == 'app_product_edit' %}
             {% if product.images %}
-                <div class="product-images-display">
+                <div class="pictures-box-tiny">
                     {% for image in product.images %}
-                        <div class="product-single-image-display">
-                            <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}">
-                            <a href="{{ path('app_product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}" class="product-single-image-display-button"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="picture-with-button">
+                            <img src={{ asset(image.image) }} alt="Image de l'annonce {{ product.name }}" class="h150-w150 cover-center-object roundish-corner">
+                            <a href="{{ path('app_product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}" class="button-delete"><i class="fa-solid fa-xmark"></i></a>
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endif %}
-            <fieldset class="new-product-image-fieldset">
-                <div class="card-form-input-file">
-                    {{ form_widget(form.firstImage) }}
-                </div>
-                <div class="card-form-input-file">
-                    {{ form_widget(form.secondImage) }}
-                </div>
-                <div class="card-form-input-file">
-                    {{ form_widget(form.thirdImage) }}
-                </div>
-            </fieldset>
+        <fieldset class="fieldset">
+            <div class="input-file-dashed">
+                {{ form_widget(form.thirdImage) }}
+            </div>
+            <div class="input-file-dashed">
+                {{ form_widget(form.secondImage) }}
+            </div>
+            <div class="input-file-dashed">
+                {{ form_widget(form.firstImage) }}
+            </div>
+        </fieldset>
     </div>
-    <button class="new-product-btn">{{ button_label|default('Ajouter') }}</button>
+    <button class="button button-full button-small">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}

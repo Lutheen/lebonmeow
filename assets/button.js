@@ -1,5 +1,5 @@
 let input = document.querySelector(".listened");
-let button = document.querySelector(".forgot-form-button");
+let button = document.querySelector(".button-disabled");
 button.disabled = true;
 input.addEventListener("change", stateHandle);
 function stateHandle() {

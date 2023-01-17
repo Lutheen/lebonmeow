@@ -1,38 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h1 class="main-title">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
-    <div class="products">
+<div class="bg-grey">
+<main class="center-content pb1em">
+    <h1 class="ta-center ptb105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    {{ include('partials/categories-cards.html.twig') }}
+    <h1 class="massive-text mt105em mb02em">D'après vos dernières recherches</h1>
+    <div class="df jcc fww">
         {% for product in products %}
-        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
-            <div class="product-item">
-                <div class="product-seller-details">
-                    <div class="product-seller-image">
+        <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
+            <div class="thumbnail-box-tiny mxw-195px">
+                <div class="df asst g05em o1">
+                    <div>
                         {% if product.seller.image is defined %}
-                            <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}">
+                            <img src={{ product.seller.image }} alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
                         {% else %}
-                            <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}">
+                            <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
                         {% endif %}
                     </div>
-                    <div class="product-seller-username">{{ product.seller.username }}</div>
-                    <div class="product-seller-reviews">
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <span class="product-seller-reviews-number">3</span>
+                    <div class="normal-text">{{ product.seller.username }}</div>
+                    <div>
+                        <i class="fa-solid fa-star fa-sm color-purple"></i>
+                        <span class="tiny-text">3</span>
                     </div>
                 </div>
 
-                <div class="product-main">
-                    <div class="product-image">
-                        <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}">
+                <div class="o2">
+                    <div>
+                        {% if product.firstImage %}
+                            <img src={{ product.firstImage }} alt="Image de l'annonce : {{ product.name }}" class="h225-w180 rounded-corner cover-center-object">
+                        {% else %}
+                            <div class="df jcc aic bg-lighter-grey h225-w180 rounded-corner">
+                                <img src="/images/no-picture-big.png" class="contain-center-object h187-w150 roundish-corner">
+                            </div>
+                        {% endif %}
                     </div>
-                    <h2 class="product-title">{{ product.name }}</h2>
+                    <h2 class="title-color-change big-text">{{ product.name }}</h2>
                 </div>
 
-                <div class="product-price">{{ product.price }} €</div>
+                <div class="o3 asst normal-text">{{ product.price }} €</div>
             </div>
         </a>
         {% endfor %}
     </div>
+</main>
 </div>
 {% endblock %}

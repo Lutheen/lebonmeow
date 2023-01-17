@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Profil de {{ app.user.username }}{% endblock %}
+
+{% block body %}
+<main class="ptb3emlr1em df fdc g3em center-content min-height">
+    <div class="df fdc g2em box-border heavy-padded-box">
+        <div class="df g2em">
+            {% if app.user.image %}
+                <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h104-w104 cover-center-object round-picture">
+            {% else %}
+                <img src="/images/avatar.png" alt="Avatar par défaut" class="h104-w104 cover-center-object round-picture">
+            {% endif %}
+            <h2 class="jumbo-text asc">{{ app.user.username }}</h2>
+        </div>
+        <span class="color-grey-lighter">
+            <i class="fa-regular fa-bookmark fa-lg ms-social-icons"></i>
+            Membre depuis {{ app.user.dateFormat }}
+        </span>
+    </div>
+    <div class="df fdc g1em">
+        {% if app.user.soldProducts %}
+            {% if app.user.soldProducts|length == 0 %}
+                <div class="df fdc jcc aic g102em bg-lilac padded-box rounded-corner">
+                    <div class="df fdc jcc aic g05em">
+                        <span class="big-text">Vous n'avez pas d'annonces en ligne</span>
+                        <p>Vendre, gagner de l’argent, faire un geste pour la planète, tout ça simplement en déposant une annonce sur leboncoin !</p>
+                    </div>
+                    <a href={{ path('app_product_new') }} class="df aic button button-full p05-1em">
+                        <span>Déposer une annonce</span>
+                    </a>
+                </div>
+            {% elseif app.user.soldProducts|length == 1 %}
+                <span class="jumbo-text">{{ app.user.soldProducts|length }} annonce</span>
+            {% else %}
+                <span class="jumbo-text">{{ app.user.soldProducts|length }} annonces</span>
+            {% endif %}
+            {% for soldProduct in app.user.soldProducts %}
+                <a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}" class="lthfcc">
+                    <div class="df box-shadow">
+                        {% if soldProduct.firstImage %}
+                            <div class="df jcc aic">
+                                <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h194-w240 cover-center-object ltlbc-rounded">
+                            </div>
+                        {% else %}
+                            <div class="df jcc aic bg-lighter-grey h194-w240 ltlbc-rounded">
+                                <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
+                            </div>
+                        {% endif %}
+                        <div class="df fdc padded-box">
+                            <h3 class="title-color-change huge-text">{{ soldProduct.name }}</h3>
+                            <span class="big-text">{{ soldProduct.price }} €</span>
+                            <span class="mt05em">{{ soldProduct.category }}</span>
+                            <span>{{ soldProduct.dateFormat }}</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

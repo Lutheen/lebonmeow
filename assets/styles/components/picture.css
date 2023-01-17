@@ -1,0 +1,177 @@
+/* picture sizes */
+.logo {
+    height: 30px;
+    width: 140px;
+}
+
+.h24-w24 {
+    height: 24px;
+    width: 24px;
+}
+
+.h30-w30 {
+    height: 30px;
+    width: 30px;
+}
+
+.h63-w63 {
+    height: 63px;
+    width: 63px;
+}
+
+.h88-w88 {
+    height: 88px;
+    width: 88px;
+}
+
+.h104-w104 {
+    height: 104px;
+    width: 104px;
+}
+
+.h150-w150 {
+    height: 150px;
+    width: 150px;
+}
+
+.h152-w152 {
+    height: 152px;
+    width: 152px;
+}
+
+.h80-w140 {
+    height: 80px;
+    width: 140px;
+}
+
+.h130-w160 {
+    height: 130px;
+    width: 160px;
+}
+
+.h120-w180 {
+    height: 120px;
+    width: 180px;
+}
+
+.h187-w150 {
+    height: 187.5px;
+    width: 150px;
+}
+
+.h225-w180 {
+    height: 225px;
+    width: 180px;
+}
+
+.h292-w234 {
+    height: 292.5px;
+    width: 234px;
+}
+
+.h194-w240 {
+    height: 194px;
+    width: 240px;
+}
+
+.h323responsive {
+    width: 100%;
+    min-width: 220px;
+    height: 323px;
+}
+
+.h500-w500 {
+    height: 500px;
+    width: 500px;
+}
+
+/* picture corners */
+.round-picture {
+    border-radius: 50%;
+}
+
+.roundish-corner {
+    border-radius: 5px!important;
+}
+
+.rounded-corner {
+    border-radius: 10px;
+}
+
+.ltlbc-rounded {
+    border-radius: 10px 0 0 10px;
+}
+
+/* picture behaviour */
+.cover-center-object {
+    object-fit: cover;
+    object-position: center;
+}
+
+.contain-center-object {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* picture with action */
+.picture-with-button {
+    display: flex;
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+.picture-with-button:hover {
+    border: 2px solid var(--purple);
+}
+
+/* opacity on hover */
+.lighter:hover img {
+    transition: opacity 0.3s ease;
+    opacity: 0.9;
+}
+
+/* icons */
+.trs-rot-30 {
+    transform: rotate(-25deg);
+}
+.trs-sca-inverse {
+    transform: scale(-1, 1);
+}
+
+/* background */
+.bg-white {
+    background-color: white;
+}
+.bg-white-darker {
+    background-color: var(--grey);
+}
+.bg-grey {
+    background-color: var(--body-background-color);
+}
+.bg-lighter-grey {
+    background-color: var(--input-border-color);
+}
+.bg-lilac {
+    background-color: var(--background-button-outline);
+}
+
+.bg-piggy-bank {
+    background-image: url(/public/images/bg-tiny.png);
+    background-position: center right;
+    background-size: 130px 120px;
+    background-repeat: no-repeat;
+}
+.bg-cats {
+    background-image: url(/public/images/cat-background.png);
+    background-position: center bottom;
+    background-size: 980px;
+    background-repeat: no-repeat;
+}
+.bg-padlock {
+    background-image: url(/public/images/forgot-pwd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+}

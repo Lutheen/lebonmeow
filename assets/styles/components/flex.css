@@ -1,0 +1,98 @@
+.df {
+    display: flex;
+}
+.dif {
+    display: inline-flex;
+}
+
+.fdc {
+    flex-direction: column;
+}
+.fdr {
+    flex-direction: row;
+}
+
+.aic {
+    align-items: center;
+}
+.aie {
+    align-items: flex-end;
+}
+.aib {
+    align-items: baseline;
+}
+
+.jcc {
+    justify-content: center;
+}
+.jcs {
+    justify-content: flex-start;
+}
+.jce {
+    justify-content: flex-end;
+}
+.jcsb {
+    justify-content: space-between;
+}
+
+.fww {
+    flex-wrap: wrap;
+}
+
+.g02em {
+    gap: 0.2em;
+}
+.g03em {
+    gap: 0.3em;
+}
+.g04em {
+    gap: 0.4em;
+}
+.g05em {
+    gap: 0.5em;
+}
+.g06em {
+    gap: 0.6em;
+}
+.g1em {
+    gap: 1em;
+}
+.g102em {
+    gap: 1.2em;
+}
+.g2em {
+    gap: 2em;
+}
+.g3em {
+    gap: 3em;
+}
+.g15 {
+    gap: 15%;
+}
+
+.asc {
+    align-self: center;
+}
+.asst {
+    align-self: flex-start;
+}
+.ase {
+    align-self: flex-end;
+}
+
+.f110 {
+    flex: 1 1 0%;
+}
+.f11auto {
+    flex: 1 1 auto;
+}
+
+.o1 {
+    order: 1;
+}
+.o2 {
+    order: 2;
+}
+.o3 {
+    order: 3;
+}

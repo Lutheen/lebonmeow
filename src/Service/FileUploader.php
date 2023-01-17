@@ -3,16 +3,19 @@
 namespace App\Service;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class FileUploader
 {
-    private $imgDirectory;
+    private $productDirectory;
+    private $categoryDirectory;
+    private $avatarDirectory;
     private $staticDirectory;
 
-    public function __construct($imgDirectory, $staticDirectory)
+    public function __construct($productDirectory, $categoryDirectory, $avatarDirectory, $staticDirectory)
     {
-        $this->imgDirectory = $imgDirectory;
+        $this->productDirectory = $productDirectory;
+        $this->categoryDirectory = $categoryDirectory;
+        $this->avatarDirectory = $avatarDirectory;
         $this->staticDirectory = $staticDirectory;
     }
 
@@ -21,9 +24,9 @@ class FileUploader
         $filename = md5(uniqid()).".".$file->guessExtension();
 
         try {
-            $file->move($this->getImgDirectory(), $filename);
-        } catch (FileException $e) {
-            //throw $th;
+            $file->move($this->getProductDirectory(), $filename);
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
         }
         
         return 'images/products/'.$filename;
@@ -34,17 +37,79 @@ class FileUploader
         $fileUrl = $this->upload($file);
         
         try {
-            unlink($this->getStaticDirectory().$oldFile);
+            unlink($this->getStaticDirectory().'/'.$oldFile);
         } catch (\Throwable $th){
-            // throw $th
+            var_dump($th->getMessage());
         }
 
         return $fileUrl;
     }
 
-    public function getImgDirectory()
+    public function uploadCategory(UploadedFile $file)
     {
-        return $this->imgDirectory;
+        $filename = md5(uniqid()).".".$file->guessExtension();
+
+        try {
+            $file->move($this->getCategoryDirectory(), $filename);
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
+        }
+        
+        return 'images/categories/'.$filename;
+    }
+
+    public function updateCategory(UploadedFile $file, $oldFile)
+    {
+        $fileUrl = $this->uploadCategory($file);
+        
+        try {
+            unlink($this->getStaticDirectory().'/'.$oldFile);
+        } catch (\Throwable $th){
+            var_dump($th->getMessage());
+        }
+
+        return $fileUrl;
+    }
+
+    public function uploadAvatar(UploadedFile $file)
+    {
+        $filename = md5(uniqid()).".".$file->guessExtension();
+
+        try {
+            $file->move($this->getAvatarDirectory(), $filename);
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
+        }
+        
+        return 'images/avatars/'.$filename;
+    }
+
+    public function updateAvatar(UploadedFile $file, $oldFile)
+    {
+        $fileUrl = $this->uploadAvatar($file);
+        
+        try {
+            unlink($this->getStaticDirectory().'/'.$oldFile);
+        } catch (\Throwable $th){
+            var_dump($th->getMessage());
+        }
+
+        return $fileUrl;
+    }
+
+    public function getProductDirectory()
+    {
+        return $this->productDirectory;
+    }
+
+    public function getCategoryDirectory()
+    {
+        return $this->categoryDirectory;
+    }
+
+    public function getAvatarDirectory()
+    {
+        return $this->avatarDirectory;
     }
 
     public function getStaticDirectory()

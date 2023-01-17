@@ -24,14 +24,6 @@ class ProductController extends AbstractController
         $this->fileUploader = $fileUploader;
     }
 
-    #[Route('/', name: 'app_product_index', methods: ['GET'])]
-    public function index(ProductRepository $productRepository): Response
-    {
-        return $this->render('product/index.html.twig', [
-            'products' => $productRepository->findAll(),
-        ]);
-    }
-
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ProductRepository $productRepository): Response
     {
@@ -60,7 +52,7 @@ class ProductController extends AbstractController
 
             $productRepository->save($product, true);
 
-            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('product/new.html.twig', [
@@ -105,7 +97,7 @@ class ProductController extends AbstractController
 
             $productRepository->save($product, true);
 
-            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_user_products', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('product/edit.html.twig', [
@@ -135,7 +127,7 @@ class ProductController extends AbstractController
             $productRepository->remove($product, true);
         }
 
-        return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_user_products', [], Response::HTTP_SEE_OTHER);
     }
 
     #[Route('/image/{id}', name: 'app_product_delete_image', methods: ['POST'])]

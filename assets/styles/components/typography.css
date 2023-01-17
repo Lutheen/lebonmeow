@@ -1,0 +1,176 @@
+.tiny-text {
+    font-size: 12px;
+}
+.small-text {
+    font-size: 13px;
+}
+.normal-text {
+    font-size: 14px;
+    font-weight: 600;
+}
+.big-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+.jumbo-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+.huge-text {
+    font-size: 20px;
+    font-weight: 600;
+}
+.massive-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.tiny-bold {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.massive-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    padding-top: 1em;
+}
+.huge-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0.5em;
+    margin-bottom: 1.2em;
+}
+
+.form-intro {
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.list-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 0.25em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--footer-border-color);
+}
+.list-item-margin li:not(:first-of-type) {
+    margin-bottom: 0.5em;
+}
+
+.color-grey {
+    color: var(--icons-grey);
+}
+.color-grey-darker {
+    color: var(--grey-label);
+}
+.color-grey-lighter {
+    color: var(--footer-border-color);
+}
+.color-purple {
+    color: var(--purple);
+}
+
+.ta-left {
+    text-align: left;
+}
+.ta-center {
+    text-align: center;
+}
+
+.title-color-change {
+    transition: color 0.3s ease;
+}
+.lthfcc:hover .title-color-change {
+    color: var(--purple);
+}
+
+.logo-txt {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--purple);
+    margin-left: 3px;
+}
+
+.link-color-change {
+    color: var(--purple);
+    transition: color 0.3s ease;
+}
+.link-color-change:hover {
+    color: var(--purple-darker);
+}
+
+.link-underlined:hover {
+    text-decoration: underline;
+}
+
+.bb-black:hover {
+    box-shadow: inset 0 -2px 0 0 black;
+    font-weight: 600;
+    transition: box-shadow 0.5s ease-in-out, font-weight 1.5s;
+}
+.bb-purple:hover {
+    box-shadow: inset 0 -2px 0 0 var(--purple);
+    transition: 0.5s ease-in-out;
+}
+
+.active {
+    box-shadow: inset 0 -2px 0 0 black;
+    font-weight: 600;
+}
+
+.dot {
+    flex: 1 1 0%;
+    position: relative;
+}
+span.dot:last-child {
+    display: none;
+}
+.dot::after {
+    top: 50%;
+    left: 50%;
+    font-weight: 600;
+    content: '•';
+    position: absolute;
+    transform: translate(-50%, -80%);
+}
+
+.chevron:not(:first-of-type)::before {
+    content: ">";
+    padding: 0 0.3rem;
+}
+
+.dota:not(:first-of-type)::before {
+    content: '•';
+    padding: 0 0.5rem;
+}
+
+/* Tipscard */
+.tipscard-drawing {
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2em 0;
+}
+.tipscard-line {
+    height: 1px;
+    flex: 1 1;
+    background: var(--purple);
+}
+
+/* Image with title */
+.pix-title {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    box-shadow: rgb(0 0 0 / 60%) 0px -70px 15px -40px inset;
+    color: white;
+}

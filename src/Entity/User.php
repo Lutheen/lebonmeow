@@ -3,15 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Service\DateTranslator;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Cet email est déjà associé à un autre compte.')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -46,19 +48,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $resetToken = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
-    private Collection $addresses;
-
     #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Product::class)]
     private Collection $soldProducts;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $address = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $city = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $zipcode = null;
+
     public function __construct()
     {
         $this->soldProducts = new ArrayCollection();
-        $this->addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -190,36 +200,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Address>
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
-    }
-
-    public function addAddress(Address $address): self
-    {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses->add($address);
-            $address->setUser($this);
-        }
-
-        return $this;
-    }
-           
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null); 
-            }
-        }
-
-        return $this;
-    }
     
     /**
      * @return Collection<int, Product>
@@ -259,6 +239,59 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function dateFormat(): string
+    {
+        return DateTranslator::translate($this->createdAt->format('F Y'));
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?int
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?int $zipcode): self
+    {
+        $this->zipcode = $zipcode;
 
         return $this;
     }

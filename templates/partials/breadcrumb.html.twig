@@ -1,7 +1,21 @@
-<div class="breadcrumb-container">
-    <ol class="breadcrumb-list">
-        <li class="breadcrumb-item"><a href="/">Accueil</a></li>
-        <li class="breadcrumb-item"><a href="/category/{{ product.category.id }}">{{ product.category.name | capitalize }}</a></li>
-        <li class="breadcrumb-item active">{{ product.name }}</li>
+<div class="breadcrumb-box center-content">
+    <ol class="df jcs">
+        {% if app.request.attributes.get('_route') == 'app_product_show' %}
+            <li class="chevron tiny-text"><a href="/" class="link-color-change link-underlined">Accueil</a></li>
+            <li class="chevron tiny-text"><a href="/category/{{ product.category.id }}" class="link-color-change link-underlined">{{ product.category.name | capitalize }}</a></li>
+            <li class="chevron tiny-text">{{ product.name }}</li>
+        {% endif %}
+        {% if app.request.attributes.get('_route') == 'app_user_products' %}
+            <li class="dota normal-text"><a href="/account" class="link-color-change">Mon compte</a></li>
+            <li class="dota normal-text">Annonces</li>
+        {% endif %}
+        {% if app.request.attributes.get('_route') == 'app_user_settings' %}
+            <li class="dota normal-text"><a href="/account" class="link-color-change">Mon compte</a></li>
+            <li class="dota normal-text">Paramètres</li>
+        {% endif %}
+        {% if app.request.attributes.get('_route') == 'app_user_security' %}
+            <li class="dota normal-text"><a href="/account" class="link-color-change">Mon compte</a></li>
+            <li class="dota normal-text">Connexion et sécurité</li>
+        {% endif %}
     </ol>
 </div>

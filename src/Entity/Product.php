@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
+use App\Service\DateTranslator;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\Collection;
@@ -33,7 +34,7 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: RelatedProduct::class)]
     private Collection $relatedProducts;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(length: 255, nullable: false)]
@@ -151,6 +152,11 @@ class Product
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    public function dateFormat(): string
+    {
+        return DateTranslator::translate($this->createdAt->format('d M H:i'));
     }
 
     public function getSlug(): ?string

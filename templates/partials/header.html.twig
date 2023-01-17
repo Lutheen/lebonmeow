@@ -1,51 +1,56 @@
 <header>
-    <div class="header-content">
+    <div class="center-content partials-padding df jcsb aic fww">
 
-        <div class="header-left-content">
+        <div class="df aic jcs f11auto g102em">
             <a href="/">
-                <img src="/images/logo.png" alt="Logo du site Lebonmeow">
+                <img src="/images/logo-pressed.png" alt="Logo du site Lebonmeow" class="logo">
             </a>
-            <a href="{{ path('app_product_new') }}" class="app-new-post">
+            <a href={{ path('app_product_new') }} class="df aic button button-full ptb05emlr06em g05em">
                 <i class="fa-regular fa-square-plus fa-xl"></i>
                 <span>Déposer une annonce</span>
             </a>
-            <a href="/" class="app-search header-top-links">
+            <a href="/" class="df fdr jcc aic g06em ptb102emlr05em bb-purple normal-text">
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
                 Rechercher
             </a>
         </div>
         
-        <div class="header-right-content">
-            <a href="/" class="user-links header-top-links">
-                <img src="/images/bell.svg" alt="Icône d'une cloche" class="user-links-icons">
-                <span class="user-links-span">Mes recherches</span>
+        <div class="df aic jce f11auto tiny-text">
+            <a href="/" class="icon-box bb-purple">
+                <img src="/images/bell.svg" alt="Icône d'une cloche" class="h24-w24">
+                <span>Mes recherches</span>
             </a>
-            <a href="/" class="user-links header-top-links">
-                <img src="/images/heart.svg" alt="Icône d'un coeur" class="user-links-icons">
-                <span class="user-links-span">Favoris</span>
+            <a href="/" class="icon-box bb-purple">
+                <img src="/images/heart.svg" alt="Icône d'un coeur" class="h24-w24">
+                <span>Favoris</span>
             </a>
-            <a href="/" class="user-links header-top-links">
-                <img src="/images/messages.svg" alt="Icône d'une bulle avec trois points" class="user-links-icons">
-                <span class="user-links-span">Messages</span>
+            <a href="/" class="icon-box bb-purple">
+                <img src="/images/messages.svg" alt="Icône d'une bulle avec trois points" class="h24-w24">
+                <span>Messages</span>
             </a>
             {% if app.user %}
-                {# <a href="/logout">Se déconnecter</a> #}
-                <a href="/profile" class="user-links avatar-link-gap header-top-links">
-                    <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="user-avatar">
-                    <span class="user-links-span">{{ app.user.username }}</span>
+                <a href="/account" class="df fdc jcc aic g02em pt02em05em bb-purple">
+                    {% if app.user.image %}
+                        <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h30-w30 round-picture cover-center-object">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Icône d'un utilisateur connecté" class="h30-w30 round-picture cover-center-object">
+                    {% endif %}
+                    <span>{{ app.user.username }}</span>
                 </a>
             {% else %}
-                <a href="/login" class="user-links header-top-links">
-                    <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="user-links-icons">
-                    <span class="user-links-span">Se connecter</span>
+                <a href="/login" class="icon-box bb-purple">
+                    <img src="/images/an-user.svg" alt="Icône d'un utilisateur non connecté" class="h24-w24">
+                    <span>Se connecter</span>
                 </a>
             {% endif %}
         </div>
 
-        <nav class="header-nav">
-            <ul>
+        <nav class="f11auto pt1em">
+            <ul class="df">
                 {% for category in categories %}
-                    <li><a href="{{ path('app_category_show', {id: category.id}) }}">{{ category.name | capitalize }}</a></li>
+                    <li class="asc ps1emb101em bb-black rm-p {{ route|matches(category.slug) ? 'active' : '' }}">
+                        <a href={{ path('app_category_show', {slug: category.slug}) }}>{{ category.name | capitalize }}</a>
+                    </li>
                     <span class="dot"></span>
                 {% endfor %}
             </ul>

@@ -1,0 +1,231 @@
+.box-shadow {
+    border-radius: 10px;
+    box-shadow: var(--gradient);
+}
+.shadow-hover {
+    transition: box-shadow 0.3s ease;
+}
+.shadow-hover:hover {
+    box-shadow: var(--gradient-darker);
+}
+
+.box {
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.small-box {
+    flex-direction: row;
+    align-items: center;
+    height: 75px;
+}
+
+.medium-box {
+    height: 120px;
+    padding: 1.5em;
+}
+
+.big-box {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 170px;
+}
+.big-box-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.light-padded-box {
+    padding: 1rem 0.5rem;
+}
+.padded-box {
+    padding: 1.5em;
+}
+.heavy-padded-box {
+    padding: 2rem;
+}
+
+.box-column-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 1.2em;
+    margin: 0 0.2em;
+}
+
+.box-wide-top-border {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.625em;
+    border-top: 1px solid var(--footer-border-color);
+    margin-top: 1em;
+}
+
+.box-bottom-border {
+    display: flex;
+    padding: 1.5em 0;
+    border-bottom: 1px solid #e6ebef;
+    margin: 0 1em;
+    gap: 1em;
+}
+
+.box-topbottom-border {
+    margin: 0.5em 0.2em;
+    padding: 1.6em 0;
+    display: grid;
+    gap: 1em;
+    border-top: 1px solid var(--input-border-color);
+    border-bottom: 1px solid var(--input-border-color);
+}
+
+.box-border {
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+}
+
+/* alert boxes */
+.alert {
+    margin: 2rem auto 0;
+    border-radius: 5px;
+    padding: 0.625em;
+    font-weight: 600;
+}
+.alert-success {
+    border: 1px solid var(--alert-success-color);
+    background-color: var(--alert-success-background);
+    color: var(--alert-success-color);
+}
+.alert-danger {
+    border: 1px solid var(--alert-danger-color);
+    background-color: var(--alert-danger-background);
+    color: var(--alert-danger-color);
+}
+
+
+/* containers */
+header {
+    z-index: 1100;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: var(--gradient);
+}
+
+footer {
+    color: white;
+    padding: 1.5em 0.5em;
+    background-color: var(--footer-background-color);
+}
+
+.mini-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 0;
+}
+
+.center-content {
+    max-width: 1066px;
+    margin: 0 auto;
+}
+
+.box-whitebg {
+    background-color: white;
+    border-radius: 1em;
+    margin: 2em 0;
+    padding: 2em 2em 2.5em;
+}
+.box-whitebg form {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2em;
+    margin: 3em auto auto;
+    max-width: 500px;
+}
+.box-form-fixed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    padding: 0 1em;
+}
+.box-form-fixed form {
+    width: 305px;
+}
+
+.modal-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-height: 600px;
+    width: 650px;
+    padding: 2em;
+    margin: 4em auto;
+    text-align: center;
+}
+
+.description-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.pictures-box {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.pictures-box-tiny {
+    display: flex;
+    justify-content: start;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.5em;
+}
+
+.narrow-column-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    text-align: center;
+    justify-content: center;
+    gap: 5em;
+}
+
+.breadcrumb-box {
+    padding: 1.5rem 1em;
+}
+
+.thumbnail-box-tiny {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.5em;
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1.5em 1em;
+}

@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{% include "partials/breadcrumb.html.twig" %}
+<main class="center-content partials-padding min-height">
+    <div class="df fdc g1em ptb105em">
+        {% if app.user.soldProducts|length == 0 %}
+            <div class="df fdc jcc aic g1em">
+                <span class="jumbo-text">Vous n'avez aucune annonce en ligne.</span>
+                <a href={{ path('app_product_new') }} class="df aic button button-full ptb05emlr06em g05em">
+                    <i class="fa-regular fa-square-plus fa-xl"></i>
+                    <span>Déposer une annonce</span>
+                </a>
+            </div>
+        {% elseif app.user.soldProducts|length >= 1 %}
+            {% for soldProduct in app.user.soldProducts %}
+                <div class="grid-card box-shadow light-padded-box roundish-corner">
+                    {% if soldProduct.firstImage %}
+                        <div>
+                            <img src={{ asset(soldProduct.firstImage) }} alt="Image de l'annonce {{ soldProduct.name }}" class="h130-w160 cover-center-object">
+                        </div>
+                    {% else %}
+                        <div class="df jcc aic bg-white-darker h130-w160">
+                            <img src="/images/no-picture.png" alt="Image d'annonce par défaut" class="h80-w140 contain-center-object">
+                        </div>
+                    {% endif %}
+                    <div class="df fdc jcsb">
+                        <div class="df fdc">
+                            <h3 class="link-underlined color-purple big-text dif"><a href="{{ path('app_product_show', {'slug': soldProduct.slug}) }}">{{ soldProduct.name }}</a></h3>
+                            <span class="jumbo-text">{{ soldProduct.price }} €</span>
+                            <span class="tiny-text">{{ soldProduct.category }}</span>
+                        </div>
+                        <div class="df g06em">
+                            <a href="{{ path('app_product_edit', {'slug': soldProduct.slug}) }}" class="p05-1em button button-full">Modifier</a>
+                            {{ include('product/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                    <div class="df fdc aic partials-padding asc">
+                        <span class="tiny-bold">Date</span>
+                        <span class="small-text">{{ soldProduct.dateFormat }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include "partials/footer_mini.html.twig" %}
+{% endblock %}

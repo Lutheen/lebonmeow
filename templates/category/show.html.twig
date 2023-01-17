@@ -1,34 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}{{ category.description | capitalize }}{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+<main class="center-content min-height pb1em">
+    {% if category.products | length == 0 %}
+        <h1 class="massive-title ta-center">Aucune annonce dans cette catégorie.</h1>
+    {% else %}
+        <h1 class="massive-title pl105em">{{ category.products | length }} annonces {{ category.description }}</h1>
+        <div class="df jcc fww g1em">
+            {% for product in category.products %}
+                <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
+                    <div class="thumbnail-box-tiny mxw-250px">
+                        <div class="df asst g05em o1">
+                            <div>
+                                {% if product.seller.image is defined %}
+                                    <img src={{ asset(product.seller.image) }} alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
+                                {% else %}
+                                    <img src="/images/avatar.png" alt="Image de profil de {{ product.seller.username }}" class="h24-w24 round-picture cover-center-object">
+                                {% endif %}
+                            </div>
+                            <div class="normal-text">{{ product.seller.username }}</div>
+                            <div>
+                                <i class="fa-solid fa-star fa-sm color-purple"></i>
+                                <span class="tiny-text">3</span>
+                            </div>
+                        </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ category.description }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ category.image }}</td>
-            </tr>
-        </tbody>
-    </table>
+                        <div class="o2">
+                            <div>
+                                {% if product.firstImage %}
+                                    <img src={{ asset(product.firstImage) }} alt="Image de l'annonce : {{ product.name }}" class="h292-w234 rounded-corner cover-center-object">
+                                {% else %}
+                                    <div class="df jcc aic bg-lighter-grey h225-w180 rounded-corner">
+                                        <img src="/images/no-picture-big.png" class="contain-center-object h187-w150 roundish-corner">
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <h2 class="title-color-change big-text">{{ product.name }}</h2>
+                        </div>
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
-
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+                        <div class="o3 asst normal-text">{{ product.price }} €</div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+</main>
 {% endblock %}

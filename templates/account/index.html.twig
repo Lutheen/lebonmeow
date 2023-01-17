@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<main class="grid-account ptb105em center-content min-height">
+    <div class="box box-border gapublic medium-box jcsb">
+        <div class="df">
+            <a href="{{ path('app_avatar') }}">
+                <div class="df aie button-add">
+                    {% if app.user.image %}
+                        <img src={{ asset(app.user.image) }} alt="Avatar de {{ app.user.username }}" class="h88-w88 cover-center-object round-picture">
+                    {% else %}
+                        <img src="/images/avatar.png" alt="Avatar par défaut" class="h88-w88 cover-center-object round-picture">
+                    {% endif %}
+                </div>
+            </a>
+            <h1 class="huge-text asc">{{ app.user.username }}</h1>
+        </div>
+        <a href="{{ path('app_profile') }}" class="button button-outline p05-1em">Voir mon profil public</a>
+    </div>
+    <div class="gawallet">
+        <a href="/">{# todo route porte-monnaie #}
+            <div class="box-shadow box bg-piggy-bank medium-box">
+                <div class="df fdc">
+                    <h2 class="big-text">Porte-monnaie</h2>
+                    <span class="massive-text">0 €</span>
+                    <span>Solde disponible</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gaproducts">
+        <a href="{{ path('app_user_products') }}">
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <span class="fa-stack fa-1x">
+                        <i class="fa-solid fa-square fa-stack-2x color-grey"></i>
+                        <i class="fa-solid fa-bars-staggered fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Annonces</h2>
+                    <span>Gérer mes annonces déposées</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gadeals">
+        <a href="/">{# todo route deals #}
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <span class="fa-stack fa-1x">
+                        <i class="fa-solid fa-circle fa-stack-2x color-grey"></i>
+                        <i class="fa-solid fa-euro-sign fa-stack-1x fa-inverse trs-rot-30"></i>
+                    </span>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Transactions</h2>
+                    <span>Suivre mes achats et mes ventes</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gabookings">
+        <a href="/">{# todo route bookings #}
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <i class="fa-solid fa-umbrella-beach fa-2xl color-grey trs-sca-inverse"></i>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Réservations de vacances</h2>
+                    <span>Retrouver vos réservations en tant qu'hôte et voyageur</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gaspaces">
+        <a href="/">{# todo route spaces #}
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <i class="fa-solid fa-circle-user fa-2xl color-grey"></i>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Profil & Espaces</h2>
+                    <span>Modifier mon espace public, accéder à mes avis, aux espaces candidat et locataire</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gasettings">
+        <a href="{{ path('app_user_settings') }}">
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <i class="fa-solid fa-gear fa-2xl color-grey"></i>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Paramètres</h2>
+                    <span>Compléter et modifier mes informations privées et préférences</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gasecurity">
+        <a href="{{ path('app_user_security') }}">
+            <div class="box padded-box big-box box-shadow shadow-hover">
+                <div>
+                    <span class="fa-stack fa-1x">
+                        <i class="fa-solid fa-shield fa-stack-2x color-grey"></i>
+                        <i class="fa-solid fa-check fa-inverse fa-stack-1x"></i>
+                    </span>
+                </div>
+                <div class="big-box-content">
+                    <h2 class="big-text">Connexion et sécurité</h2>
+                    <span>Protéger mon compte et mettre à jour mon mot de passe</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="gacredits">
+        <a href="/">{# todo route credits #}
+            <div class="box padded-box small-box box-shadow shadow-hover g03em color-purple">
+                <i class="fa-solid fa-coins fa-sm"></i>
+                <h2 class="normal-text">Mes crédits</h2>
+            </div>
+        </a>
+    </div>
+    <div class="gahelp">
+        <a href="/">{# todo route assistance #}
+            <div class="box padded-box small-box jcsb box-shadow shadow-hover">
+                <div class="df g1em">
+                    <i class="fa-solid fa-question fa-2xl color-grey asc"></i>
+                    <h2 class="big-text">Aide</h2>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square color-grey"></i>
+            </div>
+        </a>
+    </div>
+    <div class="gacommunity">
+        <a href="/">{# todo route community #}
+            <div class="box padded-box small-box jcsb box-shadow shadow-hover">
+                <h2 class="big-text">Communauté <span class="logo-txt">lebonmeow</span></h2>
+                <i class="fa-solid fa-arrow-up-right-from-square color-grey"></i>
+            </div>
+        </a>
+    </div>
+    <div class="galogout">
+        <a href="/logout">
+            <div class="box normal-text color-grey-darker">Me déconnecter</div>
+        </a>
+    </div>
+</main>
+{% endblock %}

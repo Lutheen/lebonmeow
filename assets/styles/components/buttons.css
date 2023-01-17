@@ -1,0 +1,123 @@
+.button {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.button-outline {
+    background-color: white;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    transition: background-color 0.3s ease;
+}
+.button-outline:hover {
+    background-color: var(--background-button-outline);
+    border-color: var(--purple-darker);
+    color: var(--purple-darker);
+}
+
+.button-red-outline {
+    background-color: white;
+    border: 1px solid var(--red);
+    color: var(--red);
+    transition: background-color 0.3s ease;
+}
+.button-red-outline:hover {
+    background-color: var(--background-button-red);
+}
+
+.button-yellow {
+    background-color: var(--yellow);
+    color: black;
+    transition: background-color 0.3s ease;
+}
+.button-yellow:hover {
+    background-color: var(--yellow-darker);
+}
+
+.button-full {
+    background-color: var(--purple);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.button-full:hover {
+    background-color: var(--purple-darker);
+}
+.button-full:disabled {
+    background-color: var(--grey);
+    color: var(--input-border-color);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.button-delete {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: background-color 0.3s ease;
+}
+.button-delete:hover {
+    background-color: var(--purple);
+    color: black;
+}
+
+.button-add::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: var(--gradient);
+    transform: translate(-25px, -5px);
+}
+
+.button-arrow-back {
+    position: absolute;
+    left: 3rem;
+    top: 1.2rem;
+}
+
+.trs-trl-right {
+    transform: translate(110%, 70%);
+}
+.trs-trl-left {
+    transform: translate(-110%, -100%);
+    margin-top: 0!important;
+}
+
+.button-small {
+    padding: 0.8em;
+    width: 30%;
+    margin: 1.5em auto 0;
+}
+
+.button-medium {
+    margin: 2.5em auto 1em;
+    padding: 1em;
+}
+
+.button-wide {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0;
+    padding: 0.6em 0;
+    width: 100%;
+}

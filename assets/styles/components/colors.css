@@ -4,9 +4,11 @@
     --yellow: #FFF11A;
     --yellow-darker: #C7BB14;
     --grey: #f4f6f7;
+    --red: #BE0003;
     --body-background-color: #fafafa;
     /* box-shadow gradient */
     --gradient: rgb(26, 26, 26, 0.08) 0px -1px 4px 0px, rgb(26, 26, 26, 0.12) 0px 4px 8px 0px;
+    --gradient-darker: rgb(26, 26, 26, 0.12) 0px -1px 8px 0px, rgb(0, 0, 0, 0.14) 0px 4px 8px 0px;
     /* footer */
     --footer-background-color: #474747;
     --footer-border-color: #a8b4c0;
@@ -18,4 +20,9 @@
     --alert-success-color: #0f6166;
     --alert-danger-background: #F8D7DA;
     --alert-danger-color: #B55429;
+    /* icons */
+    --icons-grey: #bec1d2;
+    /* buttons outline */
+    --background-button-outline: #ddccff;
+    --background-button-red: #FAEBEB;
 }

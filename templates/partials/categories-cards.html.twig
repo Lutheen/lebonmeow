@@ -1,0 +1,11 @@
+<h1 class="massive-text mb02em">Top catégories</h1>
+<div class="df jcc fww g1em">
+{% for category in categories %}
+    <a href={{ path('app_category_show', {slug: category.slug}) }} class="lighter">
+        <div class="df fdc p-relative">
+            <img src={{ category.image }} class="h120-w180 cover-center-object roundish-corner">
+            <span class="pix-title big-text asc">{{ category.name }}</span>
+        </div>
+    </a>
+{% endfor %}
+</div>
