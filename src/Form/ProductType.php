@@ -112,4 +112,3 @@ class ProductType extends AbstractType
 }
 
 // Dropzone multiple file uploads https://github.com/symfony/ux/pull/512
-// Branch not merged yet

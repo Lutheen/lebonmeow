@@ -4,8 +4,9 @@
 <div class="bg-grey">
 <main class="center-content pb1em">
     <h1 class="ta-center ptb105em massive-text">Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+    {{ render(controller('App\\Controller\\SearchController::searchBar')) }}
     {{ include('partials/categories-cards.html.twig') }}
-    <h1 class="massive-text mt105em mb02em">D'après vos dernières recherches</h1>
+    <h1 class="massive-text massive-text-spacing">D'après vos dernières recherches</h1>
     <div class="df jcc fww">
         {% for product in products %}
         <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">

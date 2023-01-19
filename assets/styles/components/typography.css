@@ -30,6 +30,11 @@
     font-weight: 600;
 }
 
+.massive-text-spacing {
+    margin: 1.5em auto 0.2em;
+    max-width: 956px;
+}
+
 .massive-title {
     font-size: 24px;
     font-weight: 600;

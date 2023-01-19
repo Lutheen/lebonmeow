@@ -21,8 +21,13 @@
 .mb02em {
     margin-bottom: 0.2em;
 }
+.m0auto {
+    margin: 0 auto;
+}
 
-
+.p1em {
+    padding: 1em;
+}
 .ptb105em {
     padding: 1.5em 0;
 }
@@ -80,6 +85,9 @@
 }
 .w-650px {
     width: 650px;
+}
+.w-930px {
+    width: 930px;
 }
 
 .w-100 {

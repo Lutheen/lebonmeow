@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.request.method == 'POST' %}
+        <div>
+            {% if products | length == 0 %}
+                <h4>Aucun résultat pour votre recherche.</h4>
+            {% else %}
+                <h3 class="mt-3">Vos résultats de recherche :</h3>
+                {% for product in products %}
+                    <div class="mt-3 p-3 bg-light border rounded">
+                        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
+                            <h6 class="text-dark"><i class="bi bi-arrow-down-right-square-fill text-primary"></i>{{ product.name }}</h6>
+                            <div class="text-dark small p-1 rounded">
+                                Posté le {{ product.createdAt | format_datetime('medium', 'short') }} par {{ product.seller }}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
