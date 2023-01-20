@@ -7,7 +7,7 @@
 <main class="center-content">
     <h1 class="massive-title">Modifier une annonce</h1>
     <a href="{{ path('app_user_products', {'id': app.user.id}) }}" class="button button-outline p05-1em mtb03em">Retour aux annonces</a>
-    <div class="grid-product-form">
+    <div class="grid-75-25">
         <div class="box-whitebg">
         {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
         </div>

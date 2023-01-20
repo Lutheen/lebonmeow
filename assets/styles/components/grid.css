@@ -63,10 +63,10 @@
 }
 
 
-.grid-product-form {
+.grid-75-25 {
     display: grid;
     grid-template: 
-        [start-row] "main tipscard" auto [end-row]
+        [start-row] "main aside" auto [end-row]
         / 75% 25%;
 }
 

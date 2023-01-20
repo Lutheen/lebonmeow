@@ -21,8 +21,8 @@
 .mb02em {
     margin-bottom: 0.2em;
 }
-.m0auto {
-    margin: 0 auto;
+.m2emauto {
+    margin: 2em auto;
 }
 
 .p1em {
@@ -86,9 +86,6 @@
 .w-650px {
     width: 650px;
 }
-.w-930px {
-    width: 930px;
-}
 
 .w-100 {
     width: 100%;
@@ -106,6 +103,9 @@
 }
 .mxw-164px {
     max-width: 164px;
+}
+.mxw-930px {
+    max-width: 930px;
 }
 
 

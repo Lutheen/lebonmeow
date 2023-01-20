@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\SearchType;
+use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class SearchController extends AbstractController
 {
     #[Route('/search', name: 'app_search')]
-    public function index(): Response
+    public function index(ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
+        $products = $productRepository->findAll();
+        $categories = $categoryRepository->findAll();
+
         return $this->render('search/index.html.twig', [
             'controller_name' => 'SearchController',
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 
