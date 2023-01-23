@@ -4,42 +4,69 @@
     {{ render(controller('App\\Controller\\SearchController::searchBar')) }}
 
     {% if app.request.attributes.get('_route') == 'app_search' %}
-        <main class="center-content partials-padding grid-75-25">
+        <main class="center-content partials-padding pb1em grid-75-25">
             <section>
-                <h1 class="massive-title">Annonces : Paris</h1>
+                <h3 class="massive-text mb02em">Annonces : Paris</h3>
                 <div class="df fdc g1em">
                     {% for product in products %}
-                        <div class="box-border df">
-                            <img src={{ asset(product.firstImage) }} alt="Image de l'annonce {{ product.name }}" class="h194-w240 ltlbc-rounded cover-center-object">
-                            <div>
-                                {{ product.name }}
+                        <a href={{ path('app_product_show', {'slug': product.slug}) }} class="lthfcc">
+                            <div class="box-border df">
+                                <div class="p-relative h194-w240">
+                                    <img src={{ asset(product.firstImage) }} alt="Image de l'annonce {{ product.name }}" class="h194-w240 ltlbc-rounded cover-center-object">
+                                    <span class="bullet-counter">{{ product.images|length }}</span>
+                                </div>
+                                <div class="df fdc jcsb p1em">
+                                    <div class="df fdc">
+                                        <span class="big-text title-color-change">{{ product.name }}</span>
+                                        <span class="normal-text">{{ product.price }} €</span>
+                                    </div>
+                                    <div class="df fdc tiny-text color-grey-darker">
+                                        <span>{{ product.category }}</span>
+                                        <span>{{ product.dateFormat }}</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     {% endfor %}
                 </div>
             </section>
-            <aside>
-                je suis dans l'aside !
-            </aside>
         </main>
     {% endif %}
 
     {% if app.request.method == 'POST' %}
-        <main>
             {% if products | length == 0 %}
-                <h4>Aucun résultat pour votre recherche.</h4>
+                <main class="center-content partials-padding min-height bg-no-results">
+                    <h3 class="df jcc massive-text">Aucun résultat pour votre recherche.</h3>
+                </main>
             {% else %}
-                <h3 class="mt-3">Vos résultats de recherche :</h3>
-                {% for product in products %}
-                    <div class="mt-3 p-3 bg-light border rounded">
-                        <a href="{{ path('app_product_show', {'slug': product.slug}) }}">
-                            <h6 class="text-dark"><i class="bi bi-arrow-down-right-square-fill text-primary"></i>{{ product.name }}</h6>
-                            <div class="text-dark small p-1 rounded">
-                                Posté le {{ product.createdAt | format_datetime('medium', 'short') }} par {{ product.seller }}
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
+                <main class="center-content partials-padding pb1em grid-75-25">
+                    <section>
+                        <h3 class="massive-text mb02em">Annonces « {{ query }} » : Paris</h3>
+                        <div class="df fdc g1em">
+                        {% for product in products %}
+                            <a href={{ path('app_product_show', {'slug': product.slug}) }} class="lthfcc">
+                                <div class="box-border df">
+                                    <div class="p-relative h194-w240">
+                                        <img src={{ asset(product.firstImage) }} alt="Image de l'annonce {{ product.name }}" class="h194-w240 ltlbc-rounded cover-center-object">
+                                        <span class="bullet-counter">{{ product.images|length }}</span>
+                                    </div>
+                                    <div class="df fdc jcsb p1em">
+                                        <div class="df fdc">
+                                            <span class="big-text title-color-change">{{ product.name }}</span>
+                                            <span class="normal-text">{{ product.price }} €</span>
+                                        </div>
+                                        <div class="df fdc tiny-text color-grey-darker">
+                                            <span>{{ product.category }}</span>
+                                            <span>{{ product.dateFormat }}</span>
+                                            <span class="color-purple">{{ product.images|length }} images</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </section>
+                </main>
             {% endif %}
         </main>
     {% endif %}

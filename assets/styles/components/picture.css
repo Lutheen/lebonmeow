@@ -139,6 +139,26 @@
     transform: scale(-1, 1);
 }
 
+/* picture counter */
+.p-relative {
+    position: relative;
+}
+
+.bullet-counter {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
 /* background */
 .bg-white {
     background-color: white;
@@ -174,4 +194,10 @@
     background-repeat: no-repeat;
     height: 500px;
     width: 500px;
+}
+.bg-no-results {
+    background-image: url(/public/images/bg-no-results.jpg);
+    background-position: center bottom;
+    background-size: 500px 500px;
+    background-repeat: no-repeat;
 }

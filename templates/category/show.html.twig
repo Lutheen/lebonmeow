@@ -3,11 +3,11 @@
 {% block title %}{{ category.description | capitalize }}{% endblock %}
 
 {% block body %}
-<main class="center-content min-height pb1em">
+<main class="center-content partials-padding min-height pb1em">
     {% if category.products | length == 0 %}
         <h1 class="massive-title ta-center">Aucune annonce dans cette catégorie.</h1>
     {% else %}
-        <h1 class="massive-title pl105em">{{ category.products | length }} annonces {{ category.description }}</h1>
+        <h1 class="massive-title">{{ category.products | length }} annonces {{ category.description }}</h1>
         <div class="df jcc fww g1em">
             {% for product in category.products %}
                 <a href="{{ path('app_product_show', {'slug': product.slug}) }}" class="lthfcc">
